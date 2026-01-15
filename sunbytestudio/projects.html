@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Progetti web | SunByte Studio</title>
+    <meta
+      name="description"
+      content="Scopri i progetti web e le demo realizzate da SunByte Studio: landing page, siti vetrina e portfolio frontend."
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Salta al contenuto</a>
+    <header class="site-header">
+      <a href="index.html" class="logo">SunByte Studio</a>
+
+      <div class="header-actions">
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          aria-label="Cambia tema"
+        >
+          Tema
+        </button>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mainMenu"
+        >
+          Menu
+        </button>
+      </div>
+
+      <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+        <a href="index.html">Home</a>
+        <a href="projects.html" aria-current="page">Progetti</a>
+        <a href="contact.html">Contatti</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <h1>Progetti web e demo frontend</h1>
+      <p>
+        Qui trovi una selezione di lavori e progetti dimostrativi. Alcuni sono in fase di sviluppo.
+      </p>
+      <p>
+       Vuoi sapere come lavoro? Vai alla <a href="contact.html">pagina contatti</a> e raccontami cosa vuoi ottenere.
+      </p>
+
+      <section>
+        <div class="projects-controls" id="projectsControls" aria-label="Filtra progetti">
+          <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">
+            Tutti
+          </button>
+          <button class="filter-btn" type="button" data-filter="live" aria-pressed="false">
+            Live
+          </button>
+          <button class="filter-btn" type="button" data-filter="coming" aria-pressed="false">
+            In arrivo
+          </button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> SunByte Studio</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

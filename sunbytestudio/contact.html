@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Contatti | SunByte Studio</title>
+    <meta
+      name="description"
+      content="Contatta SunByte Studio per creare il tuo sito web o richiedere informazioni sui servizi di sviluppo web."
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Salta al contenuto</a>
+
+    <header class="site-header">
+      <a href="index.html" class="logo">SunByte Studio</a>
+
+      <div class="header-actions">
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          aria-label="Cambia tema"
+        >
+          Tema
+        </button>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mainMenu"
+        >
+          Menu
+        </button>
+      </div>
+
+      <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Progetti</a>
+        <a href="contact.html" aria-current="page">Contatti</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <h1>Contattami</h1>
+      <p>
+        Compila il modulo qui sotto e spiegami brevemente di cosa hai bisogno per
+        il tuo progetto web.
+      </p>
+
+      <section>
+        <form
+          name="contact"
+          method="POST"
+          action="/thank-you/"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+
+          <p hidden>
+            <label>Non compilare questo campo: <input name="bot-field" /></label>
+          </p>
+
+          <fieldset>
+            <legend class="sr-only">Modulo contatti</legend>
+
+            <div>
+              <label for="name">Nome</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Il tuo nome"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="La tua email"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="message">Messaggio</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Scrivi il tuo messaggio"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn">Invia</button>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> SunByte Studio</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

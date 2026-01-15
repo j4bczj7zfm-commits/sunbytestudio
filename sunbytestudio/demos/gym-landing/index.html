@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>IronPeak Gym | Allenati meglio</title>
+    <meta
+      name="description"
+      content="IronPeak Gym: allenamenti funzionali, MMA e sala pesi. Prova gratuita e piani per ogni livello."
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Salta al contenuto</a>
+
+    <header class="site-header">
+      <a href="index.html" class="logo" aria-current="page">IronPeak Gym</a>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainMenu">
+        Menu
+      </button>
+
+      <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+        <a href="#servizi">Servizi</a>
+        <a href="#orari">Orari</a>
+        <a href="#prezzi">Prezzi</a>
+        <a href="#contatto">Contatto</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <h1>Allenati meglio. Risultati reali, metodo chiaro.</h1>
+        <p>
+          Sala pesi, functional training e MMA. Programmi per principianti e avanzati, con coach certificati.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#contatto">Prenota prova gratuita</a>
+          <a class="btn secondary" href="#servizi">Vedi i servizi</a>
+        </div>
+
+        <div class="hero-stats" aria-label="Punti di forza">
+          <div class="stat">
+            <span class="stat-num">3</span>
+            <span class="stat-label">Percorsi</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">+40</span>
+            <span class="stat-label">Classi/mese</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">1</span>
+            <span class="stat-label">Prova gratis</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="servizi">
+        <h2>Servizi</h2>
+        <p class="muted">Scegli il percorso giusto per i tuoi obiettivi. Possiamo anche combinarli.</p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Sala pesi</h3>
+            <p>Programmi progressivi, schede personalizzate e supporto in sala.</p>
+          </article>
+
+          <article class="card">
+            <h3>Functional</h3>
+            <p>Allenamenti completi: forza, fiato, mobilità. Classi a piccoli gruppi.</p>
+          </article>
+
+          <article class="card">
+            <h3>MMA</h3>
+            <p>Tecnica, sparring controllato e preparazione atletica dedicata.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="orari">
+        <h2>Orari</h2>
+        <p class="muted">Esempio orari (demo). In un progetto reale questi dati possono arrivare da un CMS.</p>
+
+        <div class="schedule">
+          <div class="schedule-row">
+            <span>Lun–Ven</span>
+            <span>07:00 – 22:00</span>
+          </div>
+          <div class="schedule-row">
+            <span>Sab</span>
+            <span>09:00 – 18:00</span>
+          </div>
+          <div class="schedule-row">
+            <span>Dom</span>
+            <span>Chiuso</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="prezzi">
+        <h2>Prezzi</h2>
+        <p class="muted">Trasparenza: piani semplici. Nessuna sorpresa.</p>
+
+        <div class="cards">
+          <article class="card price">
+            <h3>Base</h3>
+            <p class="price-num">€39/mese</p>
+            <ul class="list">
+              <li>Sala pesi</li>
+              <li>1 check mensile</li>
+              <li>Assistenza in sala</li>
+            </ul>
+            <a class="btn" href="#contatto">Richiedi info</a>
+          </article>
+
+          <article class="card price featured">
+            <h3>Plus</h3>
+            <p class="price-num">€59/mese</p>
+            <ul class="list">
+              <li>Sala pesi + Functional</li>
+              <li>2 classi/sett</li>
+              <li>Scheda aggiornata</li>
+            </ul>
+            <a class="btn" href="#contatto">Prenota prova</a>
+          </article>
+
+          <article class="card price">
+            <h3>Pro</h3>
+            <p class="price-num">€79/mese</p>
+            <ul class="list">
+              <li>Tutto incluso</li>
+              <li>Classi illimitate</li>
+              <li>Coaching dedicato</li>
+            </ul>
+            <a class="btn" href="#contatto">Parla con un coach</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="contatto">
+        <h2>Contatto</h2>
+        <p class="muted">Lascia i tuoi dati: ti richiamiamo entro 24 ore (demo).</p>
+
+        <form>
+          <div class="field">
+            <label for="name">Nome</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Il tuo nome" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="La tua email" required />
+          </div>
+
+          <div class="field">
+            <label for="goal">Obiettivo</label>
+            <select id="goal" name="goal">
+              <option>Dimagrimento</option>
+              <option>Forza</option>
+              <option>Tecnica MMA</option>
+              <option>Benessere</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Messaggio</label>
+            <textarea id="message" name="message" placeholder="Scrivi due righe..." required></textarea>
+          </div>
+
+          <button class="btn" type="submit">Invia richiesta</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> IronPeak Gym (Demo)</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

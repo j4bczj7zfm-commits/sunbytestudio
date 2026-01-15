@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Case Study | StudioNova</title>
+    <meta
+      name="description"
+      content="Case study: sito vetrina multipagina (demo) con Home, Servizi e Contatti."
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html">StudioNova</a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mainMenu"
+      >
+        Menu
+      </button>
+
+      <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+        <a href="index.html">Home</a>
+        <a href="services.html">Servizi</a>
+        <a href="contact.html">Contatti</a>
+        <a href="case-study.html" aria-current="page">Case study</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Case study – Sito vetrina multipagina</h1>
+        <p class="muted">
+          Progetto dimostrativo per mostrare la struttura e il flusso tipico di un sito vetrina:
+          Home, Servizi e Contatti.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="index.html">Apri la demo</a>
+          <a class="btn secondary" href="services.html">Vedi i servizi</a>
+        </div>
+      </section>
+
+      <section>
+        <h2>Obiettivo</h2>
+        <p>
+          Realizzare un sito semplice e credibile per un professionista locale, con navigazione chiara e una
+          call to action verso la richiesta preventivo.
+        </p>
+      </section>
+
+      <section>
+        <h2>Struttura</h2>
+        <ul class="list">
+          <li><strong>Home</strong>: messaggio chiaro + CTA</li>
+          <li><strong>Servizi</strong>: contenuti ordinati e leggibili</li>
+          <li><strong>Contatti</strong>: form essenziale e rapido</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Scelte UI/UX</h2>
+        <ul class="list">
+          <li>Menu mobile semplice, accessibile da tastiera</li>
+          <li>Card per separare i contenuti e dare gerarchia visiva</li>
+          <li>CTA coerenti e sempre presenti nei punti chiave</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Tecnologie</h2>
+        <ul class="list">
+          <li>HTML semantico</li>
+          <li>CSS con variabili e layout responsive</li>
+          <li>JavaScript vanilla per menu e anno footer</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Miglioramenti futuri</h2>
+        <p>
+          In un progetto reale aggiungerei un backend per invio messaggi, una sezione FAQ e ottimizzazioni SEO
+          (Open Graph, dati strutturati, contenuti più completi).
+        </p>
+      </section>
+
+      <section>
+        <a class="btn" href="index.html">Torna alla demo</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> StudioNova (Demo)</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

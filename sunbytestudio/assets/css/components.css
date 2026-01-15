@@ -1,0 +1,296 @@
+/* Logo */
+.logo {
+  font-weight: 700;
+  color: var(--header-text);
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  padding: 28px;
+  border-radius: 16px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.hero h1 {
+  margin-top: 0;
+  font-size: 36px;
+}
+
+.hero p {
+  max-width: 60ch;
+  margin-bottom: 0;
+}
+
+/* Buttons / Links as buttons */
+.btn {
+  display: inline-block;
+  background-color: var(--accent);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 16px;
+  font-weight: 700;
+
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+  text-decoration: none;
+}
+
+.btn:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  outline-offset: 3px;
+}
+
+/* Cards base (usato da service, project, form) */
+.service,
+.project-card,
+form {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* Services */
+.services {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.service {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: 12px;
+  flex: 1 1 240px;
+}
+
+.service h3 {
+  margin-top: 0;
+}
+
+/* Projects grid */
+.projects-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.project-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: 12px;
+  flex: 1 1 280px;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+.project-card h3 {
+  margin-top: 0;
+}
+
+/* Features list */
+.project-features {
+  margin: 12px 0;
+  padding-left: 0;
+  list-style: none;
+  color: var(--muted);
+}
+
+.project-features li {
+  margin: 6px 0;
+  display: flex;
+  gap: 8px;
+}
+
+.project-features li::before {
+  content: "•";
+  color: var(--muted);
+}
+
+/* Tech tags */
+.project-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.tag {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Project footer */
+.project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.project-status {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.project-status.live {
+  color: green;
+}
+
+.project-status.coming {
+  color: #999;
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.project-link:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  text-decoration: underline;
+}
+
+.project-link:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  outline-offset: 3px;
+}
+
+.project-link.disabled {
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Filters */
+.projects-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.filter-btn {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.filter-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.filter-btn:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  outline-offset: 3px;
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Footer look & feel (layout padding in layout.css) */
+footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+footer p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Forms */
+form {
+  max-width: 600px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: 16px;
+}
+
+/* Fieldset reset (per il contact) */
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+form > fieldset > div {
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}

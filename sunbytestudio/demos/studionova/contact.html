@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contatti | StudioNova</title>
+    <meta name="description" content="Contatti e richiesta preventivo (demo)." />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html">StudioNova</a>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainMenu">
+        Menu
+      </button>
+
+      <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+        <a href="services.html">Servizi</a>
+        <a href="contact.html" aria-current="page">Contatti</a>
+        <a href="case-study.html">Case study</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Contatti</h1>
+      <p class="muted">Compila il modulo: ti rispondo al più presto (demo).</p>
+
+      <section>
+        <form>
+          <div class="field">
+            <label for="name">Nome</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+
+          <div class="field">
+            <label for="message">Messaggio</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button class="btn" type="submit">Invia</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> StudioNova (Demo)</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

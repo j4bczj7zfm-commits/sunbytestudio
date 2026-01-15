@@ -1,0 +1,43 @@
+:root {
+  /* Hint per controlli nativi (scrollbar, form controls) */
+  color-scheme: light;
+
+  /* Surfaces */
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --surface-2: #f1f3f8;
+
+  /* Text */
+  --text: #111827;
+  --muted: #6b7280;
+
+  /* UI */
+  --border: #d9dee8;
+  --accent: #4f46e5;
+
+  /* Header */
+  --header-bg: #111;
+  --header-text: #ffffff;
+
+  /* Shadow (opzionale, per coerenza) */
+  --shadow-sm: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0b0f19;
+  --surface: #111827;
+  --surface-2: #0f172a;
+
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+
+  --border: rgba(255, 255, 255, 0.12);
+  --accent: #7c3aed;
+
+  --header-bg: #0b0f19;
+  --header-text: #e5e7eb;
+
+  --shadow-sm: 0 8px 18px rgba(0, 0, 0, 0.35);
+}

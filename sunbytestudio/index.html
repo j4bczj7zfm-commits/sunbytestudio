@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>SunByte Studio | Sviluppo siti web e portfolio</title>
+    <meta
+      name="description"
+      content="SunByte Studio realizza e sviluppa siti web moderni e portfolio per freelance e attività locali. Progetti chiari, veloci e accessibili."
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Salta al contenuto</a>
+    <header class="site-header">
+      <a href="index.html" class="logo">SunByte Studio</a>
+
+      <div class="header-actions">
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          aria-label="Cambia tema"
+        >
+          Tema
+        </button>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mainMenu"
+        >
+          Menu
+        </button>
+      </div>
+
+      <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="projects.html">Progetti</a>
+        <a href="#contact">Contatti</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <h1>Creo siti web chiari, veloci e moderni</h1>
+        <p>
+          Sono SunByte Studio. Realizzo siti vetrina, landing page e portfolio
+          per freelance e attività locali, con attenzione a design, accessibilità e
+          performance.
+        </p>
+        <a href="projects.html" class="btn">Vedi i progetti</a>
+      </section>
+
+      <section>
+        <h2>Servizi</h2>
+
+        <div class="services">
+          <div class="service">
+            <h3>Landing page</h3>
+            <p>Una pagina efficace per presentare un’offerta e generare contatti.</p>
+          </div>
+
+          <div class="service">
+            <h3>Sito vetrina</h3>
+            <p>Un sito completo per raccontare chi sei, cosa fai e come contattarti.</p>
+          </div>
+
+          <div class="service">
+            <h3>Portfolio</h3>
+            <p>Una pagina professionale per mostrare lavori, competenze e risultati.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Progetti in evidenza</h2>
+        <p>Sto preparando i primi casi studio. A breve troverai qui esempi completi.</p>
+        <a href="projects.html">Vai a tutti i progetti</a>
+      </section>
+
+      <section id="contact">
+        <h2>Contatto</h2>
+        <p>Hai bisogno di un sito? Scrivimi e dimmi cosa vuoi ottenere.</p>
+        <a href="contact.html" class="btn">Contattami</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> SunByte Studio</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
