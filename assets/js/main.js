@@ -9,14 +9,14 @@ const projects = [
     tech: ["HTML", "CSS", "JavaScript"],
     features: ["Dark / Light mode", "Griglia progetti dinamica", "Menu mobile"],
     status: "Live",
-    demo: "#"
+    demo: "index.html",
   },
   {
   title: "Sito vetrina multipagina — StudioNova (Demo)",
   description: "Demo multipagina (Home, Servizi, Contatti) con menu mobile e layout credibile.",
   tech: ["HTML", "CSS", "JavaScript"],
   features: ["Multipagina", "Menu mobile", "Form contatti"],
-  status: "Live",
+  status: "DemoLive",
   demo: "demos/studionova/index.html",
   caseStudy: "demos/studionova/case-study.html"
 },
@@ -25,7 +25,7 @@ const projects = [
   description: "Landing page dimostrativa con sezioni, prezzi e modulo contatti.",
   tech: ["HTML", "CSS", "JavaScript"],
   features: ["CTA", "Prezzi", "Form contatto"],
-  status: "Live",
+  status: "DemoLive",
   demo: "demos/gym-landing/index.html",
   caseStudy: "demos/gym-landing/case-study.html"
 },
@@ -39,10 +39,10 @@ let projectsFilter = "all"; // all | live | coming
 
 function applyProjectsFilter(list) {
   if (projectsFilter === "live") {
-    return list.filter(p => p.status === "Live");
+    return list.filter(p => p.status === "Live" || p.status === "Demo Live");
   }
   if (projectsFilter === "coming") {
-    return list.filter(p => p.status !== "Live");
+    return list.filter(p => p.status !== "Live" && p.status !== "Demo Live");
   }
   return list;
 }
@@ -83,12 +83,20 @@ function renderProjects() {
               isLive
                 ? `
                   <div class="project-links">
-                    <a class="project-link" href="${p.demo}" target="_blank" rel="noopener noreferrer">Apri progetto</a>
-                    ${p.caseStudy ? `<a class="project-link" href="${p.caseStudy}" target="_blank" rel="noopener noreferrer">Case study</a>` : ""}
+                    ${
+                      p.demo && p.demo !== "#"
+                        ? `<a class="project-link" href="${p.demo}" target="_blank" rel="noopener noreferrer">Apri demo</a>`
+                        : `<span class="project-link disabled">Demo non disponibile</span>`
+                    } 
+                    ${
+                      p.caseStudy
+                       ? `<a class="project-link" href="${p.caseStudy}" target="_blank" rel="noopener noreferrer">Approfondisci</a>`
+                       : ""
+                    }
                   </div>
                 `
                 : `<span class="project-link disabled">In arrivo</span>`
-            }
+            }}
           </div>
         </article>
       `;

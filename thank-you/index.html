@@ -3,17 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Messaggio inviato | SunByte Studio</title>
     <meta name="description" content="Messaggio inviato correttamente." />
+
     <link rel="stylesheet" href="../assets/css/style.css" />
   </head>
 
   <body>
+    <a class="skip-link" href="#main">Salta al contenuto</a>
+
+    <header class="site-header">
+      <a href="../index.html" class="logo">SunByte Studio</a>
+
+      <div class="header-actions">
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          aria-label="Cambia tema"
+        >
+          Tema
+        </button>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mainMenu"
+        >
+          Menu
+        </button>
+      </div>
+
+      <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+        <a href="../index.html">Home</a>
+        <a href="../projects.html">Progetti</a>
+        <a href="../contact.html">Contatti</a>
+      </nav>
+    </header>
+
     <main id="main">
-      <h1>Grazie</h1>
-      <p>Messaggio inviato correttamente. Ti risponderò il prima possibile.</p>
-      <a class="btn" href="../index.html">Torna alla home</a>
+      <section class="hero">
+        <h1>Grazie, messaggio inviato</h1>
+        <p>
+          Ho ricevuto la tua richiesta. Ti risponderò il prima possibile.
+        </p>
+      </section>
+
+      <section>
+        <h2>Per velocizzare la risposta</h2>
+        <p>
+          Se non l’hai già scritto, puoi indicare: obiettivo del sito, esempi di
+          siti che ti piacciono, tempi e un budget indicativo.
+        </p>
+
+        <p>
+          <a class="btn" href="../index.html">Torna alla home</a>
+          <a class="project-link" href="../projects.html" style="margin-left: 10px;"
+            >Vedi i progetti</a
+          >
+        </p>
+      </section>
     </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> SunByte Studio</p>
+    </footer>
 
     <script src="../assets/js/main.js"></script>
   </body>
