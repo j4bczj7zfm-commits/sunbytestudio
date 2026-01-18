@@ -44,6 +44,27 @@
   text-decoration: none;
 }
 
+/* Home – primary CTA */
+
+.home-cta {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.home-cta p {
+  max-width: 70ch;
+}
+
+.home-cta__actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
 /* Projects */
 /* .projects ... */
 
