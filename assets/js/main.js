@@ -16,7 +16,7 @@ const projects = [
   description: "Demo multipagina (Home, Servizi, Contatti) con menu mobile e layout credibile.",
   tech: ["HTML", "CSS", "JavaScript"],
   features: ["Multipagina", "Menu mobile", "Form contatti"],
-  status: "DemoLive",
+  status: "Demo Live",
   demo: "demos/studionova/index.html",
   caseStudy: "demos/studionova/case-study.html"
 },
@@ -25,7 +25,7 @@ const projects = [
   description: "Landing page dimostrativa con sezioni, prezzi e modulo contatti.",
   tech: ["HTML", "CSS", "JavaScript"],
   features: ["CTA", "Prezzi", "Form contatto"],
-  status: "DemoLive",
+  status: "Demo Live",
   demo: "demos/gym-landing/index.html",
   caseStudy: "demos/gym-landing/case-study.html"
 },
@@ -38,14 +38,17 @@ const projects = [
 let projectsFilter = "all"; // all | live | coming
 
 function applyProjectsFilter(list) {
+  const isLiveStatus = (p) => ["Live", "Demo Live", "DemoLive"].includes(p.status);
+
   if (projectsFilter === "live") {
-    return list.filter(p => p.status === "Live" || p.status === "Demo Live");
+    return list.filter(isLiveStatus);
   }
   if (projectsFilter === "coming") {
-    return list.filter(p => p.status !== "Live" && p.status !== "Demo Live");
+    return list.filter((p) => !isLiveStatus(p));
   }
   return list;
 }
+
 
 /* =========================
    RENDER
@@ -59,7 +62,7 @@ function renderProjects() {
 
   grid.innerHTML = filtered
     .map(p => {
-      const isLive = p.status === "Live";
+      const isLive = ["Live", "Demo Live", "DemoLive"].includes(p.status);
 
       return `
         <article class="project-card">
