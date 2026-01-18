@@ -86,16 +86,9 @@ function renderProjects() {
               isLive
                 ? `
                   <div class="project-links">
-                    ${
-                      p.demo && p.demo !== "#"
-                        ? `<a class="project-link" href="${p.demo}" target="_blank" rel="noopener noreferrer">Apri la demo</a>`
-                        : `<span class="project-link disabled">Demo non disponibile</span>`
-                    } 
-                    ${
-                      p.caseStudy
-                       ? `<a class="project-link" href="${p.caseStudy}" target="_blank" rel="noopener noreferrer">Leggi il case study</a>`
-                       : ""
-                    }
+                   <a class="project-link" href="${p.demo}" target="_blank" rel="noopener noreferrer">
+                    Apri la demo
+                   </a>
                   </div>
                 `
                 : `<span class="project-link disabled">In arrivo</span>`
