@@ -14,3 +14,42 @@
 
 /* Contact */
 /* .contact ... */
+
+/* About page – lists */
+
+.page-about main ol {
+  padding-left: 20px;
+  margin-top: 16px;
+}
+
+.page-about main ol li {
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.page-about main ol li strong {
+  display: inline-block;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.page-about main ul {
+  padding-left: 20px;
+  margin-top: 16px;
+}
+
+.page-about main ul li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.page-about main section {
+  margin-bottom: 56px;
+}
+
+.page-about #cta {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+}
