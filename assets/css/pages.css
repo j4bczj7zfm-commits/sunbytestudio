@@ -83,10 +83,16 @@
   line-height: 1.6;
 }
 
+
 .page-about main ol li strong {
   display: inline-block;
   margin-bottom: 4px;
   color: var(--text);
+}
+
+.page-about main ol li p {
+  margin: 4px 0 0;
+  color: var(--muted);
 }
 
 .page-about main ul {
