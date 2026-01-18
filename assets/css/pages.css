@@ -5,9 +5,44 @@
    - Progetti (projects.html)
    - Contatti (contact.html)
 */
+ 
+/* Home – about preview */
 
-/* Home */
-/* .home ... */
+.home-about {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.home-about p {
+  max-width: 70ch;
+}
+
+.home-about__actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.link-soft {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.link-soft:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  text-decoration: none;
+}
 
 /* Projects */
 /* .projects ... */
