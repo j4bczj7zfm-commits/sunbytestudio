@@ -48,6 +48,16 @@
   outline-offset: 3px;
 }
 
+.btn-secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.btn-secondary:hover {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
 /* Cards base (usato da service, project, form) */
 .service,
 .project-card,
