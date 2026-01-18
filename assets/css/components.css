@@ -304,3 +304,8 @@ textarea {
   resize: vertical;
   min-height: 120px;
 }
+
+.form-note {
+  margin-top: 12px;
+  color: var(--muted);
+}
