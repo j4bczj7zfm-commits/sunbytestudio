@@ -5,7 +5,7 @@
    - Progetti (projects.html)
    - Contatti (contact.html)
 */
- 
+
 /* Home – about preview */
 
 .home-about {
@@ -65,46 +65,190 @@
   margin-top: 16px;
 }
 
-/* Projects */
-/* .projects ... */
+/* Projects page – center cards content like Canva */
 
-/* Contact */
-/* .contact ... */
-
-/* About page – lists */
-
-.page-about main ol {
-  padding-left: 20px;
-  margin-top: 16px;
+.page-projects main {
+  text-align: center;
 }
 
-.page-about main ol li {
-  margin-bottom: 16px;
-  line-height: 1.6;
+/* Keep intro text readable when centered */
+.page-projects main > p {
+  max-width: 72ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-
-.page-about main ol li strong {
-  display: inline-block;
-  margin-bottom: 4px;
-  color: var(--text);
+.page-projects .projects-controls {
+  justify-content: center;
 }
 
-.page-about main ol li p {
-  margin: 4px 0 0;
+.page-projects .projects-grid {
+  justify-content: center;
+}
+
+.page-projects .project-card {
+  text-align: center;
+}
+
+/* Center text inside project cards */
+.page-projects .project-card h3,
+.page-projects .project-card p {
+  text-align: center;
+}
+
+/* Center feature lists inside cards (keep marker attached to text) */
+.page-projects .project-features {
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.page-projects .project-features li {
+  margin: 6px 0;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.page-projects .project-features li::before {
+  content: "•";
   color: var(--muted);
 }
 
+/* Remove left offset from feature bullets */
+.page-projects .project-tags {
+  justify-content: center;
+}
+
+/* Footer area inside each card */
+.page-projects .project-footer {
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.page-projects .project-links {
+  justify-content: center;
+}
+
+/* Status with green dot on Live */
+.page-projects .project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-projects .project-status.live::before,
+.page-projects .project-status.coming::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.page-projects .project-status.live::before {
+  background: #16a34a;
+}
+
+.page-projects .project-status.coming::before {
+  background: #9ca3af;
+}
+
+/* Contact page – centered like Canva */
+
+.page-contact main {
+  text-align: center;
+}
+
+/* Keep the intro text readable when centered */
+.page-contact main > p {
+  max-width: 72ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Center the form block on the page */
+.page-contact form {
+  /* Ensure the form box is truly centered and not full-width */
+  width: min(640px, 100%);
+  margin: 24px auto 0;
+  display: block;
+}
+
+/* Keep form fields aligned and readable */
+.page-contact fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.page-contact form > fieldset > div {
+  text-align: left; /* labels/inputs stay readable */
+}
+
+.page-contact .btn {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Optional: helper note under the form */
+.page-contact .contact-note {
+  margin: 16px auto 0;
+  color: var(--muted);
+  text-align: center;
+  max-width: 72ch;
+}
+
+/* About page – lists */
+
+/*
+  Goal:
+  - Keep numbers/bullets but attach them to the text (no “floating” markers).
+  - Center the whole content block like the Canva layout.
+  - Avoid affecting other pages.
+*/
+
+.page-about main ol,
 .page-about main ul {
-  padding-left: 20px;
-  margin-top: 16px;
+  /* center the list block */
+  max-width: 72ch;
+  margin: 16px auto 0;
+
+  /* keep marker + text together */
+  padding-left: 0;
+  list-style-position: inside;
+
+  /* match centered typography */
+  text-align: center;
+}
+
+.page-about main ol li,
+.page-about main ul li {
+  margin-bottom: 16px;
+  line-height: 1.7;
 }
 
 .page-about main ul li {
-  margin-bottom: 10px;
-  line-height: 1.6;
+  margin-bottom: 12px;
 }
 
+.page-about main ol li strong {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+/* If a paragraph is present inside list items, keep it tight and readable */
+.page-about main ol li p,
+.page-about main ul li p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+/* Sections spacing remains consistent */
 .page-about main section {
   margin-bottom: 56px;
 }
@@ -114,20 +258,38 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 28px;
+  text-align: center;
 }
 
-/* Services page – spacing + FAQ */
+/* Ensure CTA text doesn’t look too wide when centered */
+.page-about #cta p {
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-.page-services main ul,
-.page-services main ol {
-  margin-top: 12px;
-  margin-bottom: 0;
-  padding-left: 20px;
+/* Services page – lists (centered like Canva)
+
+  Goal:
+  - Keep bullets/numbers but attach them to the text (no “floating” markers).
+  - Center the whole content block.
+  - Avoid affecting other pages.
+*/
+
+.page-services main ol,
+.page-services main ul {
+  max-width: 72ch;
+  margin: 16px auto 0;
+
+  padding-left: 0;
+  list-style-position: inside;
+
+  text-align: center;
 }
 
 .page-services main li {
-  margin-bottom: 10px;
-  line-height: 1.6;
+  margin-bottom: 14px;
+  line-height: 1.7;
 }
 
 .page-services main li:last-child {
@@ -160,11 +322,23 @@
 /* Services page – price badge */
 
 .page-services .service-meta {
+  /* Stack badges row + note under it (so the note can be perfectly centered) */
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+  margin: 16px auto 0;
+  text-align: center;
+}
+
+.page-services .service-meta-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
   align-items: center;
   flex-wrap: wrap;
-  margin: 14px 0 0;
 }
 
 .page-services .price-badge {
@@ -182,6 +356,7 @@
 .page-services .meta-note {
   color: var(--muted);
   font-size: 13px;
+  margin: 0;
 }
 
 /* Services page – time badge */
@@ -202,4 +377,15 @@
 .page-services .time-badge::before {
   content: "⏱";
   font-size: 13px;
+}
+
+/* Logo card: keep the meta row centered and the note under it */
+.page-services .service-meta > .meta-note {
+  display: block;
+}
+
+/* If the HTML is not updated yet, keep backward compatibility by centering when badges are direct children */
+.page-services .service-meta > .price-badge,
+.page-services .service-meta > .time-badge {
+  margin: 0;
 }
