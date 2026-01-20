@@ -1,3 +1,8 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 main {
   max-width: 1100px;
   margin: 0 auto;
@@ -13,7 +18,6 @@ main section {
 .site-header {
   background-color: var(--header-bg);
   color: var(--header-text);
-  padding: 16px;
 
   display: flex;
   justify-content: space-between;
@@ -24,12 +28,9 @@ main section {
   z-index: 100;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  
 
-  min-height: 72px;        /* altezza fissa */
-  align-items: center;     /* centra verticalmente */
-  padding: 0 32px;         /* solo orizzontale */
-
+  min-height: 72px; /* altezza fissa */
+  padding: 0 32px;  /* solo orizzontale */
 }
 
 /* Wrapper facoltativo per header centrato (se lo userai in futuro)
@@ -179,9 +180,6 @@ footer {
 /* =========================
    Mobile typography tuning
 ========================= */
-/* =========================
-   Mobile typography tuning
-========================= */
 
 /* Tablet e schermi medi */
 @media (max-width: 768px) {
@@ -227,4 +225,3 @@ footer {
   h1 { font-size: 22px; }
   h2 { font-size: 19px; }
 }
-
