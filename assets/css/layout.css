@@ -24,11 +24,52 @@ main section {
   z-index: 100;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  
+
+  min-height: 72px;        /* altezza fissa */
+  align-items: center;     /* centra verticalmente */
+  padding: 0 32px;         /* solo orizzontale */
+
 }
 
 /* Wrapper facoltativo per header centrato (se lo userai in futuro)
 .site-header { max-width: 1100px; margin: 0 auto; border-radius: 0 0 14px 14px; }
 */
+
+/* Gruppo sinistro: logo + Home */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Pulsante Home accanto al logo */
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.home-link:hover {
+  border-color: rgba(0, 0, 0, 0.14);
+  text-decoration: none;
+}
+
+.home-link:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
 
 /* Azioni a destra (toggle tema + menu) */
 .header-actions {
@@ -72,7 +113,8 @@ main section {
 }
 
 /* Link dell'header (solo header) */
-.site-header a {
+.site-header .menu a,
+.site-header .logo-link {
   color: var(--header-text);
   text-decoration: none;
 }
@@ -93,6 +135,11 @@ main section {
   background: rgba(255, 255, 255, 0.12);
 }
 
+/* Se in futuro aggiungi aria-current anche al link Home, evita doppie evidenziazioni */
+.home-link[aria-current="page"] {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
 /* Footer layout (base) */
 footer {
   max-width: 1100px;
@@ -110,6 +157,7 @@ footer {
     display: none;
     position: absolute;
     top: calc(100% + 10px);
+    left: 16px;
     right: 16px;
 
     background: var(--header-bg);
