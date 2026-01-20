@@ -220,6 +220,26 @@ footer {
   }
 }
 
+@media (max-width: 480px) {
+  .site-header {
+    padding-left: max(14px, env(safe-area-inset-left));
+    padding-right: max(14px, env(safe-area-inset-right));
+    min-height: 68px;
+  }
+
+  .header-left {
+    gap: 10px;
+    min-width: 0; /* fondamentale: permette al logo di “stringersi” */
+  }
+
+  .home-link {
+    padding: 8px 10px;
+    font-size: 13px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+}
+
 /* Extra small (iPhone SE/mini) */
 @media (max-width: 390px) {
   h1 { font-size: 22px; }

@@ -10,12 +10,11 @@
 }
 
 .logo img {
-  height: 70px;     /* desktop */
+  height: clamp(34px, 7vw, 52px);
   width: auto;
-  max-width: 240px;
+  max-width: 160px;
   display: block;
 }
-
 /* =========================
    Hero
 ========================= */
