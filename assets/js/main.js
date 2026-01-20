@@ -37,14 +37,24 @@ const projects = [
 
 let projectsFilter = "all"; // all | live | coming
 
-function applyProjectsFilter(list) {
-  const isLiveStatus = (p) => ["Live", "Demo Live", "DemoLive"].includes(p.status);
+function normalizeStatus(status) {
+  return String(status || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+}
 
+function isLiveProject(project) {
+  const s = normalizeStatus(project.status);
+  return s === "live" || s === "demo live" || s === "demolive";
+}
+
+function applyProjectsFilter(list) {
   if (projectsFilter === "live") {
-    return list.filter(isLiveStatus);
+    return list.filter(isLiveProject);
   }
   if (projectsFilter === "coming") {
-    return list.filter((p) => !isLiveStatus(p));
+    return list.filter((p) => !isLiveProject(p));
   }
   return list;
 }
@@ -62,7 +72,7 @@ function renderProjects() {
 
   grid.innerHTML = filtered
     .map(p => {
-      const isLive = ["Live", "Demo Live", "DemoLive"].includes(p.status);
+      const isLive = isLiveProject(p);
 
       return `
         <article class="project-card">
@@ -124,29 +134,6 @@ function initProjectsFilters() {
   });
 }
 
-function initTheme() {
-  const toggle = document.getElementById("themeToggle");
-
-  function setTheme(theme) {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }
-
-  const saved = localStorage.getItem("theme");
-  if (saved === "dark" || saved === "light") {
-    setTheme(saved);
-  } else {
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setTheme(prefersDark ? "dark" : "light");
-  }
-
-  if (toggle) {
-    toggle.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("data-theme");
-      setTheme(current === "dark" ? "light" : "dark");
-    });
-  }
-}
 
 function initMenu() {
   const toggle = document.getElementById("menuToggle");
@@ -187,7 +174,6 @@ function initYear() {
 ========================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-  initTheme();
   initMenu();
   initProjectsFilters();
   renderProjects();
