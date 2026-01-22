@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Pagina non trovata | SunByte Studios</title>
+    <meta
+      name="description"
+      content="La pagina che cerchi non esiste o è stata spostata. Torna alla home o visita i progetti."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="canonical" href="https://sunbytestudios.com/404.html" />
+  </head>
+
+  <body class="page-404">
+    <a class="skip-link" href="#main">Salta al contenuto</a>
+
+    <header class="site-header">
+      <div class="header-left">
+        <a class="brand" href="index.html" aria-label="Torna alla Home">
+          <img
+            class="brand-logo"
+            src="assets/img/logo.svg"
+            alt="SunByte Studios"
+            width="140"
+            height="44"
+            loading="eager"
+          />
+        </a>
+
+        <a class="home-link" href="index.html">Home</a>
+      </div>
+
+      <div class="header-actions">
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mainMenu"
+        >
+          Menu
+        </button>
+      </div>
+
+      <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+        <a href="about.html">Chi sono</a>
+        <a href="services.html">Servizi</a>
+        <a href="projects.html">Progetti</a>
+        <a href="contact.html">Contatti</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="notfound">
+        <p class="notfound__code" aria-hidden="true">404</p>
+        <h1>Pagina non trovata</h1>
+        <p class="notfound__text">
+          Il link potrebbe essere errato oppure la pagina è stata spostata.
+        </p>
+
+        <div class="notfound__actions">
+          <a class="btn" href="index.html">Torna alla Home</a>
+          <a class="btn btn-secondary" href="projects.html">Guarda i progetti</a>
+          <a class="link-soft" href="contact.html">Contattami</a>
+        </div>
+
+        <p class="notfound__hint">
+          Se vuoi, scrivimi cosa stavi cercando: posso sistemare il link.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> SunByte Studios</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
