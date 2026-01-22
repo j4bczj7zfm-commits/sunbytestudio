@@ -495,162 +495,6 @@
   padding: 26px;
 }
 
-/* =========================
-   Pricing page (prezzi.html)
-========================= */
-
-.page-pricing .pricing-hero-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 18px;
-}
-
-.page-pricing .pricing-grid {
-  display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 20px;
-}
-
-.page-pricing .pricing-card {
-  background: var(--box-bg);
-  border: 1px solid var(--box-border);
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: var(--shadow);
-}
-
-.page-pricing .pricing-card h2 {
-  margin-top: 0;
-}
-
-.page-pricing .pricing-badges {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 14px 0 10px;
-}
-
-.page-pricing .pricing-badges--center {
-  justify-content: center;
-}
-
-.page-pricing .badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--accent) 45%, transparent);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  font-weight: 700;
-  line-height: 1;
-}
-
-.page-pricing .badge-soft {
-  background: color-mix(in srgb, var(--accent) 25%, transparent);
-}
-
-.page-pricing .pricing-list {
-  list-style: disc;
-  padding-left: 18px;
-  margin: 14px auto 18px;
-  max-width: 42ch;
-  text-align: left;
-}
-
-.page-pricing .pricing-note {
-  margin-top: 10px;
-  font-size: 0.9em;
-  opacity: 0.8;
-}
-
-.page-pricing .pricing-note--center {
-  text-align: center;
-}
-
-.page-pricing .pricing-card--wide {
-  grid-column: 1 / -1;
-  text-align: center;
-}
-
-.page-pricing .pricing-box {
-  background: var(--box-bg);
-  border: 1px solid var(--box-border);
-  border-radius: 18px;
-  padding: 22px;
-  box-shadow: var(--shadow);
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .page-pricing .pricing-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.page-pricing .pricing-subtitle {
-  margin: 14px 0 8px;
-  font-size: 1.05em;
-}
-
-.page-pricing .pricing-small {
-  max-width: 60ch;
-  margin: 0 auto;
-  opacity: 0.9;
-}
-
-.page-pricing .pricing-list--center {
-  list-style: disc;
-  padding-left: 18px;
-  margin: 14px auto 0;
-  max-width: 56ch;
-  text-align: left;
-}
-
-.page-pricing .pricing-card--featured {
-  border-color: color-mix(in srgb, var(--accent) 40%, var(--box-border));
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
-}
-
-.page-pricing .pricing-extras {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 14px;
-}
-
-.page-pricing .pricing-extra {
-  background: color-mix(in srgb, var(--accent) 18%, transparent);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 16px;
-  padding: 14px;
-}
-
-.page-pricing .pricing-maintenance {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 14px;
-}
-
-.page-pricing .pricing-maint-card {
-  background: color-mix(in srgb, var(--accent) 18%, transparent);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 16px;
-  padding: 14px;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .page-pricing .pricing-extras,
-  .page-pricing .pricing-maintenance {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* =========================
    Pricing page (prezzi.html)
@@ -843,5 +687,40 @@
   }
   .page-pricing .pricing-table {
     min-width: 520px;
+  }
+}
+/* --- Fix iPhone overflow / wrapping --- */
+.page-pricing .pricing-card,
+.page-pricing .pricing-box {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.page-pricing .pricing-hero-actions,
+.page-pricing .pricing-badges {
+  flex-wrap: wrap;
+}
+
+.page-pricing .badge {
+  white-space: normal; /* evita overflow dei badge su mobile */
+}
+
+.page-pricing .pricing-hero-actions .link-soft,
+.page-pricing .pricing-hero-actions .btn {
+  max-width: 100%;
+}
+
+/* Tabella: su mobile deve scrollare, senza allargare la pagina */
+.page-pricing .pricing-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Extra small: bottoni hero uno sotto l’altro (evita tagli) */
+@media (max-width: 390px) {
+  .page-pricing .pricing-hero-actions a {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
   }
 }
