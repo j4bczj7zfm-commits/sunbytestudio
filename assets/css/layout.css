@@ -38,6 +38,20 @@ main section {
   align-items: center;
   gap: 18px;
 }
+/* Evita che logo/icone aumentino l'altezza dell'header */
+.header-left img,
+.header-left svg {
+  height: 44px;      /* scegli 40–48 in base a come lo vuoi */
+  width: auto;
+  max-height: 44px;
+  display: block;
+}
+
+.site-header {
+  min-height: 72px;     /* ok lasciarlo */
+  padding-top: 0;
+  padding-bottom: 0;    /* assicura che non cresca per padding verticale */
+}
 
 /* Pulsante Home accanto al logo */
 .home-link {
