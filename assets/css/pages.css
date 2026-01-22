@@ -450,3 +450,34 @@
     border-radius: 18px;
   }
 }
+
+/* =========================
+   FAQ
+========================= */
+
+.page-faq .faq {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--box);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 18px;
+}
+
+.faq-item h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.faq-item p {
+  margin-bottom: 0;
+}
+
+.faq-cta {
+  text-align: center;
+  margin-top: 40px;
+}
