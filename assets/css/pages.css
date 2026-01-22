@@ -481,3 +481,16 @@
   text-align: center;
   margin-top: 40px;
 }
+
+/* =========================
+   Legal pages
+========================= */
+
+.legal {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--box);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 26px;
+}
