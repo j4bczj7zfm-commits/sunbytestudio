@@ -724,3 +724,38 @@
     text-align: center;
   }
 }
+/* =========================
+   FIX OVERFLOW iPhone - Prezzi
+========================= */
+.page-pricing {
+  overflow-x: hidden;
+}
+
+.page-pricing main {
+  overflow-x: clip;
+}
+
+/* Se qualche figlio sta spingendo fuori, lo blocchiamo */
+.page-pricing * {
+  max-width: 110%;
+}
+
+/* Tabella: mai allargare la pagina, solo scroll nel wrap */
+.page-pricing .pricing-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.page-pricing .pricing-table {
+  width: 100%;
+  min-width: 0 !important;      /* IMPORTANTISSIMO */
+  table-layout: auto;
+}
+
+/* Se nel tuo CSS avevi min-width (640/520) sulla tabella, disattivalo su mobile */
+@media (max-width: 900px) {
+  .page-pricing .pricing-table {
+    min-width: 0 !important;
+  }
+}
