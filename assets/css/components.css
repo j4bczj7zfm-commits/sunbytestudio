@@ -542,3 +542,42 @@ footer a:focus-visible {
   outline-offset: 3px;
   border-radius: 10px;
 }
+
+/* FAQ (details/summary) */
+.faq-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  background: var(--box);
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.faq-item > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 18px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.faq-item > summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item[open] > summary {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-content {
+  padding: 14px 18px 18px;
+}
+
+.faq-content p {
+  margin: 0;
+}
