@@ -479,3 +479,17 @@ textarea {
     line-height: 1.55;
   }
 }
+
+/* =========================
+   Footer – Privacy & Cookie
+========================= */
+
+footer a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
