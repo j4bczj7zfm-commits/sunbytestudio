@@ -13,6 +13,43 @@
 
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="canonical" href="https://sunbytestudios.com/privacy.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://sunbytestudios.com/#org",
+            "name": "SunByte Studios",
+            "url": "https://sunbytestudios.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://sunbytestudios.com/#logo",
+              "url": "https://sunbytestudios.com/assets/img/logo.svg"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://sunbytestudios.com/#website",
+            "name": "SunByte Studios",
+            "url": "https://sunbytestudios.com/",
+            "publisher": { "@id": "https://sunbytestudios.com/#org" },
+            "inLanguage": "it-IT"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://sunbytestudios.com/privacy.html#webpage",
+            "url": "https://sunbytestudios.com/privacy.html",
+            "name": "Privacy Policy | SunByte Studios",
+            "description": "Informativa sulla privacy di SunByte Studios ai sensi del GDPR.",
+            "isPartOf": { "@id": "https://sunbytestudios.com/#website" },
+            "about": { "@id": "https://sunbytestudios.com/#org" },
+            "inLanguage": "it-IT"
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body class="page-privacy">
@@ -61,7 +98,8 @@
         <h2>Titolare del trattamento</h2>
         <p>
           SunByte Studios<br />
-          Email: <a href="mailto:info@sunbytestudios.com">info@sunbytestudios.com</a>
+          Email:
+          <a href="mailto:info@sunbytestudios.com">info@sunbytestudios.com</a>
         </p>
 
         <h2>Dati raccolti</h2>

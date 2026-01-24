@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Servizi | SunByte Studio</title>
+    <title>Servizi | SunByte Studios</title>
     <meta
       name="description"
       content="Servizi di sviluppo web e branding: landing page, siti vetrina, portfolio e creazione loghi per freelance e attività locali."
@@ -12,8 +12,8 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
-    <meta property="og:site_name" content="SunByte Studio" />
-    <meta property="og:title" content="Servizi | SunByte Studio" />
+    <meta property="og:site_name" content="SunByte Studios" />
+    <meta property="og:title" content="Servizi | SunByte Studios" />
     <meta
       property="og:description"
       content="Landing page, siti vetrina, portfolio e loghi. Soluzioni chiare, moderne e su misura."
@@ -23,8 +23,71 @@
       property="og:image"
       content="https://sunbytestudios.com/assets/img/og.jpg"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Servizi | SunByte Studios" />
+    <meta
+      name="twitter:description"
+      content="Landing page, siti vetrina, portfolio e loghi. Soluzioni chiare, moderne e su misura."
+    />
+    <meta name="twitter:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://sunbytestudios.com/#org",
+          "name": "SunByte Studios",
+          "url": "https://sunbytestudios.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://sunbytestudios.com/#logo",
+            "url": "https://sunbytestudios.com/assets/img/logo.svg"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://sunbytestudios.com/#website",
+          "name": "SunByte Studios",
+          "url": "https://sunbytestudios.com/",
+          "publisher": { "@id": "https://sunbytestudios.com/#org" },
+          "inLanguage": "it-IT"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://sunbytestudios.com/services.html#webpage",
+          "url": "https://sunbytestudios.com/services.html",
+          "name": "Servizi | SunByte Studios",
+          "description": "Servizi di sviluppo web e branding: landing page, siti vetrina, portfolio e creazione loghi per freelance e attività locali.",
+          "isPartOf": { "@id": "https://sunbytestudios.com/#website" },
+          "about": { "@id": "https://sunbytestudios.com/#org" },
+          "inLanguage": "it-IT"
+        },
+        {
+          "@type": "Service",
+          "@id": "https://sunbytestudios.com/services.html#service-web",
+          "name": "Sviluppo siti web",
+          "serviceType": "Web design e sviluppo front-end",
+          "provider": { "@id": "https://sunbytestudios.com/#org" },
+          "areaServed": "IT",
+          "url": "https://sunbytestudios.com/services.html"
+        },
+        {
+          "@type": "Service",
+          "@id": "https://sunbytestudios.com/services.html#service-logo",
+          "name": "Creazione logo",
+          "serviceType": "Branding e logo design",
+          "provider": { "@id": "https://sunbytestudios.com/#org" },
+          "areaServed": "IT",
+          "url": "https://sunbytestudios.com/services.html"
+        }
+      ]
+    }
+    </script>
 
     <link rel="canonical" href="https://sunbytestudios.com/services.html" />
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -36,7 +99,7 @@
     <header class="site-header">
      <div class="header-left">
        <span class="logo">
-        <img src="assets/img/logo.svg" alt="SunByte Studios log" />
+        <img src="assets/img/logo.svg" alt="Logo SunByte Studios" />
        </span>
        <a class="home-link" href="index.html">Home</a>
      </div>
@@ -55,7 +118,7 @@
 
      <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
        <a href="about.html">Chi sono</a>
-       <a href="services.html">Servizi</a>
+       <a href="services.html" aria-current="page">Servizi</a>
        <a href="prezzi.html">Prezzi</a>
        <a href="projects.html">Progetti</a>
        <a href="faq.html">FAQ</a>
@@ -70,9 +133,10 @@
           Realizzo siti web e identità visive chiare, moderne e funzionali.
           Ogni servizio è pensato per aiutarti a presentarti meglio e ottenere contatti.
         </p>
-        <a href="contact.html" class="btn btn-secondary">
-          Richiedi un preventivo
-        </a>
+        <div class="pricing-hero-actions">
+          <a href="contact.html" class="btn">Richiedi un preventivo</a>
+          <a href="prezzi.html" class="link-soft">Vedi prezzi indicativi</a>
+        </div>
       </section>
 
       <!-- Servizi -->
@@ -202,18 +266,17 @@
         <p>
           Dimmi cosa vuoi realizzare e ti risponderò con una proposta chiara.
         </p>
-        <a href="contact.html" class="btn btn-secondary">
-          Richiedi un preventivo personalizzato
-        </a>
-        <p class="cta-note">
-          Ti preparo una proposta chiara in base al tuo progetto
-        </p>
+        <div class="pricing-hero-actions">
+          <a href="contact.html" class="btn">Richiedi un preventivo personalizzato</a>
+          <a href="prezzi.html" class="link-soft">Vedi pacchetti e variabili</a>
+        </div>
+        <p class="cta-note">Ti preparo una proposta chiara in base al tuo progetto.</p>
       </section>
     </main>
 
     <footer>
       <div class="footer-inner">
-        <p>&copy; <span id="year"></span> SunByte Studio</p>
+        <p>&copy; <span id="year"></span> SunByte Studios</p>
         <p>
           <a href="privacy.html">Privacy</a> ·
           <a href="cookie.html">Cookie</a>

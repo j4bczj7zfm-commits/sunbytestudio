@@ -13,6 +13,43 @@
 
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="canonical" href="https://sunbytestudios.com/404.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://sunbytestudios.com/#org",
+            "name": "SunByte Studios",
+            "url": "https://sunbytestudios.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://sunbytestudios.com/#logo",
+              "url": "https://sunbytestudios.com/assets/img/logo.svg"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://sunbytestudios.com/#website",
+            "name": "SunByte Studios",
+            "url": "https://sunbytestudios.com/",
+            "publisher": { "@id": "https://sunbytestudios.com/#org" },
+            "inLanguage": "it-IT"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://sunbytestudios.com/404.html#webpage",
+            "url": "https://sunbytestudios.com/404.html",
+            "name": "Pagina non trovata | SunByte Studios",
+            "description": "La pagina che cerchi non esiste o è stata spostata. Torna alla home o visita i progetti.",
+            "isPartOf": { "@id": "https://sunbytestudios.com/#website" },
+            "about": { "@id": "https://sunbytestudios.com/#org" },
+            "inLanguage": "it-IT"
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body class="page-404">
@@ -71,9 +108,7 @@
         </div>
 
         <div class="notfound__secondary">
-          <p>
-            Cerchi qualcosa di specifico o hai trovato un link rotto?
-          </p>
+          <p>Cerchi qualcosa di specifico o hai trovato un link rotto?</p>
           <a class="link-soft" href="contact.html">Scrivimi e lo sistemiamo</a>
         </div>
       </section>

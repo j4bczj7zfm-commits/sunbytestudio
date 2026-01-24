@@ -4,64 +4,96 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Contatti | SunByte Studio</title>
+    <title>Contatti | SunByte Studios</title>
     <meta
       name="description"
-      content="Contatta SunByte Studio per creare il tuo sito web o richiedere informazioni sui servizi di sviluppo web."
+      content="Contatta SunByte Studios per creare il tuo sito web o richiedere informazioni sui servizi di sviluppo web."
     />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
-    <meta property="og:site_name" content="SunByte Studio" />
+    <meta property="og:site_name" content="SunByte Studios" />
 
-    <meta property="og:title" content="Contatti | SunByte Studio" />
-    <meta property="og:description" content="Scrivimi per realizzare il tuo sito web o per informazioni sui servizi offerti da SunByte Studio." />
+    <meta property="og:title" content="Contatti | SunByte Studios" />
+    <meta
+      property="og:description"
+      content="Scrivimi per realizzare il tuo sito web o per informazioni sui servizi offerti da SunByte Studios."
+    />
     <meta property="og:url" content="https://sunbytestudios.com/contact.html" />
     <meta property="og:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Contatti | SunByte Studio" />
-    <meta name="twitter:description" content="Scrivimi per realizzare il tuo sito web o per informazioni sui servizi." />
+    <meta name="twitter:title" content="Contatti | SunByte Studios" />
+    <meta
+      name="twitter:description"
+      content="Scrivimi per realizzare il tuo sito web o per informazioni sui servizi."
+    />
     <meta name="twitter:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
 
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="canonical" href="https://sunbytestudios.com/contact.html" />
+
+    <!-- JSON-LD: Organization + Website + ContactPage -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "SunByte Studios",
+            "url": "https://sunbytestudios.com/",
+            "logo": "https://sunbytestudios.com/assets/img/logo.svg"
+          },
+          {
+            "@type": "WebSite",
+            "name": "SunByte Studios",
+            "url": "https://sunbytestudios.com/"
+          },
+          {
+            "@type": "ContactPage",
+            "name": "Contatti | SunByte Studios",
+            "url": "https://sunbytestudios.com/contact.html",
+            "isPartOf": { "@type": "WebSite", "url": "https://sunbytestudios.com/" }
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body class="page-contact">
     <a class="skip-link" href="#main">Salta al contenuto</a>
 
     <header class="site-header">
-       <div class="header-left">
-         <span class="logo">
-          <img src="assets/img/logo.svg" alt="SunByte Studios log" />
-         </span>
-         <a class="home-link" href="index.html">Home</a>
-       </div>
+      <div class="header-left">
+        <span class="logo">
+          <img src="assets/img/logo.svg" alt="Logo SunByte Studios" />
+        </span>
+        <a class="home-link" href="index.html">Home</a>
+      </div>
 
-       <div class="header-actions">
-         <button
-           class="menu-toggle"
-           id="menuToggle"
-           type="button"
-           aria-expanded="false"
-           aria-controls="mainMenu"
-         >
-           Menu
-         </button>
-       </div>
+      <div class="header-actions">
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mainMenu"
+        >
+          Menu
+        </button>
+      </div>
 
-       <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
-         <a href="about.html">Chi sono</a>
-         <a href="services.html">Servizi</a>
-         <a href="prezzi.html">Prezzi</a>
-         <a href="projects.html">Progetti</a>
-         <a href="faq.html">FAQ</a>
-         <a href="contact.html">Contatti</a>
-       </nav>
-     </header>
+      <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+        <a href="about.html">Chi sono</a>
+        <a href="services.html">Servizi</a>
+        <a href="prezzi.html">Prezzi</a>
+        <a href="projects.html">Progetti</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html" aria-current="page">Contatti</a>
+      </nav>
+    </header>
 
     <main id="main">
       <h1>Contattami</h1>
@@ -70,7 +102,7 @@
         il tuo progetto web.
       </p>
 
-      <section>
+      <section aria-label="Modulo contatti">
         <form
           name="contact"
           method="POST"
@@ -116,7 +148,7 @@
               <textarea
                 id="message"
                 name="message"
-                placeholder="Descrivi il progetto in 2-3 righe"
+                placeholder="Descrivi il progetto in 2–3 righe"
                 required
               ></textarea>
             </div>
@@ -124,26 +156,28 @@
             <button type="submit" class="btn">Invia richiesta</button>
           </fieldset>
         </form>
-        <p class="form-note">Rispondo di solito entro 24–48 ore.</p>
-        <section class="contact-cta">
-         <h2>Preferisci capire prima costi e tempi?</h2>
-         <p>
-            Dai un’occhiata ai prezzi indicativi e a cosa è incluso nei vari pacchetti.
-            Se poi vuoi, torni qui e mi scrivi.
-         </p>
 
-         <div class="contact-cta__actions">
-           <a href="prezzi.html" class="btn">Vedi prezzi e pacchetti</a>
-           <a href="projects.html" class="link-soft">Guarda alcune demo</a>
-         </div>
-        </section>
+        <p class="form-note">Rispondo di solito entro 24–48 ore.</p>
+      </section>
+
+      <section class="contact-cta" aria-label="Approfondimenti">
+        <h2>Preferisci capire prima costi e tempi?</h2>
+        <p>
+          Dai un’occhiata ai prezzi indicativi e a cosa è incluso nei vari
+          pacchetti. Se poi vuoi, torni qui e mi scrivi.
+        </p>
+
+        <div class="contact-cta__actions">
+          <a href="prezzi.html" class="btn">Vedi prezzi e pacchetti</a>
+          <a href="projects.html" class="link-soft">Guarda alcune demo</a>
+        </div>
       </section>
     </main>
 
     <footer>
       <div class="footer-inner">
-        <p>&copy; <span id="year"></span> SunByte Studio</p>
-        <p></p>
+        <p>&copy; <span id="year"></span> SunByte Studios</p>
+        <p>
           <a href="privacy.html">Privacy</a> ·
           <a href="cookie.html">Cookie</a>
         </p>
