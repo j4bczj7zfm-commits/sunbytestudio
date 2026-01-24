@@ -12,23 +12,24 @@ const projects = [
     demo: "index.html",
   },
   {
-  title: "Sito vetrina multipagina — StudioNova (Demo)",
-  description: "Demo multipagina (Home, Servizi, Contatti) con menu mobile e layout credibile.",
-  tech: ["HTML", "CSS", "JavaScript"],
-  features: ["Multipagina", "Menu mobile", "Form contatti"],
-  status: "Demo Live",
-  demo: "demos/studionova/index.html",
-  caseStudy: "demos/studionova/case-study.html"
-},
+    title: "Sito vetrina multipagina — StudioNova (Demo)",
+    description:
+      "Demo multipagina (Home, Servizi, Contatti) con menu mobile e layout credibile.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    features: ["Multipagina", "Menu mobile", "Form contatti"],
+    status: "Demo Live",
+    demo: "demos/studionova/index.html",
+    caseStudy: "demos/studionova/case-study.html",
+  },
   {
-  title: "Landing Page — Palestra (Demo)",
-  description: "Landing page dimostrativa con sezioni, prezzi e modulo contatti.",
-  tech: ["HTML", "CSS", "JavaScript"],
-  features: ["CTA", "Prezzi", "Form contatto"],
-  status: "Demo Live",
-  demo: "demos/gym-landing/index.html",
-  caseStudy: "demos/gym-landing/case-study.html"
-},
+    title: "Landing Page — Palestra (Demo)",
+    description: "Landing page dimostrativa con sezioni, prezzi e modulo contatti.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    features: ["CTA", "Prezzi", "Form contatto"],
+    status: "Demo Live",
+    demo: "demos/gym-landing/index.html",
+    caseStudy: "demos/gym-landing/case-study.html",
+  },
 ];
 
 /* =========================
@@ -50,15 +51,10 @@ function isLiveProject(project) {
 }
 
 function applyProjectsFilter(list) {
-  if (projectsFilter === "live") {
-    return list.filter(isLiveProject);
-  }
-  if (projectsFilter === "coming") {
-    return list.filter((p) => !isLiveProject(p));
-  }
+  if (projectsFilter === "live") return list.filter(isLiveProject);
+  if (projectsFilter === "coming") return list.filter((p) => !isLiveProject(p));
   return list;
 }
-
 
 /* =========================
    RENDER
@@ -71,8 +67,9 @@ function renderProjects() {
   const filtered = applyProjectsFilter(projects);
 
   grid.innerHTML = filtered
-    .map(p => {
+    .map((p, i) => {
       const isLive = isLiveProject(p);
+      const eventName = `cta_projects_open_demo_${i + 1}`;
 
       return `
         <article class="project-card">
@@ -80,11 +77,11 @@ function renderProjects() {
           <p>${p.description}</p>
 
           <ul class="project-features">
-            ${(p.features || []).slice(0, 3).map(f => `<li>${f}</li>`).join("")}
+            ${(p.features || []).slice(0, 3).map((f) => `<li>${f}</li>`).join("")}
           </ul>
 
           <div class="project-tags">
-            ${p.tech.map(t => `<span class="tag">${t}</span>`).join("")}
+            ${(p.tech || []).map((t) => `<span class="tag">${t}</span>`).join("")}
           </div>
 
           <div class="project-footer">
@@ -96,13 +93,19 @@ function renderProjects() {
               isLive
                 ? `
                   <div class="project-links">
-                   <a class="project-link" href="${p.demo}" target="_blank" rel="noopener noreferrer">
-                    Apri la demo
-                   </a>
+                    <a
+                      class="project-link"
+                      href="${p.demo}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-umami-event="${eventName}"
+                    >
+                      Apri la demo
+                    </a>
                   </div>
                 `
                 : `<span class="project-link disabled">In arrivo</span>`
-            }}
+            }
           </div>
         </article>
       `;
@@ -134,11 +137,9 @@ function initProjectsFilters() {
   });
 }
 
-
 function initMenu() {
   const toggle = document.getElementById("menuToggle");
   const menu = document.getElementById("mainMenu");
-
   if (!toggle || !menu) return;
 
   const closeMenu = () => {
@@ -164,10 +165,59 @@ function initMenu() {
 
 function initYear() {
   const year = document.getElementById("year");
-  if (year) {
-    year.textContent = new Date().getFullYear();
+  if (year) year.textContent = new Date().getFullYear();
+}
+
+/* =========================
+   TRACKING (UMAMI)
+========================= */
+
+function trackUmamiEvent(eventName, payload) {
+  if (!eventName) return;
+  if (typeof window.umami === "undefined") return; // adblock o script non caricato
+
+  try {
+    // Umami accetta (name, data)
+    window.umami.track(eventName, payload || {});
+  } catch {
+    // non bloccare mai UX
   }
 }
+
+document.addEventListener("click", (e) => {
+  const link = e.target.closest("a[data-umami-event]");
+  if (!link) return;
+
+  const eventName = link.getAttribute("data-umami-event");
+  const href = link.getAttribute("href") || "";
+
+  const isSameTab = !link.target || link.target === "_self";
+  const isMailto = href.startsWith("mailto:");
+  const isTel = href.startsWith("tel:");
+  const isExternal = /^https?:\/\//i.test(href) && !href.includes("sunbytestudios.com");
+  const isInternal =
+    href &&
+    !isMailto &&
+    !isTel &&
+    !/^https?:\/\//i.test(href) &&
+    !href.startsWith("#");
+
+  // Traccia sempre il click (senza bloccare)
+  trackUmamiEvent(eventName, {
+    href,
+    page: window.location.pathname,
+  });
+
+  // Se è navigazione interna same-tab, ritarda leggermente per non perdere l’evento
+  if (isSameTab && isInternal) {
+    e.preventDefault();
+    setTimeout(() => {
+      window.location.href = href;
+    }, 150);
+  }
+
+  // Per esterni / mailto / target blank: non bloccare nulla
+});
 
 /* =========================
    BOOTSTRAP
@@ -178,23 +228,4 @@ document.addEventListener("DOMContentLoaded", () => {
   initProjectsFilters();
   renderProjects();
   initYear();
-});
-
-document.addEventListener("click", (e) => {
-  const link = e.target.closest("a[data-umami-event]");
-  if (!link) return;
-
-  // Se non c'è Umami (adblock ecc.), non bloccare la navigazione
-  if (typeof window.umami === "undefined") return;
-
-  const url = link.getAttribute("href");
-  // Se è un link interno normale, ritarda leggermente la navigazione
-  const isSameTab = !link.target || link.target === "_self";
-  const isInternal = url && !url.startsWith("http") && !url.startsWith("mailto:");
-
-  if (isSameTab && isInternal) {
-    e.preventDefault();
-    window.umami.track(link.getAttribute("data-umami-event"));
-    setTimeout(() => (window.location.href = url), 150);
-  }
 });
