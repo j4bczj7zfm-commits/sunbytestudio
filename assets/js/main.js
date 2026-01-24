@@ -179,38 +179,3 @@ document.addEventListener("DOMContentLoaded", () => {
   initYear();
 });
 
-// =========================
-// UMAMI: track click su elementi con data-umami-event
-// =========================
-document.addEventListener("click", (e) => {
-  const el = e.target.closest("[data-umami-event]");
-  if (!el) return;
-
-  const eventName = el.getAttribute("data-umami-event");
-  if (!eventName) return;
-
-  // Se Umami non è disponibile (adblock, script non caricato), non fare nulla
-  if (!window.umami || typeof window.umami.track !== "function") return;
-
-  // Invia evento con payload utile
-  window.umami.track(eventName, {
-    page: window.location.pathname,
-    href: el.getAttribute("href") || "",
-  });
-
-  // Se è un link interno same-tab, ritarda un attimo la navigazione
-  const href = el.getAttribute("href");
-  const isLink = el.tagName === "A" && href;
-  const sameTab = !el.target || el.target === "_self";
-  const isInternal =
-    isLink &&
-    !href.startsWith("http") &&
-    !href.startsWith("mailto:") &&
-    !href.startsWith("tel:") &&
-    !href.startsWith("#");
-
-  if (isInternal && sameTab) {
-    e.preventDefault();
-    setTimeout(() => (window.location.href = href), 250);
-  }
-});
