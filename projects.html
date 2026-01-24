@@ -103,22 +103,26 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="canonical" href="https://sunbytestudios.com/projects.html" />
 
+    <!-- Umami -->
     <script
       defer
       src="https://cloud.umami.is/script.js"
       data-website-id="96a07a61-7a9a-4e8b-9152-28344ca8ddbc"
-      data-host-url="https://cloud.umami.is"
+      data-domains="sunbytestudios.com"
     ></script>
   </head>
 
   <body class="page-projects">
     <a class="skip-link" href="#main">Salta al contenuto</a>
+
     <header class="site-header">
       <div class="header-left">
         <span class="logo">
           <img src="assets/img/logo.svg" alt="SunByte Studios" />
         </span>
-        <a class="home-link" href="index.html">Home</a>
+        <a class="home-link" href="index.html" data-umami-event="funnel_header_home">
+          Home
+        </a>
       </div>
 
       <div class="header-actions">
@@ -128,18 +132,25 @@
           type="button"
           aria-expanded="false"
           aria-controls="mainMenu"
+          data-umami-event="funnel_header_menu_toggle"
         >
           Menu
         </button>
       </div>
 
       <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
-        <a href="about.html">Chi sono</a>
-        <a href="services.html">Servizi</a>
-        <a href="prezzi.html">Prezzi</a>
-        <a href="projects.html">Progetti</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contatti</a>
+        <a href="about.html" data-umami-event="funnel_nav_about">Chi sono</a>
+        <a href="services.html" data-umami-event="funnel_nav_services">Servizi</a>
+        <a href="prezzi.html" data-umami-event="funnel_nav_pricing">Prezzi</a>
+        <a
+          href="projects.html"
+          aria-current="page"
+          data-umami-event="funnel_nav_projects"
+        >
+          Progetti
+        </a>
+        <a href="faq.html" data-umami-event="funnel_nav_faq">FAQ</a>
+        <a href="contact.html" data-umami-event="funnel_nav_contact">Contatti</a>
       </nav>
     </header>
 
@@ -155,14 +166,33 @@
 
       <section aria-labelledby="projects-list-title">
         <h2 id="projects-list-title" class="sr-only">Elenco progetti</h2>
+
         <div class="projects-controls" id="projectsControls" aria-label="Filtra progetti">
-          <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">
+          <button
+            class="filter-btn active"
+            type="button"
+            data-filter="all"
+            aria-pressed="true"
+            data-umami-event="funnel_projects_filter_all"
+          >
             Tutti
           </button>
-          <button class="filter-btn" type="button" data-filter="live" aria-pressed="false">
+          <button
+            class="filter-btn"
+            type="button"
+            data-filter="live"
+            aria-pressed="false"
+            data-umami-event="funnel_projects_filter_live"
+          >
             Online
           </button>
-          <button class="filter-btn" type="button" data-filter="coming" aria-pressed="false">
+          <button
+            class="filter-btn"
+            type="button"
+            data-filter="coming"
+            aria-pressed="false"
+            data-umami-event="funnel_projects_filter_coming"
+          >
             In arrivo
           </button>
         </div>
@@ -190,6 +220,7 @@
                 class="project-link"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-umami-event="funnel_projects_case_studionova_open"
               >
                 Leggi il case study
               </a>
@@ -208,6 +239,7 @@
                 class="project-link"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-umami-event="funnel_projects_case_gym_open"
               >
                 Leggi il case study
               </a>
@@ -222,7 +254,16 @@
           Se ti piace lo stile e vuoi un sito adattato al tuo caso reale, scrivimi.
           Ti rispondo con una proposta chiara e i prossimi step.
         </p>
-        <a class="btn" href="contact.html">Contattami</a>
+
+        <div class="pricing-hero-actions">
+          <a class="btn" href="contact.html" data-umami-event="funnel_projects_cta_contact">
+            Contattami
+          </a>
+          <a class="link-soft" href="prezzi.html" data-umami-event="funnel_projects_cta_pricing">
+            Vedi prezzi indicativi
+          </a>
+        </div>
+
         <p class="cta-note">Risposta entro 24–48 ore.</p>
       </section>
     </main>

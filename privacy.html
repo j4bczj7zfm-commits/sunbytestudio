@@ -65,7 +65,7 @@
       defer
       src="https://cloud.umami.is/script.js"
       data-website-id="96a07a61-7a9a-4e8b-9152-28344ca8ddbc"
-      data-host-url="https://cloud.umami.is"
+      data-domains="sunbytestudios.com"
     ></script>
   </head>
 
@@ -74,10 +74,21 @@
 
     <header class="site-header">
       <div class="header-left">
-        <a class="brand" href="index.html">
+        <a
+          class="brand"
+          href="index.html"
+          aria-label="Torna alla Home"
+          data-umami-event="cta_privacy_brand_home"
+        >
           <img src="assets/img/logo.svg" alt="SunByte Studios" />
         </a>
-        <a class="home-link" href="index.html">Home</a>
+        <a
+          class="home-link"
+          href="index.html"
+          data-umami-event="cta_privacy_home_link"
+        >
+          Home
+        </a>
       </div>
 
       <div class="header-actions">
@@ -92,13 +103,13 @@
         </button>
       </div>
 
-      <nav class="menu" id="mainMenu">
-        <a href="about.html">Chi sono</a>
-        <a href="services.html">Servizi</a>
-        <a href="prezzi.html">Prezzi</a>
-        <a href="projects.html">Progetti</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contatti</a>
+      <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+        <a href="about.html" data-umami-event="funnel_nav_about">Chi sono</a>
+        <a href="services.html" data-umami-event="funnel_nav_services">Servizi</a>
+        <a href="prezzi.html" data-umami-event="funnel_nav_pricing">Prezzi</a>
+        <a href="projects.html" data-umami-event="funnel_nav_projects">Progetti</a>
+        <a href="faq.html" data-umami-event="funnel_nav_faq">FAQ</a>
+        <a href="contact.html" data-umami-event="funnel_nav_contact">Contatti</a>
       </nav>
     </header>
 
@@ -116,7 +127,12 @@
         <p>
           SunByte Studios<br />
           Email:
-          <a href="mailto:info@sunbytestudios.com">info@sunbytestudios.com</a>
+          <a
+            href="mailto:info@sunbytestudios.com"
+            data-umami-event="privacy_mailto_info"
+          >
+            info@sunbytestudios.com
+          </a>
         </p>
 
         <h2>Dati raccolti</h2>
@@ -142,12 +158,36 @@
           L’utente può richiedere in qualsiasi momento l’accesso, la rettifica o
           la cancellazione dei propri dati scrivendo all’indirizzo email indicato.
         </p>
+
+        <h2>Analytics e misurazioni</h2>
+        <p>
+          Il sito utilizza strumenti di misurazione per capire come viene usato e
+          migliorare contenuti e performance. Per maggiori dettagli, consulta la
+          <a href="cookie.html" data-umami-event="privacy_to_cookie_inline">Cookie Policy</a>.
+        </p>
+
         <div class="legal-cta">
           <p>
             Per qualsiasi dubbio sul trattamento dei dati o sull’utilizzo del sito,
             puoi contattarmi direttamente.
           </p>
-          <a href="contact.html" class="btn btn-secondary">Contattami</a>
+
+          <div class="pricing-hero-actions">
+            <a
+              href="contact.html"
+              class="btn btn-secondary"
+              data-umami-event="cta_privacy_contact"
+            >
+              Contattami
+            </a>
+            <a
+              href="cookie.html"
+              class="link-soft"
+              data-umami-event="cta_privacy_cookie"
+            >
+              Cookie policy
+            </a>
+          </div>
         </div>
       </section>
     </main>
@@ -156,11 +196,35 @@
       <div class="footer-inner">
         <p>&copy; <span id="year"></span> SunByte Studios</p>
         <p>
-          <a href="privacy.html">Privacy</a> ·
-          <a href="cookie.html">Cookie</a>
+          <a
+            href="privacy.html"
+            aria-current="page"
+            data-umami-event="footer_privacy_current"
+          >
+            Privacy
+          </a>
+          ·
+          <a
+            href="cookie.html"
+            data-umami-event="footer_cookie_from_privacy"
+          >
+            Cookie
+          </a>
         </p>
       </div>
     </footer>
+
     <script src="assets/js/main.js"></script>
+
+    <!-- Opzionale: evento dedicato alle pagine legali -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.umami && typeof window.umami.track === "function") {
+          window.umami.track("funnel_legal_privacy_view", {
+            page: location.pathname
+          });
+        }
+      });
+    </script>
   </body>
 </html>

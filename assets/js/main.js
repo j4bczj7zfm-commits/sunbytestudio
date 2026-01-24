@@ -4,6 +4,7 @@
 
 const projects = [
   {
+    id: "portfolio",
     title: "SunByte Studio — Portfolio",
     description: "Sito portfolio personale con layout responsive e menu mobile.",
     tech: ["HTML", "CSS", "JavaScript"],
@@ -12,6 +13,7 @@ const projects = [
     demo: "index.html",
   },
   {
+    id: "studionova",
     title: "Sito vetrina multipagina — StudioNova (Demo)",
     description:
       "Demo multipagina (Home, Servizi, Contatti) con menu mobile e layout credibile.",
@@ -22,6 +24,7 @@ const projects = [
     caseStudy: "demos/studionova/case-study.html",
   },
   {
+    id: "gym-landing",
     title: "Landing Page — Palestra (Demo)",
     description: "Landing page dimostrativa con sezioni, prezzi e modulo contatti.",
     tech: ["HTML", "CSS", "JavaScript"],
@@ -57,6 +60,19 @@ function applyProjectsFilter(list) {
 }
 
 /* =========================
+   UMAMI HELPERS
+========================= */
+
+function hasUmami() {
+  return window.umami && typeof window.umami.track === "function";
+}
+
+function umamiTrack(name, data = {}) {
+  if (!hasUmami()) return;
+  window.umami.track(name, data);
+}
+
+/* =========================
    RENDER
 ========================= */
 
@@ -67,9 +83,9 @@ function renderProjects() {
   const filtered = applyProjectsFilter(projects);
 
   grid.innerHTML = filtered
-    .map((p, i) => {
+    .map((p) => {
       const isLive = isLiveProject(p);
-      const eventName = `cta_projects_open_demo_${i + 1}`;
+      const eventName = `cta_projects_open_demo_${p.id}`;
 
       return `
         <article class="project-card">
@@ -134,6 +150,9 @@ function initProjectsFilters() {
     });
 
     renderProjects();
+
+    // opzionale: traccia uso filtri (utile per capire cosa interessa)
+    umamiTrack("projects_filter_change", { filter: projectsFilter, page: location.pathname });
   });
 }
 
@@ -150,6 +169,9 @@ function initMenu() {
   toggle.addEventListener("click", () => {
     const isOpen = menu.classList.toggle("is-open");
     toggle.setAttribute("aria-expanded", String(isOpen));
+
+    // opzionale: traccia apertura menu
+    umamiTrack(isOpen ? "nav_menu_open" : "nav_menu_close", { page: location.pathname });
   });
 
   menu.addEventListener("click", (event) => {
@@ -169,6 +191,30 @@ function initYear() {
 }
 
 /* =========================
+   FUNNEL: contact form
+========================= */
+
+function initContactFormFunnel() {
+  const form = document.querySelector('form[name="contact"]');
+  if (!form) return;
+
+  let started = false;
+
+  const onFirstInteraction = () => {
+    if (started) return;
+    started = true;
+    umamiTrack("funnel_contact_form_start", { page: location.pathname });
+  };
+
+  form.addEventListener("focusin", onFirstInteraction, { once: true });
+  form.addEventListener("input", onFirstInteraction, { once: true });
+
+  form.addEventListener("submit", () => {
+    umamiTrack("funnel_contact_form_submit", { page: location.pathname });
+  });
+}
+
+/* =========================
    BOOTSTRAP
 ========================= */
 
@@ -177,5 +223,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initProjectsFilters();
   renderProjects();
   initYear();
+  initContactFormFunnel();
 });
-

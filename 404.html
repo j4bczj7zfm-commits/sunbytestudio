@@ -12,8 +12,8 @@
     <meta name="robots" content="noindex, nofollow" />
 
     <link rel="stylesheet" href="assets/css/style.css" />
-    <!-- Canonical: su una 404 è più pulito puntare alla home -->
-    <link rel="canonical" href="https://sunbytestudios.com/" />
+    <!-- Su una 404 è spesso meglio NON canonicalizzare alla home -->
+    <link rel="canonical" href="https://sunbytestudios.com/404.html" />
 
     <script type="application/ld+json">
       {
@@ -70,7 +70,7 @@
       defer
       src="https://cloud.umami.is/script.js"
       data-website-id="96a07a61-7a9a-4e8b-9152-28344ca8ddbc"
-      data-host-url="https://cloud.umami.is"
+      data-domains="sunbytestudios.com"
     ></script>
   </head>
 
@@ -79,7 +79,12 @@
 
     <header class="site-header">
       <div class="header-left">
-        <a class="brand" href="index.html" aria-label="Torna alla Home">
+        <a
+          class="brand"
+          href="index.html"
+          aria-label="Torna alla Home"
+          data-umami-event="cta_404_brand_home"
+        >
           <img
             class="brand-logo"
             src="assets/img/logo.svg"
@@ -90,7 +95,9 @@
           />
         </a>
 
-        <a class="home-link" href="index.html">Home</a>
+        <a class="home-link" href="index.html" data-umami-event="cta_404_home_link">
+          Home
+        </a>
       </div>
 
       <div class="header-actions">
@@ -106,10 +113,12 @@
       </div>
 
       <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
-        <a href="about.html">Chi sono</a>
-        <a href="services.html">Servizi</a>
-        <a href="projects.html">Progetti</a>
-        <a href="contact.html">Contatti</a>
+        <a href="about.html" data-umami-event="funnel_nav_about">Chi sono</a>
+        <a href="services.html" data-umami-event="funnel_nav_services">Servizi</a>
+        <a href="prezzi.html" data-umami-event="funnel_nav_pricing">Prezzi</a>
+        <a href="projects.html" data-umami-event="funnel_nav_projects">Progetti</a>
+        <a href="faq.html" data-umami-event="funnel_nav_faq">FAQ</a>
+        <a href="contact.html" data-umami-event="funnel_nav_contact">Contatti</a>
       </nav>
     </header>
 
@@ -125,13 +134,19 @@
         </p>
 
         <div class="notfound__actions">
-          <a class="btn" href="index.html">Torna alla Home</a>
-          <a class="btn btn-secondary" href="projects.html">Vedi esempi e demo</a>
+          <a class="btn" href="index.html" data-umami-event="cta_404_home_primary">
+            Torna alla Home
+          </a>
+          <a class="btn btn-secondary" href="projects.html" data-umami-event="cta_404_projects_secondary">
+            Vedi esempi e demo
+          </a>
         </div>
 
         <div class="notfound__secondary">
           <p>Cerchi qualcosa di specifico o hai trovato un link rotto?</p>
-          <a class="link-soft" href="contact.html">Scrivimi e lo sistemiamo</a>
+          <a class="link-soft" href="contact.html" data-umami-event="cta_404_contact_soft">
+            Scrivimi e lo sistemiamo
+          </a>
         </div>
       </section>
     </main>
@@ -147,5 +162,17 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+
+    <!-- Evento dedicato alla 404 (utile per capire link rotti) -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.umami && typeof window.umami.track === "function") {
+          window.umami.track("funnel_404_view", {
+            page: location.pathname,
+            referrer: document.referrer || ""
+          });
+        }
+      });
+    </script>
   </body>
 </html>

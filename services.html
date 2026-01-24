@@ -19,10 +19,7 @@
       content="Landing page, siti vetrina, portfolio e loghi. Soluzioni chiare, moderne e su misura."
     />
     <meta property="og:url" content="https://sunbytestudios.com/services.html" />
-    <meta
-      property="og:image"
-      content="https://sunbytestudios.com/assets/img/og.jpg"
-    />
+    <meta property="og:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -101,12 +98,13 @@
     <link rel="canonical" href="https://sunbytestudios.com/services.html" />
     <link rel="stylesheet" href="assets/css/style.css" />
 
+    <!-- Umami -->
     <script
       defer
       src="https://cloud.umami.is/script.js"
       data-website-id="96a07a61-7a9a-4e8b-9152-28344ca8ddbc"
-      data-host-url="https://cloud.umami.is"
-     ></script>
+      data-domains="sunbytestudios.com"
+    ></script>
   </head>
 
   <body class="page-services">
@@ -117,7 +115,9 @@
         <span class="logo">
           <img src="assets/img/logo.svg" alt="Logo SunByte Studios" />
         </span>
-        <a class="home-link" href="index.html">Home</a>
+        <a class="home-link" href="index.html" data-umami-event="funnel_header_home">
+          Home
+        </a>
       </div>
 
       <div class="header-actions">
@@ -127,18 +127,25 @@
           type="button"
           aria-expanded="false"
           aria-controls="mainMenu"
+          data-umami-event="funnel_header_menu_toggle"
         >
           Menu
         </button>
       </div>
 
       <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
-        <a href="about.html">Chi sono</a>
-        <a href="services.html" aria-current="page">Servizi</a>
-        <a href="prezzi.html">Prezzi</a>
-        <a href="projects.html">Progetti</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contatti</a>
+        <a href="about.html" data-umami-event="funnel_nav_about">Chi sono</a>
+        <a
+          href="services.html"
+          aria-current="page"
+          data-umami-event="funnel_nav_services"
+        >
+          Servizi
+        </a>
+        <a href="prezzi.html" data-umami-event="funnel_nav_pricing">Prezzi</a>
+        <a href="projects.html" data-umami-event="funnel_nav_projects">Progetti</a>
+        <a href="faq.html" data-umami-event="funnel_nav_faq">FAQ</a>
+        <a href="contact.html" data-umami-event="funnel_nav_contact">Contatti</a>
       </nav>
     </header>
 
@@ -151,8 +158,20 @@
           Ogni servizio è pensato per aiutarti a presentarti meglio e ottenere contatti.
         </p>
         <div class="pricing-hero-actions">
-          <a href="contact.html" class="btn">Richiedi un preventivo</a>
-          <a href="prezzi.html" class="link-soft">Vedi prezzi indicativi</a>
+          <a
+            href="contact.html"
+            class="btn"
+            data-umami-event="funnel_services_hero_contact"
+          >
+            Richiedi un preventivo
+          </a>
+          <a
+            href="prezzi.html"
+            class="link-soft"
+            data-umami-event="funnel_services_hero_pricing"
+          >
+            Vedi prezzi indicativi
+          </a>
         </div>
       </section>
 
@@ -172,6 +191,22 @@
               <span class="pill">Tempo stimato: 1–2 settimane</span>
               <span class="meta-note" aria-label="Nota prezzo">Prezzo indicativo</span>
             </div>
+            <div class="btn-row">
+              <a
+                class="btn btn-secondary"
+                href="contact.html"
+                data-umami-event="funnel_services_card_landing_contact"
+              >
+                Richiedi preventivo
+              </a>
+              <a
+                class="link-soft"
+                href="prezzi.html"
+                data-umami-event="funnel_services_card_landing_pricing"
+              >
+                Vedi prezzi
+              </a>
+            </div>
           </div>
 
           <div class="service">
@@ -184,6 +219,22 @@
               <span class="badge">da €600</span>
               <span class="pill">Tempo stimato: 2–3 settimane</span>
               <span class="meta-note" aria-label="Nota prezzo">Prezzo indicativo</span>
+            </div>
+            <div class="btn-row">
+              <a
+                class="btn btn-secondary"
+                href="contact.html"
+                data-umami-event="funnel_services_card_showcase_contact"
+              >
+                Richiedi preventivo
+              </a>
+              <a
+                class="link-soft"
+                href="prezzi.html"
+                data-umami-event="funnel_services_card_showcase_pricing"
+              >
+                Vedi prezzi
+              </a>
             </div>
           </div>
 
@@ -198,6 +249,22 @@
               <span class="pill">Tempo stimato: 2–3 settimane</span>
               <span class="meta-note" aria-label="Nota prezzo">Prezzo indicativo</span>
             </div>
+            <div class="btn-row">
+              <a
+                class="btn btn-secondary"
+                href="contact.html"
+                data-umami-event="funnel_services_card_portfolio_contact"
+              >
+                Richiedi preventivo
+              </a>
+              <a
+                class="link-soft"
+                href="prezzi.html"
+                data-umami-event="funnel_services_card_portfolio_pricing"
+              >
+                Vedi prezzi
+              </a>
+            </div>
           </div>
 
           <div class="service">
@@ -210,6 +277,22 @@
               <span class="badge">da €150</span>
               <span class="pill">Tempo stimato: 3–7 giorni</span>
               <span class="meta-note" aria-label="Nota prezzo">Prezzo indicativo</span>
+            </div>
+            <div class="btn-row">
+              <a
+                class="btn btn-secondary"
+                href="contact.html"
+                data-umami-event="funnel_services_card_logo_contact"
+              >
+                Richiedi preventivo
+              </a>
+              <a
+                class="link-soft"
+                href="prezzi.html"
+                data-umami-event="funnel_services_card_logo_pricing"
+              >
+                Vedi prezzi
+              </a>
             </div>
           </div>
         </div>
@@ -275,16 +358,40 @@
             <p class="faq-a">Sì, per eventuali modifiche o miglioramenti.</p>
           </div>
         </div>
+
+        <p>
+          <a
+            href="faq.html"
+            class="link-soft"
+            data-umami-event="funnel_services_faq_link"
+          >
+            Leggi tutte le FAQ
+          </a>
+        </p>
       </section>
 
       <!-- CTA finale -->
       <section id="cta">
         <h2>Parliamo del tuo progetto</h2>
         <p>Dimmi cosa vuoi realizzare e ti risponderò con una proposta chiara.</p>
+
         <div class="pricing-hero-actions">
-          <a href="contact.html" class="btn">Richiedi un preventivo personalizzato</a>
-          <a href="prezzi.html" class="link-soft">Vedi pacchetti e variabili</a>
+          <a
+            href="contact.html"
+            class="btn"
+            data-umami-event="funnel_services_cta_contact"
+          >
+            Richiedi un preventivo personalizzato
+          </a>
+          <a
+            href="prezzi.html"
+            class="link-soft"
+            data-umami-event="funnel_services_cta_pricing"
+          >
+            Vedi pacchetti e variabili
+          </a>
         </div>
+
         <p class="cta-note">Ti preparo una proposta chiara in base al tuo progetto.</p>
       </section>
     </main>
@@ -298,6 +405,7 @@
         </p>
       </div>
     </footer>
+
     <script src="assets/js/main.js"></script>
   </body>
 </html>

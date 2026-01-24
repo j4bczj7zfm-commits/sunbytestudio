@@ -9,7 +9,8 @@
       name="description"
       content="Grazie! La tua richiesta è stata inviata. Ti risponderò entro 24–48 ore con i prossimi step."
     />
-    <meta name="robots" content="noindex, follow" />
+    <!-- Thank-you: meglio non indicizzare -->
+    <meta name="robots" content="noindex, nofollow" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
@@ -76,12 +77,37 @@
       }
     </script>
 
+    <!-- Umami -->
     <script
       defer
       src="https://cloud.umami.is/script.js"
       data-website-id="96a07a61-7a9a-4e8b-9152-28344ca8ddbc"
-      data-host-url="https://cloud.umami.is"
+      data-domains="sunbytestudios.com"
     ></script>
+
+    <!-- Funnel: conversion event (lead submitted) -->
+    <script>
+      (function () {
+        function fireConversion() {
+          if (window.umami && typeof window.umami.track === "function") {
+            window.umami.track("funnel_lead_submitted", {
+              page: location.pathname
+            });
+          }
+        }
+
+        // Prova subito; se Umami non è ancora pronto, riprova per pochi secondi.
+        fireConversion();
+        var tries = 0;
+        var timer = setInterval(function () {
+          tries++;
+          fireConversion();
+          if (tries >= 10 || (window.umami && typeof window.umami.track === "function")) {
+            clearInterval(timer);
+          }
+        }, 300);
+      })();
+    </script>
   </head>
 
   <body class="page-thankyou">
@@ -108,11 +134,12 @@
       </div>
 
       <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
-        <a href="../about.html">Chi sono</a>
-        <a href="../services.html">Servizi</a>
-        <a href="../projects.html">Progetti</a>
-        <a href="../faq.html">FAQ</a>
-        <a href="../contact.html">Contatti</a>
+        <a href="../about.html" data-umami-event="funnel_nav_about">Chi sono</a>
+        <a href="../services.html" data-umami-event="funnel_nav_services">Servizi</a>
+        <a href="../prezzi.html" data-umami-event="funnel_nav_pricing">Prezzi</a>
+        <a href="../projects.html" data-umami-event="funnel_nav_projects">Progetti</a>
+        <a href="../faq.html" data-umami-event="funnel_nav_faq">FAQ</a>
+        <a href="../contact.html" data-umami-event="funnel_nav_contact">Contatti</a>
       </nav>
     </header>
 
@@ -125,8 +152,12 @@
         </p>
 
         <div class="pricing-hero-actions">
-          <a class="btn" href="../projects.html">Guarda le demo</a>
-          <a class="link-soft" href="../prezzi.html">Vedi prezzi indicativi</a>
+          <a class="btn" href="../projects.html" data-umami-event="cta_thankyou_projects">
+            Guarda le demo
+          </a>
+          <a class="link-soft" href="../prezzi.html" data-umami-event="cta_thankyou_pricing">
+            Vedi prezzi indicativi
+          </a>
         </div>
       </section>
 
@@ -134,16 +165,13 @@
         <h2>Cosa succede adesso</h2>
         <ul class="pricing-list pricing-list--center">
           <li>
-            <strong>Leggo la richiesta</strong> e verifico obiettivo, contenuti e
-            urgenza.
+            <strong>Leggo la richiesta</strong> e verifico obiettivo, contenuti e urgenza.
           </li>
           <li>
-            <strong>Ti rispondo via email</strong> con una proposta (struttura +
-            tempistiche).
+            <strong>Ti rispondo via email</strong> con una proposta (struttura + tempistiche).
           </li>
           <li>
-            <strong>Se ti va</strong> facciamo un brief rapido e chiudiamo il
-            preventivo.
+            <strong>Se ti va</strong> facciamo un brief rapido e chiudiamo il preventivo.
           </li>
         </ul>
 
@@ -155,13 +183,17 @@
       <section class="pricing-box" aria-label="Hai urgenza o vuoi aggiungere dettagli">
         <h2>Vuoi aggiungere un dettaglio?</h2>
         <p class="pricing-small">
-          Se ti sei dimenticato qualcosa (es. link di riferimento, numero di
-          pagine, scadenza), puoi scrivermi di nuovo: lo unisco alla richiesta.
+          Se ti sei dimenticato qualcosa (es. link di riferimento, numero di pagine, scadenza), puoi scrivermi di nuovo:
+          lo unisco alla richiesta.
         </p>
 
         <div class="pricing-hero-actions pricing-hero-actions--spaced">
-          <a class="btn" href="../contact.html">Invia un aggiornamento</a>
-          <a class="link-soft" href="../faq.html">Leggi le FAQ</a>
+          <a class="btn" href="../contact.html" data-umami-event="cta_thankyou_contact_update">
+            Invia un aggiornamento
+          </a>
+          <a class="link-soft" href="../faq.html" data-umami-event="cta_thankyou_faq">
+            Leggi le FAQ
+          </a>
         </div>
       </section>
     </main>

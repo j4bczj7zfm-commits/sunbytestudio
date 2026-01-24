@@ -20,10 +20,7 @@
       content="Scrivimi per realizzare il tuo sito web o per informazioni sui servizi offerti da SunByte Studios."
     />
     <meta property="og:url" content="https://sunbytestudios.com/contact.html" />
-    <meta
-      property="og:image"
-      content="https://sunbytestudios.com/assets/img/og.jpg"
-    />
+    <meta property="og:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -33,10 +30,7 @@
       name="twitter:description"
       content="Scrivimi per realizzare il tuo sito web o per informazioni sui servizi."
     />
-    <meta
-      name="twitter:image"
-      content="https://sunbytestudios.com/assets/img/og.jpg"
-    />
+    <meta name="twitter:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
 
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="canonical" href="https://sunbytestudios.com/contact.html" />
@@ -90,11 +84,12 @@
       }
     </script>
 
+    <!-- Umami -->
     <script
       defer
       src="https://cloud.umami.is/script.js"
       data-website-id="96a07a61-7a9a-4e8b-9152-28344ca8ddbc"
-      data-host-url="https://cloud.umami.is"
+      data-domains="sunbytestudios.com"
     ></script>
   </head>
 
@@ -106,7 +101,9 @@
         <span class="logo">
           <img src="assets/img/logo.svg" alt="Logo SunByte Studios" />
         </span>
-        <a class="home-link" href="index.html">Home</a>
+        <a class="home-link" href="index.html" data-umami-event="funnel_header_home">
+          Home
+        </a>
       </div>
 
       <div class="header-actions">
@@ -116,35 +113,44 @@
           type="button"
           aria-expanded="false"
           aria-controls="mainMenu"
+          data-umami-event="funnel_header_menu_toggle"
         >
           Menu
         </button>
       </div>
 
       <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
-        <a href="about.html">Chi sono</a>
-        <a href="services.html">Servizi</a>
-        <a href="prezzi.html">Prezzi</a>
-        <a href="projects.html">Progetti</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html" aria-current="page">Contatti</a>
+        <a href="about.html" data-umami-event="funnel_nav_about">Chi sono</a>
+        <a href="services.html" data-umami-event="funnel_nav_services">Servizi</a>
+        <a href="prezzi.html" data-umami-event="funnel_nav_pricing">Prezzi</a>
+        <a href="projects.html" data-umami-event="funnel_nav_projects">Progetti</a>
+        <a href="faq.html" data-umami-event="funnel_nav_faq">FAQ</a>
+        <a
+          href="contact.html"
+          aria-current="page"
+          data-umami-event="funnel_nav_contact"
+        >
+          Contatti
+        </a>
       </nav>
     </header>
 
     <main id="main">
       <h1>Contattami</h1>
       <p>
-        Compila il modulo qui sotto e spiegami brevemente di cosa hai bisogno per
-        il tuo progetto web.
+        Compila il modulo qui sotto e dimmi cosa vuoi ottenere (contatti, prenotazioni,
+        credibilità). Ti rispondo con una proposta chiara e i prossimi step.
       </p>
 
       <section aria-label="Modulo contatti">
         <form
+          id="contactForm"
           name="contact"
           method="POST"
           action="/thank-you/"
           data-netlify="true"
           netlify-honeypot="bot-field"
+          data-umami-event="funnel_contact_form_submit"
         >
           <input type="hidden" name="form-name" value="contact" />
 
@@ -152,7 +158,7 @@
             <label>Non compilare questo campo: <input name="bot-field" /></label>
           </p>
 
-          <fieldset>
+          <fieldset data-umami-event="funnel_contact_form_start">
             <legend class="sr-only">Modulo contatti</legend>
 
             <div>
@@ -189,7 +195,13 @@
               ></textarea>
             </div>
 
-            <button type="submit" class="btn">Invia richiesta</button>
+            <button
+              type="submit"
+              class="btn"
+              data-umami-event="funnel_contact_submit_click"
+            >
+              Invia richiesta
+            </button>
           </fieldset>
         </form>
 
@@ -197,15 +209,19 @@
       </section>
 
       <section class="contact-cta" aria-label="Approfondimenti">
-        <h2>Preferisci capire prima costi e tempi?</h2>
+        <h2>Preferisci vedere prima costi e tempi?</h2>
         <p>
-          Dai un’occhiata ai prezzi indicativi e a cosa è incluso nei vari
-          pacchetti. Se poi vuoi, torni qui e mi scrivi.
+          Dai un’occhiata ai prezzi indicativi e a cosa è incluso nei pacchetti.
+          Se poi vuoi, torni qui e mi scrivi.
         </p>
 
         <div class="contact-cta__actions">
-          <a href="prezzi.html" class="btn">Vedi prezzi e pacchetti</a>
-          <a href="projects.html" class="link-soft">Guarda alcune demo</a>
+          <a href="prezzi.html" class="btn" data-umami-event="funnel_contact_cta_pricing">
+            Vedi prezzi e pacchetti
+          </a>
+          <a href="projects.html" class="link-soft" data-umami-event="funnel_contact_cta_projects">
+            Guarda alcune demo
+          </a>
         </div>
       </section>
     </main>

@@ -19,10 +19,7 @@
       content="Metodo chiaro e concreto: dalla struttura ai contenuti, fino alla pubblicazione. Siti web moderni per freelance e attività locali."
     />
     <meta property="og:url" content="https://sunbytestudios.com/about.html" />
-    <meta
-      property="og:image"
-      content="https://sunbytestudios.com/assets/img/og.jpg"
-    />
+    <meta property="og:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -32,10 +29,7 @@
       name="twitter:description"
       content="Metodo chiaro e concreto: dalla struttura ai contenuti, fino alla pubblicazione."
     />
-    <meta
-      name="twitter:image"
-      content="https://sunbytestudios.com/assets/img/og.jpg"
-    />
+    <meta name="twitter:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
 
     <link rel="canonical" href="https://sunbytestudios.com/about.html" />
 
@@ -93,7 +87,7 @@
       defer
       src="https://cloud.umami.is/script.js"
       data-website-id="96a07a61-7a9a-4e8b-9152-28344ca8ddbc"
-      data-host-url="https://cloud.umami.is"
+      data-domains="sunbytestudios.com"
     ></script>
   </head>
 
@@ -121,12 +115,12 @@
       </div>
 
       <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
-        <a href="about.html" aria-current="page">Chi sono</a>
-        <a href="services.html">Servizi</a>
-        <a href="prezzi.html">Prezzi</a>
-        <a href="projects.html">Progetti</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contatti</a>
+        <a href="about.html" data-umami-event="funnel_nav_about" aria-current="page">Chi sono</a>
+        <a href="services.html" data-umami-event="funnel_nav_services">Servizi</a>
+        <a href="prezzi.html" data-umami-event="funnel_nav_pricing">Prezzi</a>
+        <a href="projects.html" data-umami-event="funnel_nav_projects">Progetti</a>
+        <a href="faq.html" data-umami-event="funnel_nav_faq">FAQ</a>
+        <a href="contact.html" data-umami-event="funnel_nav_contact">Contatti</a>
       </nav>
     </header>
 
@@ -138,7 +132,23 @@
           per freelance e attività locali. L’obiettivo è creare pagine chiare,
           professionali e facili da gestire.
         </p>
-        <a href="contact.html" class="btn">Contattami</a>
+
+        <div class="pricing-hero-actions">
+          <a
+            href="contact.html"
+            class="btn"
+            data-umami-event="cta_about_contact_top"
+          >
+            Richiedi un preventivo
+          </a>
+          <a
+            href="prezzi.html"
+            class="link-soft"
+            data-umami-event="cta_about_pricing_top"
+          >
+            Vedi prezzi indicativi
+          </a>
+        </div>
       </section>
 
       <section>
@@ -148,6 +158,10 @@
           Progetto la struttura del sito in base a ciò che serve davvero
           (contenuti, obiettivi e contatti), poi sviluppo un’interfaccia pulita
           che funzioni bene su mobile e desktop.
+        </p>
+        <p>
+          Se vuoi vedere esempi concreti, puoi guardare i
+          <a href="projects.html" data-umami-event="cta_about_projects_inline">progetti e demo</a>.
         </p>
       </section>
 
@@ -171,7 +185,11 @@
           </li>
           <li>
             <strong>Design e sviluppo</strong>
-            <p>Creo un layout moderno, responsive e coerente con il tuo stile.</p>
+            <p>
+              Creo un layout moderno, responsive e coerente con il tuo stile.
+              Qui puoi vedere cosa include il lavoro nella pagina
+              <a href="services.html" data-umami-event="cta_about_services_inline">Servizi</a>.
+            </p>
           </li>
           <li>
             <strong>Revisione e pubblicazione</strong>
@@ -194,6 +212,11 @@
           <li>Pubblicazione del sito online</li>
           <li>Supporto durante la messa online</li>
         </ul>
+
+        <p>
+          Se vuoi un riferimento rapido sui costi, trovi prezzi e pacchetti nella pagina
+          <a href="prezzi.html" data-umami-event="cta_about_pricing_inline">Prezzi</a>.
+        </p>
       </section>
 
       <section>
@@ -201,18 +224,33 @@
         <ul>
           <li>Freelance che vogliono presentarsi in modo professionale</li>
           <li>Attività locali che vogliono farsi trovare e ricevere contatti</li>
-          <li>
-            Progetti che hanno bisogno di una landing page chiara e convincente
-          </li>
+          <li>Progetti che hanno bisogno di una landing page chiara e convincente</li>
         </ul>
       </section>
 
       <section id="cta">
         <h2>Hai un progetto in mente?</h2>
         <p>
-          Scrivimi e dimmi cosa vuoi ottenere. Ti risponderò il prima possibile.
+          Scrivimi attività + obiettivo (contatti / prenotazioni / credibilità) e quante pagine ti servono.
+          Ti rispondo con una proposta chiara.
         </p>
-        <a href="contact.html" class="btn">Contattami</a>
+
+        <div class="pricing-hero-actions">
+          <a
+            href="contact.html"
+            class="btn"
+            data-umami-event="cta_about_contact_bottom"
+          >
+            Contattami
+          </a>
+          <a
+            href="prezzi.html"
+            class="link-soft"
+            data-umami-event="cta_about_pricing_bottom"
+          >
+            Vedi prezzi indicativi
+          </a>
+        </div>
       </section>
     </main>
 

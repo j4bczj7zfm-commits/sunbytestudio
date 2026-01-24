@@ -160,7 +160,7 @@
       defer
       src="https://cloud.umami.is/script.js"
       data-website-id="96a07a61-7a9a-4e8b-9152-28344ca8ddbc"
-      data-host-url="https://cloud.umami.is"
+      data-domains="sunbytestudios.com"
     ></script>
   </head>
 
@@ -194,12 +194,12 @@
       </div>
 
       <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
-        <a href="about.html">Chi sono</a>
-        <a href="services.html">Servizi</a>
-        <a href="prezzi.html">Prezzi</a>
-        <a href="projects.html">Progetti</a>
-        <a href="faq.html" aria-current="page">FAQ</a>
-        <a href="contact.html">Contatti</a>
+        <a href="about.html" data-umami-event="funnel_nav_about">Chi sono</a>
+        <a href="services.html" data-umami-event="funnel_nav_services">Servizi</a>
+        <a href="prezzi.html" data-umami-event="funnel_nav_pricing">Prezzi</a>
+        <a href="projects.html" data-umami-event="funnel_nav_projects">Progetti</a>
+        <a href="faq.html" data-umami-event="funnel_nav_faq" aria-current="page">FAQ</a>
+        <a href="contact.html" data-umami-event="funnel_nav_contact">Contatti</a>
       </nav>
     </header>
 
@@ -210,6 +210,24 @@
           Qui trovi le risposte alle domande più comuni su come lavoro,
           tempi, costi e modalità di sviluppo dei siti web.
         </p>
+
+        <!-- CTA TOP (nuova) -->
+        <div class="pricing-hero-actions">
+          <a
+            href="contact.html"
+            class="btn"
+            data-umami-event="cta_faq_contact_top"
+          >
+            Richiedi un preventivo
+          </a>
+          <a
+            href="prezzi.html"
+            class="link-soft"
+            data-umami-event="cta_faq_pricing_top"
+          >
+            Vedi prezzi indicativi
+          </a>
+        </div>
       </section>
 
       <section class="faq">
@@ -227,8 +245,20 @@
           <h2>Quanto costa un sito web?</h2>
           <p>
             Il costo dipende da struttura, numero di pagine e funzionalità.
-            Nella pagina <a href="services.html">Servizi</a> trovi prezzi indicativi e
-            tempi stimati. Dopo il primo contatto riceverai una proposta chiara e senza sorprese.
+            Nella pagina
+            <a
+              href="services.html"
+              data-umami-event="cta_faq_services_inline"
+            >
+              Servizi
+            </a>
+            trovi prezzi indicativi e tempi stimati. Se vuoi un preventivo preciso, scrivimi:
+            <a
+              href="contact.html"
+              data-umami-event="cta_faq_contact_inline_1"
+            >
+              contattami qui
+            </a>.
           </p>
         </div>
 
@@ -271,6 +301,13 @@
           <p>
             Sì. Il form invia correttamente i messaggi via email ed è possibile
             aggiungere controlli anti-spam e una pagina di ringraziamento personalizzata.
+            Se vuoi, scrivimi e ti dico cosa ti serve:
+            <a
+              href="contact.html"
+              data-umami-event="cta_faq_contact_inline_2"
+            >
+              contattami
+            </a>.
           </p>
         </div>
 
@@ -292,8 +329,20 @@
         </p>
 
         <div class="faq-cta-actions">
-          <a href="contact.html" class="btn">Scrivimi ora</a>
-          <a href="prezzi.html" class="link-soft">Vedi prezzi indicativi</a>
+          <a
+            href="contact.html"
+            class="btn"
+            data-umami-event="cta_faq_contact_bottom"
+          >
+            Scrivimi ora
+          </a>
+          <a
+            href="prezzi.html"
+            class="link-soft"
+            data-umami-event="cta_faq_pricing_bottom"
+          >
+            Vedi prezzi indicativi
+          </a>
         </div>
 
         <p class="faq-cta-note">Risposta tipica entro 24–48 ore.</p>

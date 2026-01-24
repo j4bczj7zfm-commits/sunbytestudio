@@ -101,7 +101,7 @@
       defer
       src="https://cloud.umami.is/script.js"
       data-website-id="96a07a61-7a9a-4e8b-9152-28344ca8ddbc"
-      data-host-url="https://cloud.umami.is"
+      data-domains="sunbytestudios.com"
     ></script>
 
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -116,7 +116,9 @@
         <span class="logo">
           <img src="assets/img/logo.svg" alt="SunByte Studios" />
         </span>
-        <a class="home-link" href="index.html">Home</a>
+        <a class="home-link" href="index.html" data-umami-event="funnel_header_home">
+          Home
+        </a>
       </div>
 
       <div class="header-actions">
@@ -126,18 +128,19 @@
           type="button"
           aria-expanded="false"
           aria-controls="mainMenu"
+          data-umami-event="funnel_header_menu_toggle"
         >
           Menu
         </button>
       </div>
 
       <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
-        <a href="about.html">Chi sono</a>
-        <a href="services.html">Servizi</a>
-        <a href="prezzi.html">Prezzi</a>
-        <a href="projects.html">Progetti</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contatti</a>
+        <a href="about.html" data-umami-event="funnel_nav_about">Chi sono</a>
+        <a href="services.html" data-umami-event="funnel_nav_services">Servizi</a>
+        <a href="prezzi.html" data-umami-event="funnel_nav_pricing">Prezzi</a>
+        <a href="projects.html" data-umami-event="funnel_nav_projects">Progetti</a>
+        <a href="faq.html" data-umami-event="funnel_nav_faq">FAQ</a>
+        <a href="contact.html" data-umami-event="funnel_nav_contact">Contatti</a>
       </nav>
     </header>
 
@@ -151,7 +154,7 @@
         <a
           href="projects.html"
           class="btn btn-secondary"
-          data-umami-event="cta_home_projects_hero"
+          data-umami-event="funnel_home_hero_projects"
         >
           Vedi demo e progetti
         </a>
@@ -176,7 +179,9 @@
 
           <div class="service">
             <h3>Portfolio</h3>
-            <p>Una pagina professionale per mostrare progetti, competenze e risultati in modo ordinato.</p>
+            <p>
+              Una pagina professionale per mostrare progetti, competenze e risultati in modo ordinato.
+            </p>
           </div>
         </div>
       </section>
@@ -196,10 +201,14 @@
         </p>
 
         <div class="home-about__actions btn-row">
-          <a class="btn" href="about.html" data-umami-event="cta_home_about">
+          <a class="btn" href="about.html" data-umami-event="funnel_home_about_primary">
             Scopri come lavoro
           </a>
-          <a class="btn btn-secondary" href="projects.html" data-umami-event="cta_home_projects_about">
+          <a
+            class="btn btn-secondary"
+            href="projects.html"
+            data-umami-event="funnel_home_about_projects"
+          >
             Vedi demo e progetti
           </a>
         </div>
@@ -207,11 +216,13 @@
 
       <section>
         <h2>Progetti in evidenza</h2>
-        <p>Qui trovi demo e progetti di esempio. Ogni progetto include obiettivo, struttura e scelte di design.</p>
+        <p>
+          Qui trovi demo e progetti di esempio. Ogni progetto include obiettivo, struttura e scelte di design.
+        </p>
         <a
           href="projects.html"
           class="btn btn-secondary"
-          data-umami-event="cta_home_projects_featured"
+          data-umami-event="funnel_home_featured_projects"
         >
           Esplora tutti i progetti
         </a>
@@ -228,7 +239,7 @@
           <a
             href="contact.html"
             class="btn btn-cta"
-            data-umami-event="cta_home_contact_primary"
+            data-umami-event="funnel_home_contact_primary"
           >
             Richiedi un preventivo gratuito
             <span class="btn-sub">Risposta entro 24 ore</span>
@@ -236,7 +247,7 @@
           <a
             href="projects.html"
             class="btn btn-secondary"
-            data-umami-event="cta_home_projects_cta"
+            data-umami-event="funnel_home_contact_projects"
           >
             Guarda le demo
           </a>

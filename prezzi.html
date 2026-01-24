@@ -77,10 +77,7 @@
             "@id": "https://sunbytestudios.com/prezzi.html#service",
             "name": "Sviluppo siti web e creazione logo",
             "provider": { "@id": "https://sunbytestudios.com/#org" },
-            "areaServed": {
-              "@type": "Country",
-              "name": "IT"
-            },
+            "areaServed": { "@type": "Country", "name": "IT" },
             "serviceType": "Web design, sviluppo frontend, branding",
             "offers": {
               "@type": "OfferCatalog",
@@ -145,11 +142,12 @@
     <link rel="canonical" href="https://sunbytestudios.com/prezzi.html" />
     <link rel="stylesheet" href="assets/css/style.css" />
 
+    <!-- Umami -->
     <script
       defer
       src="https://cloud.umami.is/script.js"
       data-website-id="96a07a61-7a9a-4e8b-9152-28344ca8ddbc"
-      data-host-url="https://cloud.umami.is"
+      data-domains="sunbytestudios.com"
     ></script>
   </head>
 
@@ -161,7 +159,9 @@
         <span class="logo">
           <img src="assets/img/logo.svg" alt="SunByte Studios logo" />
         </span>
-        <a class="home-link" href="index.html">Home</a>
+        <a class="home-link" href="index.html" data-umami-event="funnel_header_home">
+          Home
+        </a>
       </div>
 
       <div class="header-actions">
@@ -171,18 +171,25 @@
           type="button"
           aria-expanded="false"
           aria-controls="mainMenu"
+          data-umami-event="funnel_header_menu_toggle"
         >
           Menu
         </button>
       </div>
 
       <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
-        <a href="about.html">Chi sono</a>
-        <a href="services.html">Servizi</a>
-        <a href="prezzi.html" aria-current="page">Prezzi</a>
-        <a href="projects.html">Progetti</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contatti</a>
+        <a href="about.html" data-umami-event="funnel_nav_about">Chi sono</a>
+        <a href="services.html" data-umami-event="funnel_nav_services">Servizi</a>
+        <a
+          href="prezzi.html"
+          aria-current="page"
+          data-umami-event="funnel_nav_pricing"
+        >
+          Prezzi
+        </a>
+        <a href="projects.html" data-umami-event="funnel_nav_projects">Progetti</a>
+        <a href="faq.html" data-umami-event="funnel_nav_faq">FAQ</a>
+        <a href="contact.html" data-umami-event="funnel_nav_contact">Contatti</a>
       </nav>
     </header>
 
@@ -195,8 +202,12 @@
         </p>
 
         <div class="pricing-hero-actions">
-          <a class="btn" href="contact.html">Richiedi preventivo</a>
-          <a class="link-soft" href="#variabili">Vedi variabili</a>
+          <a class="btn" href="contact.html" data-umami-event="funnel_pricing_hero_contact">
+            Richiedi preventivo
+          </a>
+          <a class="link-soft" href="#variabili" data-umami-event="funnel_pricing_hero_variables">
+            Vedi variabili
+          </a>
         </div>
       </section>
 
@@ -219,7 +230,15 @@
             <li>1 revisione</li>
           </ul>
 
-          <a class="btn btn-secondary" href="contact.html">Chiedi info</a>
+          <div class="pricing-hero-actions">
+            <a class="btn btn-secondary" href="contact.html" data-umami-event="funnel_pricing_pkg_starter_contact">
+              Chiedi info
+            </a>
+            <a class="link-soft" href="services.html" data-umami-event="funnel_pricing_pkg_starter_services">
+              Vedi dettagli servizi
+            </a>
+          </div>
+
           <p class="pricing-note">Prezzo indicativo</p>
         </article>
 
@@ -241,7 +260,15 @@
             <li>2 revisioni</li>
           </ul>
 
-          <a class="btn" href="contact.html">Richiedi preventivo</a>
+          <div class="pricing-hero-actions">
+            <a class="btn" href="contact.html" data-umami-event="funnel_pricing_pkg_standard_contact">
+              Richiedi preventivo
+            </a>
+            <a class="link-soft" href="services.html" data-umami-event="funnel_pricing_pkg_standard_services">
+              Vedi dettagli servizi
+            </a>
+          </div>
+
           <p class="pricing-note">Prezzo indicativo</p>
         </article>
 
@@ -263,7 +290,15 @@
             <li>3 revisioni</li>
           </ul>
 
-          <a class="btn btn-secondary" href="contact.html">Chiedi info</a>
+          <div class="pricing-hero-actions">
+            <a class="btn btn-secondary" href="contact.html" data-umami-event="funnel_pricing_pkg_premium_contact">
+              Chiedi info
+            </a>
+            <a class="link-soft" href="services.html" data-umami-event="funnel_pricing_pkg_premium_services">
+              Vedi dettagli servizi
+            </a>
+          </div>
+
           <p class="pricing-note">Prezzo indicativo</p>
         </article>
 
@@ -283,7 +318,15 @@
             <li>Consegna in SVG + PNG</li>
           </ul>
 
-          <a class="btn btn-secondary" href="contact.html">Chiedi info</a>
+          <div class="pricing-hero-actions">
+            <a class="btn btn-secondary" href="contact.html" data-umami-event="funnel_pricing_pkg_logo_contact">
+              Chiedi info
+            </a>
+            <a class="link-soft" href="services.html" data-umami-event="funnel_pricing_pkg_logo_services">
+              Vedi dettagli servizi
+            </a>
+          </div>
+
           <p class="pricing-note pricing-note--center">Prezzo indicativo</p>
         </article>
       </section>
@@ -322,6 +365,12 @@
             </ul>
           </div>
         </div>
+
+        <p class="pricing-small">
+          <a href="contact.html" class="link-soft" data-umami-event="funnel_pricing_variables_contact">
+            Vuoi un preventivo preciso? Scrivimi i dettagli
+          </a>
+        </p>
       </section>
 
       <section class="pricing-box" aria-label="Regole prezzo pagine extra">
@@ -378,18 +427,33 @@
             <h3>Contenuti (copy)</h3>
             <p>Testi ordinati, chiari e orientati ai contatti.</p>
             <p class="pricing-small"><strong>Indicativo:</strong> da €120</p>
+            <p>
+              <a href="contact.html" class="link-soft" data-umami-event="funnel_pricing_extra_copy_contact">
+                Chiedi una proposta con copy incluso
+              </a>
+            </p>
           </article>
 
           <article class="pricing-extra">
             <h3>Multilingua EN</h3>
             <p>Versione inglese delle pagine principali.</p>
             <p class="pricing-small"><strong>Indicativo:</strong> da €250</p>
+            <p>
+              <a href="contact.html" class="link-soft" data-umami-event="funnel_pricing_extra_en_contact">
+                Valuta la versione IT/EN
+              </a>
+            </p>
           </article>
 
           <article class="pricing-extra">
             <h3>Consegna rapida</h3>
             <p>Priorità e consegna accelerata (se disponibile).</p>
             <p class="pricing-small"><strong>Indicativo:</strong> +25% / +40%</p>
+            <p>
+              <a href="contact.html" class="link-soft" data-umami-event="funnel_pricing_extra_urgent_contact">
+                Dimmi la scadenza e ti dico se è fattibile
+              </a>
+            </p>
           </article>
         </div>
       </section>
@@ -406,6 +470,12 @@
           <li><strong>Hosting:</strong> spesso economico per siti statici (es. Netlify)</li>
           <li><strong>Email professionale:</strong> opzionale (Google Workspace / alternative)</li>
         </ul>
+
+        <p class="pricing-small">
+          <a href="contact.html" class="link-soft" data-umami-event="funnel_pricing_publish_contact">
+            Vuoi che configuri dominio/hosting/email? Scrivimi
+          </a>
+        </p>
       </section>
 
       <section class="pricing-box" aria-label="Manutenzione">
@@ -417,18 +487,33 @@
             <h3>Light</h3>
             <p class="pricing-small">Aggiornamenti minimi e controllo base.</p>
             <p><strong>da €29/mese</strong></p>
+            <p>
+              <a href="contact.html" class="link-soft" data-umami-event="funnel_pricing_maint_light_contact">
+                Chiedi cosa include
+              </a>
+            </p>
           </div>
 
           <div class="pricing-maint-card">
             <h3>Standard</h3>
             <p class="pricing-small">Aggiornamenti + piccole modifiche mensili.</p>
             <p><strong>da €59/mese</strong></p>
+            <p>
+              <a href="contact.html" class="link-soft" data-umami-event="funnel_pricing_maint_standard_contact">
+                Chiedi cosa include
+              </a>
+            </p>
           </div>
 
           <div class="pricing-maint-card">
             <h3>Plus</h3>
             <p class="pricing-small">Più interventi e priorità.</p>
             <p><strong>da €99/mese</strong></p>
+            <p>
+              <a href="contact.html" class="link-soft" data-umami-event="funnel_pricing_maint_plus_contact">
+                Chiedi cosa include
+              </a>
+            </p>
           </div>
         </div>
       </section>
@@ -489,6 +574,12 @@
             </div>
           </details>
         </div>
+
+        <p class="pricing-small">
+          <a href="contact.html" class="link-soft" data-umami-event="funnel_pricing_faq_contact">
+            Hai un dubbio? Scrivimi e chiarisco tutto
+          </a>
+        </p>
       </section>
 
       <section class="pricing-box pricing-cta" id="cta">
@@ -503,8 +594,12 @@
         </p>
 
         <div class="pricing-cta-actions">
-          <a class="btn" href="contact.html">Richiedi preventivo gratuito</a>
-          <a class="link-soft" href="#variabili">Prima: vedi le variabili</a>
+          <a class="btn" href="contact.html" data-umami-event="funnel_pricing_cta_contact">
+            Richiedi preventivo gratuito
+          </a>
+          <a class="link-soft" href="#variabili" data-umami-event="funnel_pricing_cta_variables">
+            Prima: vedi le variabili
+          </a>
         </div>
 
         <p class="pricing-cta-note">Risposta tipica entro 24–48 ore.</p>
