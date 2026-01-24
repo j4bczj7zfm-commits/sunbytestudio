@@ -179,3 +179,22 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProjects();
   initYear();
 });
+
+document.addEventListener("click", (e) => {
+  const link = e.target.closest("a[data-umami-event]");
+  if (!link) return;
+
+  // Se non c'è Umami (adblock ecc.), non bloccare la navigazione
+  if (typeof window.umami === "undefined") return;
+
+  const url = link.getAttribute("href");
+  // Se è un link interno normale, ritarda leggermente la navigazione
+  const isSameTab = !link.target || link.target === "_self";
+  const isInternal = url && !url.startsWith("http") && !url.startsWith("mailto:");
+
+  if (isSameTab && isInternal) {
+    e.preventDefault();
+    window.umami.track(link.getAttribute("data-umami-event"));
+    setTimeout(() => (window.location.href = url), 150);
+  }
+});
