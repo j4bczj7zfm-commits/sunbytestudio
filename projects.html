@@ -32,6 +32,7 @@
     />
     <meta name="twitter:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
 
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -56,43 +57,40 @@
             "inLanguage": "it-IT"
           },
           {
+            "@type": "ImageObject",
+            "@id": "https://sunbytestudios.com/#ogimage",
+            "url": "https://sunbytestudios.com/assets/img/og.jpg",
+            "width": 1200,
+            "height": 630
+          },
+          {
             "@type": "CollectionPage",
-            "@id": "https://sunbytestudios.com/projects.html#collection",
+            "@id": "https://sunbytestudios.com/projects.html#webpage",
             "url": "https://sunbytestudios.com/projects.html",
             "name": "Progetti web | SunByte Studios",
             "description": "Scopri i progetti web e le demo realizzate da SunByte Studios: landing page, siti vetrina e portfolio frontend.",
             "isPartOf": { "@id": "https://sunbytestudios.com/#website" },
             "about": { "@id": "https://sunbytestudios.com/#org" },
+            "primaryImageOfPage": { "@id": "https://sunbytestudios.com/#ogimage" },
             "inLanguage": "it-IT",
-            "primaryImageOfPage": {
-              "@type": "ImageObject",
-              "url": "https://sunbytestudios.com/assets/img/og.jpg"
-            },
-            "image": "https://sunbytestudios.com/assets/img/og.jpg",
             "mainEntity": { "@id": "https://sunbytestudios.com/projects.html#itemlist" }
           },
           {
             "@type": "ItemList",
             "@id": "https://sunbytestudios.com/projects.html#itemlist",
             "name": "Elenco progetti e demo",
-            "itemListOrder": "https://schema.org/ItemListOrderAscending",
-            "numberOfItems": 3,
+            "itemListOrder": "ItemListOrderAscending",
+            "numberOfItems": 2,
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
-                "name": "SunByte Studios — Portfolio",
-                "url": "https://sunbytestudios.com/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
                 "name": "StudioNova — Demo multipagina",
                 "url": "https://sunbytestudios.com/demos/studionova/index.html"
               },
               {
                 "@type": "ListItem",
-                "position": 3,
+                "position": 2,
                 "name": "Palestra — Landing page (Demo)",
                 "url": "https://sunbytestudios.com/demos/gym-landing/index.html"
               }
@@ -111,7 +109,7 @@
     <header class="site-header">
       <div class="header-left">
         <span class="logo">
-          <img src="assets/img/logo.svg" alt="SunByte Studios log" />
+          <img src="assets/img/logo.svg" alt="SunByte Studios" />
         </span>
         <a class="home-link" href="index.html">Home</a>
       </div>

@@ -19,7 +19,10 @@
       content="Metodo chiaro e concreto: dalla struttura ai contenuti, fino alla pubblicazione. Siti web moderni per freelance e attività locali."
     />
     <meta property="og:url" content="https://sunbytestudios.com/about.html" />
-    <meta property="og:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
+    <meta
+      property="og:image"
+      content="https://sunbytestudios.com/assets/img/og.jpg"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -29,7 +32,10 @@
       name="twitter:description"
       content="Metodo chiaro e concreto: dalla struttura ai contenuti, fino alla pubblicazione."
     />
-    <meta name="twitter:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
+    <meta
+      name="twitter:image"
+      content="https://sunbytestudios.com/assets/img/og.jpg"
+    />
 
     <link rel="canonical" href="https://sunbytestudios.com/about.html" />
 
@@ -45,7 +51,9 @@
             "logo": {
               "@type": "ImageObject",
               "@id": "https://sunbytestudios.com/#logo",
-              "url": "https://sunbytestudios.com/assets/img/logo.svg"
+              "url": "https://sunbytestudios.com/assets/img/logo.svg",
+              "contentUrl": "https://sunbytestudios.com/assets/img/logo.svg",
+              "caption": "SunByte Studios"
             }
           },
           {
@@ -57,6 +65,14 @@
             "inLanguage": "it-IT"
           },
           {
+            "@type": "ImageObject",
+            "@id": "https://sunbytestudios.com/#ogimage",
+            "url": "https://sunbytestudios.com/assets/img/og.jpg",
+            "contentUrl": "https://sunbytestudios.com/assets/img/og.jpg",
+            "width": 1200,
+            "height": 630
+          },
+          {
             "@type": "WebPage",
             "@id": "https://sunbytestudios.com/about.html#webpage",
             "url": "https://sunbytestudios.com/about.html",
@@ -64,12 +80,8 @@
             "description": "Scopri chi è SunByte Studios e come lavoro: metodo chiaro, siti web moderni, veloci e accessibili per freelance e attività locali.",
             "isPartOf": { "@id": "https://sunbytestudios.com/#website" },
             "about": { "@id": "https://sunbytestudios.com/#org" },
-            "inLanguage": "it-IT",
-            "primaryImageOfPage": {
-              "@type": "ImageObject",
-              "url": "https://sunbytestudios.com/assets/img/og.jpg"
-            },
-            "image": "https://sunbytestudios.com/assets/img/og.jpg"
+            "primaryImageOfPage": { "@id": "https://sunbytestudios.com/#ogimage" },
+            "inLanguage": "it-IT"
           }
         ]
       }

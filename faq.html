@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="canonical" href="https://sunbytestudios.com/faq.html" />
 
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -57,6 +58,13 @@
             "inLanguage": "it-IT"
           },
           {
+            "@type": "ImageObject",
+            "@id": "https://sunbytestudios.com/#ogimage",
+            "url": "https://sunbytestudios.com/assets/img/og.jpg",
+            "width": 1200,
+            "height": 630
+          },
+          {
             "@type": "WebPage",
             "@id": "https://sunbytestudios.com/faq.html#webpage",
             "url": "https://sunbytestudios.com/faq.html",
@@ -65,14 +73,18 @@
             "isPartOf": { "@id": "https://sunbytestudios.com/#website" },
             "about": { "@id": "https://sunbytestudios.com/#org" },
             "inLanguage": "it-IT",
-            "primaryImageOfPage": {
-              "@type": "ImageObject",
-              "url": "https://sunbytestudios.com/assets/img/og.jpg"
-            }
+            "primaryImageOfPage": { "@id": "https://sunbytestudios.com/#ogimage" },
+            "mainEntity": { "@id": "https://sunbytestudios.com/faq.html#faq" }
           },
           {
             "@type": "FAQPage",
             "@id": "https://sunbytestudios.com/faq.html#faq",
+            "url": "https://sunbytestudios.com/faq.html",
+            "name": "FAQ | SunByte Studios",
+            "inLanguage": "it-IT",
+            "isPartOf": { "@id": "https://sunbytestudios.com/#website" },
+            "about": { "@id": "https://sunbytestudios.com/#org" },
+            "mainEntityOfPage": { "@id": "https://sunbytestudios.com/faq.html#webpage" },
             "mainEntity": [
               {
                 "@type": "Question",

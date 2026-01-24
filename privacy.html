@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="canonical" href="https://sunbytestudios.com/privacy.html" />
 
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -27,7 +28,8 @@
               "@type": "ImageObject",
               "@id": "https://sunbytestudios.com/#logo",
               "url": "https://sunbytestudios.com/assets/img/logo.svg"
-            }
+            },
+            "inLanguage": "it-IT"
           },
           {
             "@type": "WebSite",
@@ -38,6 +40,13 @@
             "inLanguage": "it-IT"
           },
           {
+            "@type": "ImageObject",
+            "@id": "https://sunbytestudios.com/#ogimage",
+            "url": "https://sunbytestudios.com/assets/img/og.jpg",
+            "width": 1200,
+            "height": 630
+          },
+          {
             "@type": "WebPage",
             "@id": "https://sunbytestudios.com/privacy.html#webpage",
             "url": "https://sunbytestudios.com/privacy.html",
@@ -45,7 +54,8 @@
             "description": "Informativa sulla privacy di SunByte Studios ai sensi del GDPR.",
             "isPartOf": { "@id": "https://sunbytestudios.com/#website" },
             "about": { "@id": "https://sunbytestudios.com/#org" },
-            "inLanguage": "it-IT"
+            "inLanguage": "it-IT",
+            "primaryImageOfPage": { "@id": "https://sunbytestudios.com/#ogimage" }
           }
         ]
       }

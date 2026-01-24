@@ -12,7 +12,8 @@
     <meta name="robots" content="noindex, nofollow" />
 
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="canonical" href="https://sunbytestudios.com/404.html" />
+    <!-- Canonical: su una 404 è più pulito puntare alla home -->
+    <link rel="canonical" href="https://sunbytestudios.com/" />
 
     <script type="application/ld+json">
       {
@@ -27,7 +28,8 @@
               "@type": "ImageObject",
               "@id": "https://sunbytestudios.com/#logo",
               "url": "https://sunbytestudios.com/assets/img/logo.svg"
-            }
+            },
+            "inLanguage": "it-IT"
           },
           {
             "@type": "WebSite",
@@ -35,7 +37,19 @@
             "name": "SunByte Studios",
             "url": "https://sunbytestudios.com/",
             "publisher": { "@id": "https://sunbytestudios.com/#org" },
-            "inLanguage": "it-IT"
+            "inLanguage": "it-IT",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://sunbytestudios.com/?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://sunbytestudios.com/#ogimage",
+            "url": "https://sunbytestudios.com/assets/img/og.jpg",
+            "width": 1200,
+            "height": 630
           },
           {
             "@type": "WebPage",
@@ -45,7 +59,8 @@
             "description": "La pagina che cerchi non esiste o è stata spostata. Torna alla home o visita i progetti.",
             "isPartOf": { "@id": "https://sunbytestudios.com/#website" },
             "about": { "@id": "https://sunbytestudios.com/#org" },
-            "inLanguage": "it-IT"
+            "inLanguage": "it-IT",
+            "primaryImageOfPage": { "@id": "https://sunbytestudios.com/#ogimage" }
           }
         ]
       }

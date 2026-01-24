@@ -34,59 +34,68 @@
     />
     <meta name="twitter:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
 
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://sunbytestudios.com/#org",
-          "name": "SunByte Studios",
-          "url": "https://sunbytestudios.com/",
-          "logo": {
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://sunbytestudios.com/#org",
+            "name": "SunByte Studios",
+            "url": "https://sunbytestudios.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://sunbytestudios.com/#logo",
+              "url": "https://sunbytestudios.com/assets/img/logo.svg"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://sunbytestudios.com/#website",
+            "name": "SunByte Studios",
+            "url": "https://sunbytestudios.com/",
+            "publisher": { "@id": "https://sunbytestudios.com/#org" },
+            "inLanguage": "it-IT"
+          },
+          {
             "@type": "ImageObject",
-            "@id": "https://sunbytestudios.com/#logo",
-            "url": "https://sunbytestudios.com/assets/img/logo.svg"
+            "@id": "https://sunbytestudios.com/#ogimage",
+            "url": "https://sunbytestudios.com/assets/img/og.jpg",
+            "width": 1200,
+            "height": 630
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://sunbytestudios.com/services.html#webpage",
+            "url": "https://sunbytestudios.com/services.html",
+            "name": "Servizi | SunByte Studios",
+            "description": "Servizi di sviluppo web e branding: landing page, siti vetrina, portfolio e creazione loghi per freelance e attività locali.",
+            "isPartOf": { "@id": "https://sunbytestudios.com/#website" },
+            "about": { "@id": "https://sunbytestudios.com/#org" },
+            "primaryImageOfPage": { "@id": "https://sunbytestudios.com/#ogimage" },
+            "inLanguage": "it-IT"
+          },
+          {
+            "@type": "Service",
+            "@id": "https://sunbytestudios.com/services.html#service-web",
+            "name": "Sviluppo siti web",
+            "serviceType": "Web design e sviluppo front-end",
+            "provider": { "@id": "https://sunbytestudios.com/#org" },
+            "areaServed": { "@type": "Country", "name": "IT" },
+            "url": "https://sunbytestudios.com/services.html"
+          },
+          {
+            "@type": "Service",
+            "@id": "https://sunbytestudios.com/services.html#service-logo",
+            "name": "Creazione logo",
+            "serviceType": "Branding e logo design",
+            "provider": { "@id": "https://sunbytestudios.com/#org" },
+            "areaServed": { "@type": "Country", "name": "IT" },
+            "url": "https://sunbytestudios.com/services.html"
           }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://sunbytestudios.com/#website",
-          "name": "SunByte Studios",
-          "url": "https://sunbytestudios.com/",
-          "publisher": { "@id": "https://sunbytestudios.com/#org" },
-          "inLanguage": "it-IT"
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://sunbytestudios.com/services.html#webpage",
-          "url": "https://sunbytestudios.com/services.html",
-          "name": "Servizi | SunByte Studios",
-          "description": "Servizi di sviluppo web e branding: landing page, siti vetrina, portfolio e creazione loghi per freelance e attività locali.",
-          "isPartOf": { "@id": "https://sunbytestudios.com/#website" },
-          "about": { "@id": "https://sunbytestudios.com/#org" },
-          "inLanguage": "it-IT"
-        },
-        {
-          "@type": "Service",
-          "@id": "https://sunbytestudios.com/services.html#service-web",
-          "name": "Sviluppo siti web",
-          "serviceType": "Web design e sviluppo front-end",
-          "provider": { "@id": "https://sunbytestudios.com/#org" },
-          "areaServed": "IT",
-          "url": "https://sunbytestudios.com/services.html"
-        },
-        {
-          "@type": "Service",
-          "@id": "https://sunbytestudios.com/services.html#service-logo",
-          "name": "Creazione logo",
-          "serviceType": "Branding e logo design",
-          "provider": { "@id": "https://sunbytestudios.com/#org" },
-          "areaServed": "IT",
-          "url": "https://sunbytestudios.com/services.html"
-        }
-      ]
-    }
+        ]
+      }
     </script>
 
     <link rel="canonical" href="https://sunbytestudios.com/services.html" />
@@ -97,34 +106,35 @@
     <a class="skip-link" href="#main">Salta al contenuto</a>
 
     <header class="site-header">
-     <div class="header-left">
-       <span class="logo">
-        <img src="assets/img/logo.svg" alt="Logo SunByte Studios" />
-       </span>
-       <a class="home-link" href="index.html">Home</a>
-     </div>
+      <div class="header-left">
+        <span class="logo">
+          <img src="assets/img/logo.svg" alt="Logo SunByte Studios" />
+        </span>
+        <a class="home-link" href="index.html">Home</a>
+      </div>
 
-     <div class="header-actions">
-       <button
-         class="menu-toggle"
-         id="menuToggle"
-         type="button"
-         aria-expanded="false"
-         aria-controls="mainMenu"
-       >
-         Menu
-       </button>
-     </div>
+      <div class="header-actions">
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mainMenu"
+        >
+          Menu
+        </button>
+      </div>
 
-     <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
-       <a href="about.html">Chi sono</a>
-       <a href="services.html" aria-current="page">Servizi</a>
-       <a href="prezzi.html">Prezzi</a>
-       <a href="projects.html">Progetti</a>
-       <a href="faq.html">FAQ</a>
-       <a href="contact.html">Contatti</a>
-     </nav>
-   </header>
+      <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
+        <a href="about.html">Chi sono</a>
+        <a href="services.html" aria-current="page">Servizi</a>
+        <a href="prezzi.html">Prezzi</a>
+        <a href="projects.html">Progetti</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contatti</a>
+      </nav>
+    </header>
+
     <main id="main">
       <!-- Hero -->
       <section class="hero">
@@ -238,34 +248,32 @@
         <h2>Domande frequenti</h2>
 
         <div class="faq">
-         <div class="faq-item">
-           <h3 class="faq-q">Quanto tempo serve?</h3>
-           <p class="faq-a">In genere da 1 a 3 settimane, in base al progetto.</p>
-         </div>
-
           <div class="faq-item">
-           <h3 class="faq-q">Posso modificare i contenuti?</h3>
-           <p class="faq-a">Sì, il sito è pensato per essere facilmente aggiornabile.</p>
+            <h3 class="faq-q">Quanto tempo serve?</h3>
+            <p class="faq-a">In genere da 1 a 3 settimane, in base al progetto.</p>
           </div>
 
-           <div class="faq-item">
-             <h3 class="faq-q">Il prezzo è fisso?</h3>
-             <p class="faq-a">I prezzi sono indicativi: il costo finale dipende dalle esigenze.</p>
-           </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Posso modificare i contenuti?</h3>
+            <p class="faq-a">Sì, il sito è pensato per essere facilmente aggiornabile.</p>
+          </div>
 
-           <div class="faq-item">
-             <h3 class="faq-q">Offri supporto dopo la consegna?</h3>
-             <p class="faq-a">Sì, per eventuali modifiche o miglioramenti.</p>
-           </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Il prezzo è fisso?</h3>
+            <p class="faq-a">I prezzi sono indicativi: il costo finale dipende dalle esigenze.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-q">Offri supporto dopo la consegna?</h3>
+            <p class="faq-a">Sì, per eventuali modifiche o miglioramenti.</p>
+          </div>
         </div>
-     </section>
+      </section>
 
       <!-- CTA finale -->
       <section id="cta">
         <h2>Parliamo del tuo progetto</h2>
-        <p>
-          Dimmi cosa vuoi realizzare e ti risponderò con una proposta chiara.
-        </p>
+        <p>Dimmi cosa vuoi realizzare e ti risponderò con una proposta chiara.</p>
         <div class="pricing-hero-actions">
           <a href="contact.html" class="btn">Richiedi un preventivo personalizzato</a>
           <a href="prezzi.html" class="link-soft">Vedi pacchetti e variabili</a>

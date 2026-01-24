@@ -9,7 +9,7 @@
       name="description"
       content="Grazie! La tua richiesta è stata inviata. Ti risponderò entro 24–48 ore con i prossimi step."
     />
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="noindex, follow" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
@@ -20,15 +20,61 @@
       content="Grazie! Ti risponderò entro 24–48 ore con i prossimi step."
     />
     <meta property="og:url" content="https://sunbytestudios.com/thank-you/" />
-    <meta
-      property="og:image"
-      content="https://sunbytestudios.com/assets/img/og.jpg"
-    />
+    <meta property="og:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Richiesta inviata | SunByte Studios" />
+    <meta
+      name="twitter:description"
+      content="Grazie! La tua richiesta è stata inviata. Ti risponderò entro 24–48 ore."
+    />
+    <meta name="twitter:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
+
     <link rel="canonical" href="https://sunbytestudios.com/thank-you/" />
     <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://sunbytestudios.com/#org",
+            "name": "SunByte Studios",
+            "url": "https://sunbytestudios.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://sunbytestudios.com/#logo",
+              "url": "https://sunbytestudios.com/assets/img/logo.svg"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://sunbytestudios.com/#website",
+            "name": "SunByte Studios",
+            "url": "https://sunbytestudios.com/",
+            "publisher": { "@id": "https://sunbytestudios.com/#org" },
+            "inLanguage": "it-IT"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://sunbytestudios.com/thank-you/#webpage",
+            "url": "https://sunbytestudios.com/thank-you/",
+            "name": "Richiesta inviata | SunByte Studios",
+            "description": "Grazie! La tua richiesta è stata inviata. Ti risponderò entro 24–48 ore con i prossimi step.",
+            "isPartOf": { "@id": "https://sunbytestudios.com/#website" },
+            "about": { "@id": "https://sunbytestudios.com/#org" },
+            "inLanguage": "it-IT",
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "url": "https://sunbytestudios.com/assets/img/og.jpg"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body class="page-thankyou">

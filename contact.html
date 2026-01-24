@@ -20,7 +20,10 @@
       content="Scrivimi per realizzare il tuo sito web o per informazioni sui servizi offerti da SunByte Studios."
     />
     <meta property="og:url" content="https://sunbytestudios.com/contact.html" />
-    <meta property="og:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
+    <meta
+      property="og:image"
+      content="https://sunbytestudios.com/assets/img/og.jpg"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -30,32 +33,58 @@
       name="twitter:description"
       content="Scrivimi per realizzare il tuo sito web o per informazioni sui servizi."
     />
-    <meta name="twitter:image" content="https://sunbytestudios.com/assets/img/og.jpg" />
+    <meta
+      name="twitter:image"
+      content="https://sunbytestudios.com/assets/img/og.jpg"
+    />
 
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="canonical" href="https://sunbytestudios.com/contact.html" />
 
-    <!-- JSON-LD: Organization + Website + ContactPage -->
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@graph": [
           {
             "@type": "Organization",
+            "@id": "https://sunbytestudios.com/#org",
             "name": "SunByte Studios",
             "url": "https://sunbytestudios.com/",
-            "logo": "https://sunbytestudios.com/assets/img/logo.svg"
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://sunbytestudios.com/#logo",
+              "url": "https://sunbytestudios.com/assets/img/logo.svg",
+              "contentUrl": "https://sunbytestudios.com/assets/img/logo.svg",
+              "caption": "SunByte Studios"
+            }
           },
           {
             "@type": "WebSite",
+            "@id": "https://sunbytestudios.com/#website",
             "name": "SunByte Studios",
-            "url": "https://sunbytestudios.com/"
+            "url": "https://sunbytestudios.com/",
+            "publisher": { "@id": "https://sunbytestudios.com/#org" },
+            "inLanguage": "it-IT"
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://sunbytestudios.com/#ogimage",
+            "url": "https://sunbytestudios.com/assets/img/og.jpg",
+            "contentUrl": "https://sunbytestudios.com/assets/img/og.jpg",
+            "width": 1200,
+            "height": 630
           },
           {
             "@type": "ContactPage",
-            "name": "Contatti | SunByte Studios",
+            "@id": "https://sunbytestudios.com/contact.html#webpage",
             "url": "https://sunbytestudios.com/contact.html",
-            "isPartOf": { "@type": "WebSite", "url": "https://sunbytestudios.com/" }
+            "name": "Contatti | SunByte Studios",
+            "description": "Contatta SunByte Studios per creare il tuo sito web o richiedere informazioni sui servizi di sviluppo web.",
+            "isPartOf": { "@id": "https://sunbytestudios.com/#website" },
+            "about": { "@id": "https://sunbytestudios.com/#org" },
+            "primaryImageOfPage": { "@id": "https://sunbytestudios.com/#ogimage" },
+            "inLanguage": "it-IT"
           }
         ]
       }
