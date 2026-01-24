@@ -169,57 +169,6 @@ function initYear() {
 }
 
 /* =========================
-   TRACKING (UMAMI)
-========================= */
-
-function trackUmamiEvent(eventName, payload) {
-  if (!eventName) return;
-  if (typeof window.umami === "undefined") return; // adblock o script non caricato
-
-  try {
-    // Umami accetta (name, data)
-    window.umami.track(eventName, payload || {});
-  } catch {
-    // non bloccare mai UX
-  }
-}
-
-document.addEventListener("click", (e) => {
-  const link = e.target.closest("a[data-umami-event]");
-  if (!link) return;
-
-  const eventName = link.getAttribute("data-umami-event");
-  const href = link.getAttribute("href") || "";
-
-  const isSameTab = !link.target || link.target === "_self";
-  const isMailto = href.startsWith("mailto:");
-  const isTel = href.startsWith("tel:");
-  const isExternal = /^https?:\/\//i.test(href) && !href.includes("sunbytestudios.com");
-  const isInternal =
-    href &&
-    !isMailto &&
-    !isTel &&
-    !/^https?:\/\//i.test(href) &&
-    !href.startsWith("#");
-
-  // Traccia sempre il click (senza bloccare)
-  trackUmamiEvent(eventName, {
-    href,
-    page: window.location.pathname,
-  });
-
-  // Se è navigazione interna same-tab, ritarda leggermente per non perdere l’evento
-  if (isSameTab && isInternal) {
-    e.preventDefault();
-    setTimeout(() => {
-      window.location.href = href;
-    }, 150);
-  }
-
-  // Per esterni / mailto / target blank: non bloccare nulla
-});
-
-/* =========================
    BOOTSTRAP
 ========================= */
 
