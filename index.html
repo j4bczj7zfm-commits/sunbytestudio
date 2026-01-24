@@ -48,8 +48,13 @@
             "logo": {
               "@type": "ImageObject",
               "@id": "https://sunbytestudios.com/#logo",
-              "url": "https://sunbytestudios.com/assets/img/logo.svg"
-            }
+              "url": "https://sunbytestudios.com/assets/img/logo.svg",
+              "contentUrl": "https://sunbytestudios.com/assets/img/logo.svg",
+              "caption": "SunByte Studios",
+              "width": 512,
+              "height": 512
+            },
+            "sameAs": [""]
           },
           {
             "@type": "WebSite",
@@ -63,6 +68,7 @@
             "@type": "ImageObject",
             "@id": "https://sunbytestudios.com/#ogimage",
             "url": "https://sunbytestudios.com/assets/img/og.jpg",
+            "contentUrl": "https://sunbytestudios.com/assets/img/og.jpg",
             "width": 1200,
             "height": 630
           },
@@ -87,27 +93,23 @@
             "description": "Sviluppo siti web moderni, veloci e accessibili per freelance e attività locali: landing page, siti vetrina e portfolio.",
             "areaServed": {
               "@type": "Country",
-              "name": "IT"
+              "name": "Italy"
             },
-            "serviceType": [
-              "Sviluppo siti web",
-              "Landing page",
-              "Sito vetrina",
-              "Portfolio"
-            ]
+            "serviceType": ["Sviluppo siti web", "Landing page", "Sito vetrina", "Portfolio"]
           }
         ]
       }
     </script>
 
+    <!-- Umami -->
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="9ea07a61-7a9a-4e8b-9152-28344ca8ddbc"
+    ></script>
+
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="canonical" href="https://sunbytestudios.com/" />
-
-    <script 
-       defer 
-       src="https://cloud.umami.is/script.js" 
-       data-website-id="96a07a61-7a9a-4e8b-9152-28344ca8ddbc">
-    </script>
   </head>
 
   <body>
@@ -149,7 +151,13 @@
           Progetto e realizzo siti web moderni per freelance e attività locali, pensati
           per essere veloci, accessibili e facili da gestire.
         </p>
-        <a href="projects.html" class="btn btn-secondary">Vedi demo e progetti</a>
+        <a
+          href="projects.html"
+          class="btn btn-secondary"
+          data-umami-event="cta_home_projects_hero"
+        >
+          Vedi demo e progetti
+        </a>
       </section>
 
       <section>
@@ -191,15 +199,25 @@
         </p>
 
         <div class="home-about__actions btn-row">
-          <a class="btn" href="about.html">Scopri come lavoro</a>
-          <a class="btn btn-secondary" href="projects.html">Vedi demo e progetti</a>
+          <a class="btn" href="about.html" data-umami-event="cta_home_about">
+            Scopri come lavoro
+          </a>
+          <a class="btn btn-secondary" href="projects.html" data-umami-event="cta_home_projects_about">
+            Vedi demo e progetti
+          </a>
         </div>
       </section>
 
       <section>
         <h2>Progetti in evidenza</h2>
         <p>Qui trovi demo e progetti di esempio. Ogni progetto include obiettivo, struttura e scelte di design.</p>
-        <a href="projects.html" class="btn btn-secondary">Esplora tutti i progetti</a>
+        <a
+          href="projects.html"
+          class="btn btn-secondary"
+          data-umami-event="cta_home_projects_featured"
+        >
+          Esplora tutti i progetti
+        </a>
       </section>
 
       <section id="contact" class="home-cta">
@@ -210,11 +228,21 @@
         </p>
 
         <div class="home-cta__actions btn-row">
-          <a href="contact.html" class="btn btn-cta">
+          <a
+            href="contact.html"
+            class="btn btn-cta"
+            data-umami-event="cta_home_contact_primary"
+          >
             Richiedi un preventivo gratuito
             <span class="btn-sub">Risposta entro 24 ore</span>
           </a>
-          <a href="projects.html" class="btn btn-secondary">Guarda le demo</a>
+          <a
+            href="projects.html"
+            class="btn btn-secondary"
+            data-umami-event="cta_home_projects_cta"
+          >
+            Guarda le demo
+          </a>
         </div>
       </section>
     </main>
