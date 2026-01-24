@@ -521,6 +521,8 @@
   border-radius: 18px;
   padding: 18px;
   box-shadow: var(--shadow);
+  min-width: 0;              /* prevents iOS grid overflow */
+  overflow-wrap: anywhere;   /* prevents long strings from pushing layout */
 }
 
 .page-pricing .pricing-card h2 {
@@ -529,6 +531,7 @@
 
 .page-pricing .pricing-card--wide {
   grid-column: 1 / -1;
+  text-align: center;
 }
 
 .page-pricing .pricing-card--featured {
@@ -568,7 +571,9 @@
   background: color-mix(in srgb, var(--accent) 45%, transparent);
   border: 1px solid rgba(0, 0, 0, 0.08);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.2;
+  white-space: normal;       /* allow wrap on iPhone */
+  max-width: 100%;
 }
 
 .page-pricing .badge-soft {
@@ -605,6 +610,7 @@
   border-radius: 18px;
   padding: 22px;
   box-shadow: var(--shadow);
+  min-width: 0;
 }
 
 .page-pricing .pricing-cols {
@@ -619,20 +625,24 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   padding: 14px;
+  min-width: 0;
 }
 
+/* Table: must scroll on mobile without enlarging the page */
 .page-pricing .pricing-table-wrap {
-  overflow: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-radius: 16px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   background: color-mix(in srgb, var(--accent) 12%, transparent);
   margin-top: 14px;
+  max-width: 100%;
 }
 
 .page-pricing .pricing-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 640px;
+  min-width: 640px; /* desktop readability */
 }
 
 .page-pricing .pricing-table th,
@@ -659,6 +669,7 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   padding: 14px;
+  min-width: 0;
 }
 
 .page-pricing .pricing-maintenance {
@@ -673,6 +684,7 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   padding: 14px;
+  min-width: 0;
 }
 
 /* Responsive */
@@ -680,82 +692,24 @@
   .page-pricing .pricing-grid {
     grid-template-columns: 1fr;
   }
+
   .page-pricing .pricing-extras,
   .page-pricing .pricing-maintenance,
   .page-pricing .pricing-cols {
     grid-template-columns: 1fr;
   }
+
+  /* Allow table to scroll without forcing page wider */
   .page-pricing .pricing-table {
-    min-width: 520px;
+    min-width: 0;
   }
 }
-/* --- Fix iPhone overflow / wrapping --- */
-.page-pricing .pricing-card,
-.page-pricing .pricing-box {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
 
-.page-pricing .pricing-hero-actions,
-.page-pricing .pricing-badges {
-  flex-wrap: wrap;
-}
-
-.page-pricing .badge {
-  white-space: normal; /* evita overflow dei badge su mobile */
-}
-
-.page-pricing .pricing-hero-actions .link-soft,
-.page-pricing .pricing-hero-actions .btn {
-  max-width: 100%;
-}
-
-/* Tabella: su mobile deve scrollare, senza allargare la pagina */
-.page-pricing .pricing-table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Extra small: bottoni hero uno sotto l’altro (evita tagli) */
+/* Extra small: stack hero actions */
 @media (max-width: 390px) {
   .page-pricing .pricing-hero-actions a {
     width: 100%;
     max-width: 320px;
     text-align: center;
-  }
-}
-/* =========================
-   FIX OVERFLOW iPhone - Prezzi
-========================= */
-.page-pricing {
-  overflow-x: hidden;
-}
-
-.page-pricing main {
-  overflow-x: clip;
-}
-
-/* Se qualche figlio sta spingendo fuori, lo blocchiamo */
-.page-pricing * {
-  max-width: 110%;
-}
-
-/* Tabella: mai allargare la pagina, solo scroll nel wrap */
-.page-pricing .pricing-table-wrap {
-  max-width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.page-pricing .pricing-table {
-  width: 100%;
-  min-width: 0 !important;      /* IMPORTANTISSIMO */
-  table-layout: auto;
-}
-
-/* Se nel tuo CSS avevi min-width (640/520) sulla tabella, disattivalo su mobile */
-@media (max-width: 900px) {
-  .page-pricing .pricing-table {
-    min-width: 0 !important;
   }
 }

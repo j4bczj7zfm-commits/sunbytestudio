@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Messaggio inviato | SunByte Studio</title>
-    <meta name="description" content="Messaggio inviato correttamente." />
-
+    <meta name="description" content="Messaggio inviato correttamente. Ti risponderò al più presto." />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="https://sunbytestudios.com/thank-you/" />
     <link rel="stylesheet" href="../assets/css/style.css" />
   </head>
 
@@ -14,18 +15,14 @@
     <a class="skip-link" href="#main">Salta al contenuto</a>
 
     <header class="site-header">
-      <a href="../index.html" class="logo">SunByte Studio</a>
+      <div class="header-left">
+        <span class="logo">
+          <img src="../assets/img/logo.svg" alt="Logo SunByte Studio" />
+        </span>
+        <a class="home-link" href="../index.html">Home</a>
+      </div>
 
       <div class="header-actions">
-        <button
-          class="theme-toggle"
-          id="themeToggle"
-          type="button"
-          aria-label="Cambia tema"
-        >
-          Tema
-        </button>
-
         <button
           class="menu-toggle"
           id="menuToggle"
@@ -38,38 +35,56 @@
       </div>
 
       <nav class="menu" id="mainMenu" aria-label="Navigazione principale">
-        <a href="../index.html">Home</a>
+        <a href="../about.html">Chi sono</a>
+        <a href="../services.html">Servizi</a>
         <a href="../projects.html">Progetti</a>
+        <a href="../faq.html">FAQ</a>
         <a href="../contact.html">Contatti</a>
       </nav>
     </header>
 
     <main id="main">
       <section class="hero">
-        <h1>Grazie, messaggio inviato</h1>
-        <p>
-          Ho ricevuto la tua richiesta. Ti risponderò il prima possibile.
-        </p>
+        <h1>Grazie, richiesta inviata</h1>
+        <p>Ho ricevuto il tuo messaggio. Ti risponderò al più presto.</p>
+
+        <div class="home-cta__actions">
+          <a class="btn" href="../projects.html">Guarda le demo</a>
+          <a class="link-soft" href="../prezzi.html">Vedi prezzi indicativi</a>
+        </div>
+
+        <p class="form-note">Rispondo di solito entro 24–48 ore.</p>
       </section>
 
-      <section>
+      <section class="thankyou-box">
         <h2>Per velocizzare la risposta</h2>
         <p>
-          Se non l’hai già scritto, puoi indicare: obiettivo del sito, esempi di
-          siti che ti piacciono, tempi e un budget indicativo.
+          Se puoi, aggiungi queste informazioni (anche rispondendo alla mail che riceverai):
         </p>
 
-        <p>
-          <a class="btn" href="../index.html">Torna alla home</a>
-          <a class="project-link" href="../projects.html" style="margin-left: 10px;"
-            >Vedi i progetti</a
-          >
-        </p>
+        <ul class="list-clean">
+          <li><strong>Obiettivo:</strong> contatti, prenotazioni, presentazione servizi, ecc.</li>
+          <li><strong>Pagine:</strong> quante pagine ti servono (anche indicativo).</li>
+          <li><strong>Esempi:</strong> 1–2 siti che ti piacciono.</li>
+          <li><strong>Tempi:</strong> quando vorresti pubblicare.</li>
+          <li><strong>Budget:</strong> range indicativo.</li>
+        </ul>
+
+        <div class="home-cta__actions">
+          <a class="btn btn-secondary" href="../contact.html">Torna ai contatti</a>
+          <a class="link-soft" href="../index.html">Torna alla home</a>
+        </div>
       </section>
     </main>
 
     <footer>
-      <p>&copy; <span id="year"></span> SunByte Studio</p>
+     <div class="footer-inner">
+       <p>&copy; <span id="year"></span> SunByte Studio</p>
+       <p>
+         <a href="privacy.html">Privacy</a> · 
+         <a href="cookie.html">Cookie</a>
+       </p>
+     </div>
     </footer>
 
     <script src="../assets/js/main.js"></script>

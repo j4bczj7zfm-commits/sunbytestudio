@@ -581,3 +581,22 @@ footer a:focus-visible {
 .faq-content p {
   margin: 0;
 }
+
+/* Bottone CTA con micro-testo sotto */
+.btn.btn-cta{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.2;
+}
+
+.btn.btn-cta .btn-sub{
+  display: block;
+  font-size: 0.9em;
+  font-weight: 600;
+  opacity: 0.85;
+}
