@@ -1,37 +1,97 @@
 :root {
-  /* Controlli nativi */
   color-scheme: light;
 
-  /* Background */
-  --bg-1: #ffde59;
-  --bg-2: #ff914d;
-  --bg-gradient: linear-gradient(90deg, var(--bg-1), var(--bg-2));
-  --bg: var(--bg-gradient);
-  --bg-solid: #ffde59;
+  /* =========================
+     FOUNDATION (Minimal / Modern)
+     Nota: qui definiamo SOLO token. Nessun CSS “di stile”.
+  ========================= */
 
-  /* Superfici */
+  /* Neutrals */
+  --bg: #f7f7f8;
+
   --surface: #ffffff;
-  --surface-alpha: rgba(255, 255, 255, 0.65);
-  --surface-2: rgba(246, 238, 228, 0.47); /* contorno sezione */
+  --surface-2: #f2f2f4; /* contrasto leggero per sezioni */
+  --surface-alpha: rgba(255, 255, 255, 0.78);
 
-  /* Testi */
-  --text: #000000;
-  --heading: #162023;
-  --muted: rgba(0, 0, 0, 0.65);
+  /* Text */
+  --text: #0f0f12;
+  --heading: #0b0b10;
+  --muted: rgba(15, 15, 18, 0.62);
 
-  /* UI */
-  --border: rgba(246, 238, 228, 0.47);
+  /* Borders */
+  --border: rgba(15, 15, 18, 0.10);
+  --border-strong: rgba(15, 15, 18, 0.16);
 
-  --box-text: rgba(255, 222, 89, 0.5);
-  --box-link: rgba(255, 222, 89, 0.7);
-  --box-footer: rgba(255, 222, 89, 0.5);
+  /* =========================
+     ACCENT SYSTEM
+     (brand, link, future CTA)
+  ========================= */
+  --accent: #111827;          /* brand/CTA (non per forza usato dai bottoni ora) */
+  --accent-contrast: #ffffff;
+  --accent-weak: rgba(17, 24, 39, 0.10);
 
-  --accent: #ffde59;
+  /* Link (fuori header) */
+  --link: var(--text);
+  --link-hover: rgba(15, 15, 18, 0.78);
+
+  /* Focus ring */
+  --focus: rgba(15, 15, 18, 0.22);
 
   /* Header */
-  --header-bg: #ffde59;
-  --header-text: #162023;
+  --header-bg: rgba(255, 255, 255, 0.72);
+  --header-text: var(--text);
 
-  /* Ombre */
-  --shadow-sm: 0 8px 18px rgba(0, 0, 0, 0.12);
+  /* Boxes / Cards */
+  --box-bg: var(--surface);
+  --box-border: var(--border);
+
+  /* Shadows */
+  --shadow-sm: 0 8px 22px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.12);
+  --shadow: 0 18px 52px rgba(0, 0, 0, 0.14);
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 14px;
+  --radius: 16px;
+  --radius-lg: 22px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-1: 120ms;
+  --dur-2: 180ms;
+
+  /* =========================
+     BUTTON TOKENS (Single source of truth)
+     Obiettivo attuale: bottoni grigio chiaro, puliti, identici ovunque.
+     Nota: questi token sono quelli usati da components.css:
+     --btn-bg, --btn-text, --btn-border, --btn-hover-bg, --btn-hover-border, --btn-active-bg, ecc.
+  ========================= */
+
+  /* sizing */
+  --btn-radius: 999px;
+  --btn-pad-y: 12px;
+  --btn-pad-x: 18px;
+  --btn-weight: 900;
+
+  /* primary button (ora: light gray) */
+  --btn-bg: #a2b0cc;                 /* grigio chiaro */
+  --btn-text: #000000;               /* testo scuro */
+  --btn-border: rgba(246, 246, 248, 0.548);
+
+  /* hover/active */
+  --btn-hover-bg: #fbfbfb;
+  --btn-hover-border: rgba(15, 15, 18, 0.18);
+  --btn-active-bg: #d6d7db;
+
+  /* opzionale: filtro hover (se vuoi “micro-contrast” senza cambiare bg) */
+  --btn-hover-filter: none;
+
+  /* secondario (outline) — stesso look ma più leggero */
+  --btn-secondary-bg: transparent;
+  --btn-secondary-text: var(--btn-text);
+  --btn-secondary-border: rgba(15, 15, 18, 0.14);
+  --btn-secondary-hover-bg: rgba(15, 15, 18, 0.06);
+  --btn-secondary-hover-border: rgba(15, 15, 18, 0.18);
+  --btn-secondary-active-bg: rgba(15, 15, 18, 0.08);
 }

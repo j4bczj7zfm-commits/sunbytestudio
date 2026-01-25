@@ -1,200 +1,53 @@
-/* Pages
-   Stili specifici di pagina.
-   Usa questo file solo quando una regola serve esclusivamente a:
-   - Home (index.html)
-   - Progetti (projects.html)
-   - Contatti (contact.html)
-*/
+/* =========================
+   PAGES
+   Solo regole realmente specifiche di singole pagine.
+   Tutto ciò che è “component” (card, btn, link-soft, form base, ecc.)
+   sta in components.css
+========================= */
 
-/* Home – about preview */
+/* =========================
+   Projects (projects.html)
+========================= */
 
-.home-about {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-}
-
-.home-about p {
-  max-width: 70ch;
-}
-
-.home-about__actions {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-
-.link-soft {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.link-soft:hover {
-  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
-  text-decoration: none;
-}
-
-/* Home – primary CTA */
-
-.home-cta {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-}
-
-.home-cta p {
-  max-width: 70ch;
-}
-
-.home-cta__actions {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-
-/* Projects page – center cards content like Canva */
-
-.page-projects main {
-  text-align: center;
-}
-
-/* Keep intro text readable when centered */
+/* Intro centrata e leggibile (comune anche altrove, ma qui è ok lasciarlo) */
 .page-projects main > p {
   max-width: 72ch;
   margin-left: auto;
   margin-right: auto;
 }
 
-.page-projects .projects-controls {
-  justify-content: center;
-}
-
-.page-projects .projects-grid {
-  justify-content: center;
-}
-
-.page-projects .project-card {
-  text-align: center;
-}
-
-/* Center text inside project cards */
-.page-projects .project-card h3,
-.page-projects .project-card p {
-  text-align: center;
-}
-
-/* Center feature lists inside cards (keep marker attached to text) */
+/* In projects vuoi le feature “centrate” invece che left */
 .page-projects .project-features {
-  margin: 12px 0;
-  padding: 0;
-  list-style: none;
   text-align: center;
 }
 
 .page-projects .project-features li {
-  margin: 6px 0;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: 8px;
-}
-
-.page-projects .project-features li::before {
-  content: "•";
-  color: var(--muted);
-}
-
-/* Remove left offset from feature bullets */
-.page-projects .project-tags {
   justify-content: center;
 }
 
-/* Footer area inside each card */
-.page-projects .project-footer {
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.page-projects .project-links {
-  justify-content: center;
-}
-
-/* Status with green dot on Live */
-.page-projects .project-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
+/* Status dot neutro (se in futuro vuoi verde “Live”, lo facciamo in theme.css) */
 .page-projects .project-status.live::before,
 .page-projects .project-status.coming::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  display: inline-block;
+  background: color-mix(in srgb, var(--muted) 40%, transparent);
 }
 
-.page-projects .project-status.live::before {
-  background: #16a34a;
-}
+/* =========================
+   Contact (contact.html)
+========================= */
 
-.page-projects .project-status.coming::before {
-  background: #9ca3af;
-}
-
-/* Contact page – centered like Canva */
-
-.page-contact main {
-  text-align: center;
-}
-
-/* Keep the intro text readable when centered */
 .page-contact main > p {
   max-width: 72ch;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Center the form block on the page */
+/* Centra il blocco form mantenendo campi leggibili */
 .page-contact form {
-  /* Ensure the form box is truly centered and not full-width */
   width: min(640px, 100%);
   margin: 24px auto 0;
   display: block;
 }
 
-/* Keep form fields aligned and readable */
-.page-contact fieldset {
-  border: 0;
-  padding: 0;
-  margin: 0;
-}
-
-.page-contact form > fieldset > div {
-  text-align: left; /* labels/inputs stay readable */
-}
-
-.page-contact .btn {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-/* Optional: helper note under the form */
 .page-contact .contact-note {
   margin: 16px auto 0;
   color: var(--muted);
@@ -202,26 +55,17 @@
   max-width: 72ch;
 }
 
-/* About page – lists */
-
-/*
-  Goal:
-  - Keep numbers/bullets but attach them to the text (no “floating” markers).
-  - Center the whole content block like the Canva layout.
-  - Avoid affecting other pages.
-*/
+/* =========================
+   About (about.html) — liste
+========================= */
 
 .page-about main ol,
 .page-about main ul {
-  /* center the list block */
   max-width: 72ch;
   margin: 16px auto 0;
 
-  /* keep marker + text together */
   padding-left: 0;
   list-style-position: inside;
-
-  /* match centered typography */
   text-align: center;
 }
 
@@ -241,40 +85,15 @@
   color: var(--text);
 }
 
-/* If a paragraph is present inside list items, keep it tight and readable */
 .page-about main ol li p,
 .page-about main ul li p {
   margin: 6px 0 0;
   color: var(--muted);
 }
 
-/* Sections spacing remains consistent */
-.page-about main section {
-  margin-bottom: 56px;
-}
-
-.page-about #cta {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-  text-align: center;
-}
-
-/* Ensure CTA text doesn’t look too wide when centered */
-.page-about #cta p {
-  max-width: 70ch;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Services page – lists (centered like Canva)
-
-  Goal:
-  - Keep bullets/numbers but attach them to the text (no “floating” markers).
-  - Center the whole content block.
-  - Avoid affecting other pages.
-*/
+/* =========================
+   Services (services.html)
+========================= */
 
 .page-services main ol,
 .page-services main ul {
@@ -283,7 +102,6 @@
 
   padding-left: 0;
   list-style-position: inside;
-
   text-align: center;
 }
 
@@ -296,6 +114,7 @@
   margin-bottom: 0;
 }
 
+/* FAQ dentro Services (specifico di pagina) */
 .page-services .faq {
   margin-top: 16px;
   display: grid;
@@ -303,10 +122,11 @@
 }
 
 .page-services .faq-item {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  background: var(--box-bg);
+  border: 1px solid var(--box-border);
+  border-radius: var(--radius-lg);
   padding: 16px;
+  box-shadow: var(--shadow-sm);
 }
 
 .page-services .faq-q {
@@ -319,10 +139,8 @@
   color: var(--muted);
 }
 
-/* Services page – price badge */
-
+/* Meta badges row (solo services) */
 .page-services .service-meta {
-  /* Stack badges row + note under it (so the note can be perfectly centered) */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -341,15 +159,34 @@
   flex-wrap: wrap;
 }
 
-.page-services .price-badge {
+.page-services .price-badge,
+.page-services .time-badge {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
+
   padding: 6px 10px;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
-  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
-  color: var(--text);
+
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+
   font-weight: 800;
+  font-size: 13px;
+}
+
+.page-services .price-badge {
+  color: var(--text);
+}
+
+.page-services .time-badge {
+  background: var(--surface);
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.page-services .time-badge::before {
+  content: "⏱";
   font-size: 13px;
 }
 
@@ -359,62 +196,32 @@
   margin: 0;
 }
 
-/* Services page – time badge */
-
-.page-services .time-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--muted);
-  font-weight: 600;
-  font-size: 13px;
-}
-
-.page-services .time-badge::before {
-  content: "⏱";
-  font-size: 13px;
-}
-
-/* Logo card: keep the meta row centered and the note under it */
-.page-services .service-meta > .meta-note {
-  display: block;
-}
-
-/* If the HTML is not updated yet, keep backward compatibility by centering when badges are direct children */
+/* Backward compatibility: se badges sono figli diretti */
 .page-services .service-meta > .price-badge,
 .page-services .service-meta > .time-badge {
   margin: 0;
 }
 
 /* =========================
-   404
+   404 (404.html)
 ========================= */
 
 .page-404 main {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100svh - 160px); /* header + footer */
+  min-height: calc(100svh - 160px);
 }
 
 .notfound {
   width: min(860px, 100%);
-  background: var(--box);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 28px;
   text-align: center;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
 }
 
 .notfound__code {
   margin: 0 0 8px;
   font-size: clamp(44px, 8vw, 72px);
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.02em;
   opacity: 0.7;
 }
@@ -426,33 +233,24 @@
 .notfound__text {
   margin: 0 auto 18px;
   max-width: 58ch;
-}
-
-.notfound__actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 10px;
+  color: var(--muted);
 }
 
 .notfound__hint {
   margin: 18px auto 0;
   max-width: 62ch;
   opacity: 0.85;
+  color: var(--muted);
 }
 
-/* Mobile */
 @media (max-width: 480px) {
   .notfound {
     padding: 20px;
-    border-radius: 18px;
   }
 }
 
 /* =========================
-   FAQ
+   FAQ (faq.html)
 ========================= */
 
 .page-faq .faq {
@@ -460,53 +258,33 @@
   margin: 0 auto;
 }
 
-.faq-item {
-  background: var(--box);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 22px;
-  margin-bottom: 18px;
-}
-
-.faq-item h2 {
+.page-faq .faq-item h2 {
   margin-top: 0;
   font-size: 20px;
 }
 
-.faq-item p {
+.page-faq .faq-item p {
   margin-bottom: 0;
+  color: var(--muted);
 }
 
-.faq-cta {
+.page-faq .faq-cta {
   text-align: center;
   margin-top: 40px;
 }
 
 /* =========================
-   Legal pages
+   Legal (privacy.html, cookie.html)
 ========================= */
 
 .legal {
   max-width: 900px;
   margin: 0 auto;
-  background: var(--box);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 26px;
 }
-
 
 /* =========================
-   Pricing page (prezzi.html)
+   Pricing (prezzi.html)
 ========================= */
-
-.page-pricing .pricing-hero-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 18px;
-}
 
 .page-pricing .pricing-grid {
   display: grid;
@@ -516,13 +294,8 @@
 }
 
 .page-pricing .pricing-card {
-  background: var(--box-bg);
-  border: 1px solid var(--box-border);
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: var(--shadow);
-  min-width: 0;              /* prevents iOS grid overflow */
-  overflow-wrap: anywhere;   /* prevents long strings from pushing layout */
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .page-pricing .pricing-card h2 {
@@ -535,8 +308,8 @@
 }
 
 .page-pricing .pricing-card--featured {
-  border-color: color-mix(in srgb, var(--accent) 40%, var(--box-border));
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+  border-color: color-mix(in srgb, var(--accent) 18%, var(--box-border));
+  box-shadow: var(--shadow);
 }
 
 .page-pricing .pricing-subtitle {
@@ -548,6 +321,7 @@
   max-width: 70ch;
   margin: 0 auto;
   opacity: 0.9;
+  color: var(--muted);
 }
 
 .page-pricing .pricing-badges {
@@ -558,26 +332,22 @@
   margin: 14px 0 10px;
 }
 
-.page-pricing .pricing-badges--center {
-  justify-content: center;
-}
-
 .page-pricing .badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   padding: 8px 12px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--accent) 45%, transparent);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  font-weight: 700;
+
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+
+  font-weight: 800;
   line-height: 1.2;
-  white-space: normal;       /* allow wrap on iPhone */
+
+  white-space: normal;
   max-width: 100%;
 }
 
 .page-pricing .badge-soft {
-  background: color-mix(in srgb, var(--accent) 25%, transparent);
+  opacity: 0.9;
 }
 
 .page-pricing .pricing-list {
@@ -597,81 +367,16 @@
 .page-pricing .pricing-note {
   margin-top: 10px;
   font-size: 0.9em;
-  opacity: 0.8;
+  opacity: 0.85;
+  color: var(--muted);
 }
 
 .page-pricing .pricing-note--center {
   text-align: center;
 }
 
-.page-pricing .pricing-box {
-  background: var(--box-bg);
-  border: 1px solid var(--box-border);
-  border-radius: 18px;
-  padding: 22px;
-  box-shadow: var(--shadow);
-  min-width: 0;
-}
-
-.page-pricing .pricing-cols {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 14px;
-}
-
-.page-pricing .pricing-col {
-  background: color-mix(in srgb, var(--accent) 18%, transparent);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 16px;
-  padding: 14px;
-  min-width: 0;
-}
-
-/* Table: must scroll on mobile without enlarging the page */
-.page-pricing .pricing-table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
-  margin-top: 14px;
-  max-width: 100%;
-}
-
-.page-pricing .pricing-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 640px; /* desktop readability */
-}
-
-.page-pricing .pricing-table th,
-.page-pricing .pricing-table td {
-  padding: 12px 14px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  text-align: left;
-  vertical-align: top;
-}
-
-.page-pricing .pricing-table thead th {
-  font-weight: 800;
-}
-
-.page-pricing .pricing-extras {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 14px;
-}
-
-.page-pricing .pricing-extra {
-  background: color-mix(in srgb, var(--accent) 18%, transparent);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 16px;
-  padding: 14px;
-  min-width: 0;
-}
-
+.page-pricing .pricing-cols,
+.page-pricing .pricing-extras,
 .page-pricing .pricing-maintenance {
   display: grid;
   gap: 14px;
@@ -679,12 +384,45 @@
   margin-top: 14px;
 }
 
+.page-pricing .pricing-col,
+.page-pricing .pricing-extra,
 .page-pricing .pricing-maint-card {
-  background: color-mix(in srgb, var(--accent) 18%, transparent);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 16px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   padding: 14px;
   min-width: 0;
+}
+
+/* Table scroll on mobile */
+.page-pricing .pricing-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+
+  margin-top: 14px;
+  max-width: 100%;
+}
+
+.page-pricing .pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+.page-pricing .pricing-table th,
+.page-pricing .pricing-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.page-pricing .pricing-table thead th {
+  font-weight: 900;
 }
 
 /* Responsive */
@@ -699,13 +437,11 @@
     grid-template-columns: 1fr;
   }
 
-  /* Allow table to scroll without forcing page wider */
   .page-pricing .pricing-table {
     min-width: 0;
   }
 }
 
-/* Extra small: stack hero actions */
 @media (max-width: 390px) {
   .page-pricing .pricing-hero-actions a {
     width: 100%;
