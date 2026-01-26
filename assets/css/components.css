@@ -73,7 +73,9 @@ form,
   .service,
   .project-card,
   .pricing-card {
-    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    transition: transform var(--dur-2, 180ms) var(--ease, ease),
+      box-shadow var(--dur-2, 180ms) var(--ease, ease),
+      border-color var(--dur-2, 180ms) var(--ease, ease);
   }
 
   .service:hover,
@@ -103,13 +105,12 @@ form,
 }
 
 /* =========================
-   BUTTON SYSTEM (Single Source of Truth)
+   CLICKABLE SYSTEM (Single Source of Truth)
 
-   Regola pratica:
-   - TUTTI questi selettori diventano identici:
-     .btn, .btn-secondary, .link-soft, .project-link, .filter-btn
-   - Quindi: niente più bottoni “celestini/neri/bianchi”.
-   - Colori gestiti da variabili --btn-* (le mettiamo in theme.css).
+   Nota:
+   - Unifichiamo volutamente: .btn, .btn-secondary, .link-soft, .project-link, .filter-btn
+   - I colori/stati vengono SOLO da --btn-* (theme.css)
+   - Hover solo su dispositivi con hover reale (evita “stati bloccati” su mobile)
 ========================= */
 
 :where(a.btn, button.btn, input.btn, .btn,
@@ -129,7 +130,6 @@ form,
 
   border-radius: var(--btn-radius, 999px);
 
-  font: inherit;
   font-weight: var(--btn-weight, 900);
   line-height: 1;
   letter-spacing: -0.01em;
@@ -139,22 +139,37 @@ form,
 
   background: var(--btn-bg);
   color: var(--btn-text);
-  border: 1px solid var(--btn-border);
+  border: 1px solid var(--btn-border, transparent);
 
-  transition: transform 140ms ease, filter 140ms ease, background 140ms ease,
-    border-color 140ms ease;
+  transition:
+    transform var(--dur-2, 180ms) var(--ease, ease),
+    filter var(--dur-2, 180ms) var(--ease, ease),
+    background var(--dur-2, 180ms) var(--ease, ease),
+    border-color var(--dur-2, 180ms) var(--ease, ease),
+    box-shadow var(--dur-2, 180ms) var(--ease, ease);
 }
 
-:where(a.btn, button.btn, input.btn, .btn,
-       a.btn-secondary, button.btn-secondary, input.btn-secondary, .btn-secondary,
-       a.link-soft, .link-soft,
-       a.project-link, .project-link,
-       button.filter-btn, .filter-btn):hover {
-  text-decoration: none;
-  transform: translateY(-1px);
-  background: var(--btn-hover-bg);
-  border-color: var(--btn-hover-border);
-  filter: var(--btn-hover-filter, none);
+/* evita differenze tra <button> e <a> */
+button.btn,
+button.btn-secondary,
+button.filter-btn {
+  font: inherit;
+}
+
+/* Hover/active/focus */
+@media (hover: hover) and (pointer: fine) {
+  :where(a.btn, button.btn, input.btn, .btn,
+         a.btn-secondary, button.btn-secondary, input.btn-secondary, .btn-secondary,
+         a.link-soft, .link-soft,
+         a.project-link, .project-link,
+         button.filter-btn, .filter-btn):hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+    background: var(--btn-hover-bg, var(--btn-bg));
+    border-color: var(--btn-hover-border, var(--btn-border));
+    filter: var(--btn-hover-filter, none);
+    box-shadow: var(--btn-shadow-hover, 0 14px 30px rgba(0,0,0,0.10));
+  }
 }
 
 :where(a.btn, button.btn, input.btn, .btn,
@@ -163,7 +178,8 @@ form,
        a.project-link, .project-link,
        button.filter-btn, .filter-btn):active {
   transform: translateY(0);
-  background: var(--btn-active-bg);
+  background: var(--btn-active-bg, var(--btn-hover-bg, var(--btn-bg)));
+  box-shadow: var(--btn-shadow-active, 0 8px 18px rgba(0,0,0,0.06));
 }
 
 :where(a.btn, button.btn, input.btn, .btn,
@@ -175,7 +191,16 @@ form,
   outline-offset: 3px;
 }
 
-/* “Disabled” coerente */
+/* Shadow base (premium, ma controllabile via token) */
+:where(a.btn, button.btn, input.btn, .btn,
+       a.btn-secondary, button.btn-secondary, input.btn-secondary, .btn-secondary,
+       a.link-soft, .link-soft,
+       a.project-link, .project-link,
+       button.filter-btn, .filter-btn) {
+  box-shadow: var(--btn-shadow, 0 1px 0 rgba(0,0,0,0.04), 0 10px 22px rgba(0,0,0,0.06));
+}
+
+/* Disabled coerente */
 :where(a.project-link.disabled, .project-link.disabled,
        button.filter-btn:disabled, .filter-btn:disabled,
        button.btn:disabled, .btn:disabled,
@@ -184,6 +209,8 @@ form,
   cursor: not-allowed;
   pointer-events: none;
   transform: none;
+  filter: none;
+  box-shadow: none;
 }
 
 /* =========================
@@ -392,7 +419,9 @@ textarea {
   font-family: inherit;
   font-size: 16px;
 
-  transition: border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
+  transition: border-color var(--dur-2, 180ms) var(--ease, ease),
+    box-shadow var(--dur-2, 180ms) var(--ease, ease),
+    background var(--dur-2, 180ms) var(--ease, ease);
 }
 
 input::placeholder,

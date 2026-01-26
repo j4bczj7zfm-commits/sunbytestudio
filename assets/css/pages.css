@@ -1,20 +1,25 @@
 /* =========================
    PAGES
    Solo regole realmente specifiche di singole pagine.
-   Tutto ciò che è “component” (card, btn, link-soft, form base, ecc.)
+   Tutto ciò che è “component” (card, btn, form base, ecc.)
    sta in components.css
 ========================= */
 
 /* =========================
-   Projects (projects.html)
+   Shared page-intro readability
+   (solo alcune pagine hanno un intro testuale sotto H1)
 ========================= */
 
-/* Intro centrata e leggibile (comune anche altrove, ma qui è ok lasciarlo) */
-.page-projects main > p {
+.page-projects main > p,
+.page-contact main > p {
   max-width: 72ch;
   margin-left: auto;
   margin-right: auto;
 }
+
+/* =========================
+   Projects (projects.html)
+========================= */
 
 /* In projects vuoi le feature “centrate” invece che left */
 .page-projects .project-features {
@@ -25,7 +30,7 @@
   justify-content: center;
 }
 
-/* Status dot neutro (se in futuro vuoi verde “Live”, lo facciamo in theme.css) */
+/* Status dot neutro */
 .page-projects .project-status.live::before,
 .page-projects .project-status.coming::before {
   background: color-mix(in srgb, var(--muted) 40%, transparent);
@@ -34,12 +39,6 @@
 /* =========================
    Contact (contact.html)
 ========================= */
-
-.page-contact main > p {
-  max-width: 72ch;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 /* Centra il blocco form mantenendo campi leggibili */
 .page-contact form {
@@ -56,7 +55,7 @@
 }
 
 /* =========================
-   About (about.html) — liste
+   About (about.html) — liste (centrate come Canva)
 ========================= */
 
 .page-about main ol,
@@ -121,12 +120,9 @@
   gap: 14px;
 }
 
+/* Se vuoi che le FAQ in Services siano “card-like” */
 .page-services .faq-item {
-  background: var(--box-bg);
-  border: 1px solid var(--box-border);
-  border-radius: var(--radius-lg);
   padding: 16px;
-  box-shadow: var(--shadow-sm);
 }
 
 .page-services .faq-q {
@@ -196,12 +192,6 @@
   margin: 0;
 }
 
-/* Backward compatibility: se badges sono figli diretti */
-.page-services .service-meta > .price-badge,
-.page-services .service-meta > .time-badge {
-  margin: 0;
-}
-
 /* =========================
    404 (404.html)
 ========================= */
@@ -241,12 +231,6 @@
   max-width: 62ch;
   opacity: 0.85;
   color: var(--muted);
-}
-
-@media (max-width: 480px) {
-  .notfound {
-    padding: 20px;
-  }
 }
 
 /* =========================
@@ -305,11 +289,6 @@
 .page-pricing .pricing-card--wide {
   grid-column: 1 / -1;
   text-align: center;
-}
-
-.page-pricing .pricing-card--featured {
-  border-color: color-mix(in srgb, var(--accent) 18%, var(--box-border));
-  box-shadow: var(--shadow);
 }
 
 .page-pricing .pricing-subtitle {

@@ -1,7 +1,8 @@
 /* =========================
    LAYOUT
    Container, header/nav, footer, responsive
-   Nota: qui gestiamo layout + centratura globale.
+   Nota: qui gestiamo layout/struttura.
+   La centratura globale del testo è in base.css.
 ========================= */
 
 /* =========================
@@ -18,34 +19,13 @@ main {
   flex-direction: column;
   align-items: center;
 
-  /* Centratura globale testo (tutte le pagine) */
+  /* baseline: tutte le pagine restano centrate */
   text-align: center;
 }
 
-/* Le section occupano tutta la larghezza del container,
-   ma il contenuto interno rimane centrato per default */
 main section {
   width: 100%;
   margin-bottom: 56px;
-}
-
-/* Centratura “sicura” dei blocchi testuali */
-main h1,
-main h2,
-main h3,
-main p {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Liste: blocco centrato, marker dentro (come volevi) */
-main ul,
-main ol {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0;
-  list-style-position: inside;
-  text-align: center;
 }
 
 /* =========================
@@ -98,8 +78,8 @@ main ol {
 
 /* =========================
    Header links / nav
-   Nota: qui NON stiliamo bottoni. Se vuoi un bottone in header,
-   usa .btn dal components.css.
+   Nota: qui stiliamo NAV, non i bottoni CTA.
+   Se vuoi un bottone in header, usa class="btn" in HTML.
 ========================= */
 
 .menu {
@@ -117,7 +97,11 @@ main ol {
   padding: 8px 10px;
   border-radius: var(--radius-sm);
 
-  transition: background var(--dur-2, 180ms) var(--ease, ease),
+  /* evita layout shift: bordo sempre presente (trasparente) */
+  border: 1px solid transparent;
+
+  transition:
+    background var(--dur-2, 180ms) var(--ease, ease),
     transform var(--dur-2, 180ms) var(--ease, ease),
     border-color var(--dur-2, 180ms) var(--ease, ease);
 }
@@ -134,7 +118,23 @@ main ol {
 .site-header .menu a[aria-current="page"],
 .site-header .home-link[aria-current="page"] {
   background: color-mix(in srgb, var(--surface) 78%, var(--accent) 22%);
-  border: 1px solid color-mix(in srgb, var(--accent) 14%, var(--border));
+  border-color: color-mix(in srgb, var(--accent) 14%, var(--border));
+}
+
+.site-header .menu a[aria-current="page"] {
+  position: relative;
+}
+
+/* underline indicator */
+.site-header .menu a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: -8px;
+  height: 2px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--text) 55%, transparent);
 }
 
 /* =========================
@@ -154,7 +154,8 @@ main ol {
   cursor: pointer;
   font-weight: 900;
 
-  transition: border-color var(--dur-2, 180ms) var(--ease, ease),
+  transition:
+    border-color var(--dur-2, 180ms) var(--ease, ease),
     transform var(--dur-2, 180ms) var(--ease, ease),
     background var(--dur-2, 180ms) var(--ease, ease);
 }
@@ -182,7 +183,8 @@ main ol {
   cursor: pointer;
   font-weight: 900;
 
-  transition: border-color var(--dur-2, 180ms) var(--ease, ease),
+  transition:
+    border-color var(--dur-2, 180ms) var(--ease, ease),
     transform var(--dur-2, 180ms) var(--ease, ease),
     background var(--dur-2, 180ms) var(--ease, ease);
 }
@@ -296,7 +298,7 @@ footer a:focus-visible {
   .site-header .menu a[aria-current="page"],
   .site-header .home-link[aria-current="page"] {
     background: color-mix(in srgb, var(--surface-2) 78%, var(--accent) 22%);
-    border: 1px solid color-mix(in srgb, var(--accent) 14%, var(--border));
+    border-color: color-mix(in srgb, var(--accent) 14%, var(--border));
   }
 }
 

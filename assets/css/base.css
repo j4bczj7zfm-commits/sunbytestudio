@@ -1,9 +1,5 @@
 /* =========================
    Base / Reset
-   - Normalizza elementi
-   - Tipografia globale
-   - Accessibilità (focus, skip-link, sr-only)
-   - Helper minimi (no layout di pagina qui)
 ========================= */
 
 *,
@@ -25,7 +21,30 @@ body {
   display: flex;
   flex-direction: column;
 
-  background: var(--bg);
+  /* Dashboard background (token-driven) */
+  background:
+    radial-gradient(
+      1000px 600px at 18% -10%,
+      var(--bg-spot-1, rgba(129, 171, 255, 0.22)),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 520px at 88% 8%,
+      var(--bg-spot-2, rgba(129, 171, 255, 0.14)),
+      transparent 62%
+    ),
+    linear-gradient(
+      180deg,
+      var(--bg-grad-1, #d6defa) 0%,
+      var(--bg-grad-2, hsl(229, 100%, 91%)) 100%
+    );
+
+  /* Nice on desktop; problematic on iOS sometimes (handled below) */
+  background-attachment: fixed;
+
+  /* Optional: reduce gradient banding a bit */
+  background-blend-mode: normal;
+
   color: var(--text);
 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -44,6 +63,13 @@ body {
   overflow-x: hidden;
 }
 
+/* iOS/Safari: fixed backgrounds can stutter */
+@supports (-webkit-touch-callout: none) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
 /* =========================
    Media
 ========================= */
@@ -55,6 +81,12 @@ canvas {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+img,
+video {
+  border-radius: var(--radius-lg);
+  background: var(--surface-2);
 }
 
 /* =========================
@@ -126,7 +158,6 @@ a:hover {
   outline-offset: 3px;
 }
 
-/* sensible rounding on focus for interactive elements */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -173,15 +204,27 @@ select:focus-visible {
 }
 
 /* =========================
-   Small UI defaults (optional, safe)
+   Small UI defaults
 ========================= */
 
 ::selection {
-  background: rgba(15, 15, 18, 0.12);
+  background: rgba(129, 171, 255, 0.28);
 }
 
 hr {
   border: 0;
   border-top: 1px solid var(--border);
   margin: 24px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
