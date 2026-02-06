@@ -12,20 +12,20 @@
 main {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 36px 24px;
+  padding: var(--space-10, 36px) var(--space-7, 24px);
   flex: 1;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  /* baseline: tutte le pagine restano centrate */
+  /* ridondante se già in base.css, ma lo lasciamo per sicurezza */
   text-align: center;
 }
 
 main section {
   width: 100%;
-  margin-bottom: 56px;
+  margin-bottom: var(--space-12, 56px);
 }
 
 /* =========================
@@ -45,7 +45,7 @@ main section {
   z-index: 100;
 
   min-height: 72px;
-  padding: 0 28px;
+  padding: 0 var(--space-9, 28px);
 
   border-bottom: 1px solid var(--border);
 
@@ -57,7 +57,7 @@ main section {
 .header-left {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: var(--space-6, 16px);
   min-width: 0;
 }
 
@@ -72,29 +72,26 @@ main section {
 /* Right actions */
 .header-actions {
   display: flex;
-  gap: 10px;
+  gap: var(--space-3, 10px);
   align-items: center;
 }
 
 /* =========================
    Header links / nav
    Nota: qui stiliamo NAV, non i bottoni CTA.
-   Se vuoi un bottone in header, usa class="btn" in HTML.
 ========================= */
 
 .menu {
   display: flex;
-  gap: 14px;
+  gap: var(--space-5, 14px);
   align-items: center;
 }
 
-/* Link nav (desktop) */
-.site-header .menu a,
-.site-header .home-link {
+.site-header :is(.menu a, .home-link) {
   color: var(--header-text);
   text-decoration: none;
 
-  padding: 8px 10px;
+  padding: var(--space-2, 8px) var(--space-3, 10px);
   border-radius: var(--radius-sm);
 
   /* evita layout shift: bordo sempre presente (trasparente) */
@@ -106,49 +103,46 @@ main section {
     border-color var(--dur-2, 180ms) var(--ease, ease);
 }
 
-/* Hover nav */
-.site-header .menu a:hover,
-.site-header .home-link:hover {
+.site-header :is(.menu a, .home-link):hover {
   background: color-mix(in srgb, var(--surface) 86%, transparent);
   text-decoration: none;
   transform: translateY(-1px);
 }
 
-/* Current page (nav state) */
-.site-header .menu a[aria-current="page"],
-.site-header .home-link[aria-current="page"] {
+.site-header :is(.menu a, .home-link)[aria-current="page"] {
   background: color-mix(in srgb, var(--surface) 78%, var(--accent) 22%);
   border-color: color-mix(in srgb, var(--accent) 14%, var(--border));
 }
 
+/* underline indicator solo sul menu */
 .site-header .menu a[aria-current="page"] {
   position: relative;
 }
 
-/* underline indicator */
 .site-header .menu a[aria-current="page"]::after {
   content: "";
   position: absolute;
-  left: 10px;
-  right: 10px;
-  bottom: -8px;
-  height: 2px;
+  left: var(--nav-underline-inset, 10px);
+  right: var(--nav-underline-inset, 10px);
+  bottom: calc(-1 * var(--nav-underline-offset, 8px));
+  height: var(--nav-underline-height, 2px);
   border-radius: 999px;
   background: color-mix(in srgb, var(--text) 55%, transparent);
 }
 
 /* =========================
-   Menu toggle (mobile)
+   Header utility buttons (mobile + theme)
 ========================= */
 
-.menu-toggle {
+.menu-toggle,
+.theme-toggle {
   display: none;
 
   background: transparent;
   border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
   color: var(--header-text);
 
-  padding: 8px 12px;
+  padding: var(--space-2, 8px) var(--space-4, 12px);
   border-radius: var(--radius-sm);
 
   cursor: pointer;
@@ -160,41 +154,14 @@ main section {
     background var(--dur-2, 180ms) var(--ease, ease);
 }
 
-.menu-toggle:hover {
-  transform: translateY(-1px);
-  border-color: color-mix(in srgb, var(--accent) 18%, var(--border));
-  background: color-mix(in srgb, var(--surface) 88%, transparent);
-}
-
-.menu-toggle:focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-}
-
-/* Theme toggle (future-proof) */
-.theme-toggle {
-  background: transparent;
-  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
-  color: var(--header-text);
-
-  padding: 8px 12px;
-  border-radius: var(--radius-sm);
-
-  cursor: pointer;
-  font-weight: 900;
-
-  transition:
-    border-color var(--dur-2, 180ms) var(--ease, ease),
-    transform var(--dur-2, 180ms) var(--ease, ease),
-    background var(--dur-2, 180ms) var(--ease, ease);
-}
-
+.menu-toggle:hover,
 .theme-toggle:hover {
   transform: translateY(-1px);
   border-color: color-mix(in srgb, var(--accent) 18%, var(--border));
   background: color-mix(in srgb, var(--surface) 88%, transparent);
 }
 
+.menu-toggle:focus-visible,
 .theme-toggle:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 3px;
@@ -208,16 +175,16 @@ footer {
   width: 100%;
   background: var(--surface);
   border-top: 1px solid var(--border);
-  padding: 16px 18px;
+  padding: var(--space-6, 16px) var(--space-6, 18px);
 }
 
 .footer-inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 6px;
+  padding: 0 var(--space-2, 6px);
 
   display: flex;
-  gap: 10px;
+  gap: var(--space-3, 10px);
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -251,52 +218,45 @@ footer a:focus-visible {
 ========================= */
 
 @media (max-width: 700px) {
-  .menu-toggle {
-    display: inline-flex;
-  }
+  .menu-toggle { display: inline-flex; }
 
   .menu {
     display: none;
     position: absolute;
 
-    top: calc(100% + 10px);
-    left: 14px;
-    right: 14px;
+    top: calc(100% + var(--space-3, 10px));
+    left: var(--space-5, 14px);
+    right: var(--space-5, 14px);
 
     background: color-mix(in srgb, var(--surface) 92%, transparent);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
 
-    padding: 12px;
+    padding: var(--space-4, 12px);
 
     flex-direction: column;
-    gap: 10px;
+    gap: var(--space-3, 10px);
 
     box-shadow: var(--shadow);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
 
-  .menu.is-open {
-    display: flex;
-  }
+  .menu.is-open { display: flex; }
 
-  .site-header .menu a,
-  .site-header .home-link {
+  .site-header :is(.menu a, .home-link) {
     width: 100%;
     justify-content: center;
-    padding: 10px 12px;
+    padding: var(--space-3, 10px) var(--space-4, 12px);
     color: var(--text);
   }
 
-  .site-header .menu a:hover,
-  .site-header .home-link:hover {
+  .site-header :is(.menu a, .home-link):hover {
     background: var(--surface-2);
     transform: none;
   }
 
-  .site-header .menu a[aria-current="page"],
-  .site-header .home-link[aria-current="page"] {
+  .site-header :is(.menu a, .home-link)[aria-current="page"] {
     background: color-mix(in srgb, var(--surface-2) 78%, var(--accent) 22%);
     border-color: color-mix(in srgb, var(--accent) 14%, var(--border));
   }
@@ -308,20 +268,14 @@ footer a:focus-visible {
 
 @media (max-width: 480px) {
   .site-header {
-    padding-left: max(14px, env(safe-area-inset-left));
-    padding-right: max(14px, env(safe-area-inset-right));
+    padding-left: max(var(--space-5, 14px), env(safe-area-inset-left));
+    padding-right: max(var(--space-5, 14px), env(safe-area-inset-right));
     min-height: 68px;
   }
 
-  .header-left {
-    gap: 10px;
-  }
+  .header-left { gap: var(--space-4, 10px); }
 
-  main {
-    padding: 28px 16px;
-  }
+  main { padding: var(--space-9, 28px) var(--space-6, 16px); }
 
-  .footer-inner {
-    padding: 0;
-  }
+  .footer-inner { padding: 0; }
 }

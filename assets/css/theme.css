@@ -1,19 +1,29 @@
 :root {
   color-scheme: light;
 
-  /* =========================
-     FOUNDATION – Dashboard / Professional
-  ========================= */
+  /* =========================================================
+     DESIGN TOKENS (solo token, zero stile)
+     Glossario:
+     - surface: “superfici”/layer su cui poggia il contenuto (card, header, box)
+     - accent: colore d’azione/brand (non necessariamente uguale ai bottoni)
+     - CTA: Call To Action = elementi cliccabili principali (qui guidati da --btn-*)
+  ========================================================= */
 
   /* Background */
   --bg: #ced8f7;
 
-  /* Surfaces */
-  --surface: #e3e9ff;            /* blu chiaro professionale */
-  --surface-2: #e3e9ff;          /* blu-grigio soft (dashboard) */
-  --surface-3: #c0ccf5;          /* accento leggero */
+  /* Background gradient tokens (usati da base.css) */
+  --bg-spot-1: rgba(129, 171, 255, 0.22);
+  --bg-spot-2: rgba(129, 171, 255, 0.14);
+  --bg-grad-1: #c7d5ff; /* top */
+  --bg-grad-2: #a3baff; /* bottom */
 
-  /* Text */
+  /* Surfaces (layering) */
+  --surface: #cdd8ff;   /* surface principale (card/header) */
+  --surface-2: #cdd8ff; /* surface alternativa (badge/aree) */
+  --surface-3: #c0ccf5; /* layer extra (opzionale) */
+
+  /* Typography */
   --text: #000000;
   --heading: #0b0b10;
   --muted: rgba(0, 0, 0, 0.62);
@@ -21,40 +31,31 @@
   /* Borders */
   --border: rgba(15, 15, 18, 0.10);
   --border-strong: rgba(15, 15, 18, 0.16);
-  
-    /* Background gradient tokens (dashboard) */
-  --bg-spot-1: rgba(129, 171, 255, 0.22);
-  --bg-spot-2: rgba(129, 171, 255, 0.14);
-  --bg-grad-1: #d6defa;
-  --bg-grad-2: hsl(229, 100%, 91%);
 
-  /* =========================
-     BRAND / ACCENT
-  ========================= */
-
+  /* Brand / Accent (UI system) */
   --brand: #cdd8ff;
-  --brand-weak: rgba(205, 216, 255, 0.22);
+  --brand-weak: rgba(129, 171, 255, 0.18);
 
   --accent: #111827;
-  --accent-contrast: #ffffff;
+  --accent-contrast: #111827;
   --accent-weak: rgba(17, 24, 39, 0.10);
 
   /* Links */
   --link: rgba(15, 15, 18, 0.92);
   --link-hover: rgba(15, 15, 18, 0.75);
 
-  /* Focus (blu coerente con brand) */
+  /* Focus ring */
   --focus: rgba(129, 171, 255, 0.35);
 
   /* Header */
   --header-bg: var(--surface);
   --header-text: var(--text);
 
-  /* Cards */
+  /* Cards / Boxes */
   --box-bg: var(--surface);
   --box-border: var(--border);
 
-  /* Shadows */
+  /* Shadows (cards/surfaces) */
   --shadow-sm: 0 8px 22px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.12);
   --shadow: 0 18px 52px rgba(0, 0, 0, 0.14);
@@ -70,16 +71,34 @@
   --dur-1: 120ms;
   --dur-2: 180ms;
 
-  /* =========================
-     BUTTON TOKENS (Single source of truth)
-  ========================= */
+  /* =========================================================
+     SPACING SCALE (per coerenza globale)
+     Nota: non cambia nulla finché non lo usiamo negli altri file.
+  ========================================================= */
+  --space-1: 6px;
+  --space-2: 8px;
+  --space-3: 10px;
+  --space-4: 12px;
+  --space-5: 14px;
+  --space-6: 16px;
+  --space-7: 18px;
+  --space-8: 22px;
+  --space-9: 28px;
+  --space-10: 36px;
+  --space-11: 56px;
 
+  /* =========================================================
+     CTA / BUTTON TOKENS
+     Single source of truth per "clickable system" (components.css)
+  ========================================================= */
+
+  /* sizing */
   --btn-radius: 999px;
   --btn-pad-y: 12px;
   --btn-pad-x: 18px;
   --btn-weight: 900;
 
-  /* Primary button */
+  /* Primary */
   --btn-bg: #abc7ff;
   --btn-text: #0b0b10;
   --btn-border: rgba(15, 15, 18, 0.12);
@@ -90,7 +109,12 @@
 
   --btn-hover-filter: none;
 
-  /* Secondary */
+  /* Clickable shadows (per eliminare hardcode in components.css) */
+  --btn-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 10px 22px rgba(0, 0, 0, 0.06);
+  --btn-shadow-hover: 0 1px 0 rgba(0, 0, 0, 0.05), 0 14px 30px rgba(0, 0, 0, 0.10);
+  --btn-shadow-active: 0 1px 0 rgba(0, 0, 0, 0.03), 0 8px 18px rgba(0, 0, 0, 0.06);
+
+  /* Secondary tokens (tenuti per futuro: oggi non cambiano nulla) */
   --btn-secondary-bg: transparent;
   --btn-secondary-text: var(--text);
   --btn-secondary-border: rgba(15, 15, 18, 0.16);

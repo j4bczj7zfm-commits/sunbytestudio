@@ -1,11 +1,10 @@
 /* =========================
    COMPONENTS
-   Buttons, links, cards, tags, forms, utilities
-
-   Obiettivo:
-   - Base solida e minimale
-   - Tutti i cliccabili coerenti OVUNQUE
-   - Un solo “button system” (niente duplicazioni)
+   - Cards/Boxes
+   - Clickables (single source of truth)
+   - Badges/Tags
+   - Grids
+   - Forms
 ========================= */
 
 /* =========================
@@ -47,7 +46,7 @@ form,
   box-shadow: var(--shadow-sm);
 }
 
-/* Padding standard per contenitori “box” */
+/* Box padding (usa spacing scale se presente) */
 .hero,
 .home-about,
 .home-cta,
@@ -57,23 +56,24 @@ form,
 .legal,
 .notfound,
 .pricing-box {
-  padding: 28px;
+  padding: var(--space-9, 28px);
 }
 
-/* Card più compatte */
+/* Card padding (usa spacing scale se presente) */
 .service,
 .project-card,
 .pricing-card,
 .page-faq .faq-item {
-  padding: 22px;
+  padding: var(--space-8, 22px);
 }
 
-/* Hover raffinato (solo dispositivi con hover reale) */
+/* Hover (solo dispositivi con hover reale) */
 @media (hover: hover) and (pointer: fine) {
   .service,
   .project-card,
   .pricing-card {
-    transition: transform var(--dur-2, 180ms) var(--ease, ease),
+    transition:
+      transform var(--dur-2, 180ms) var(--ease, ease),
       box-shadow var(--dur-2, 180ms) var(--ease, ease),
       border-color var(--dur-2, 180ms) var(--ease, ease);
   }
@@ -82,7 +82,7 @@ form,
   .project-card:hover,
   .pricing-card:hover {
     transform: translateY(-2px);
-    border-color: color-mix(in srgb, var(--accent) 18%, var(--border));
+    border-color: var(--border-strong);
     box-shadow: var(--shadow);
   }
 }
@@ -96,7 +96,7 @@ form,
 }
 
 .hero h1 {
-  margin: 0 0 12px;
+  margin: 0 0 var(--space-4, 12px);
 }
 
 .hero p {
@@ -105,19 +105,17 @@ form,
 }
 
 /* =========================
-   CLICKABLE SYSTEM (Single Source of Truth)
-
-   Nota:
-   - Unifichiamo volutamente: .btn, .btn-secondary, .link-soft, .project-link, .filter-btn
-   - I colori/stati vengono SOLO da --btn-* (theme.css)
-   - Hover solo su dispositivi con hover reale (evita “stati bloccati” su mobile)
+   CLICKABLES (Single Source of Truth)
+   Unifica: .btn, .btn-secondary, .link-soft, .project-link, .filter-btn
 ========================= */
 
-:where(a.btn, button.btn, input.btn, .btn,
-       a.btn-secondary, button.btn-secondary, input.btn-secondary, .btn-secondary,
-       a.link-soft, .link-soft,
-       a.project-link, .project-link,
-       button.filter-btn, .filter-btn) {
+:where(
+  a.btn, button.btn, input.btn, .btn,
+  a.btn-secondary, button.btn-secondary, input.btn-secondary, .btn-secondary,
+  a.link-soft, .link-soft,
+  a.project-link, .project-link,
+  button.filter-btn, .filter-btn
+) {
   -webkit-appearance: none;
   appearance: none;
 
@@ -127,9 +125,9 @@ form,
 
   min-height: 44px;
   padding: var(--btn-pad-y, 12px) var(--btn-pad-x, 18px);
-
   border-radius: var(--btn-radius, 999px);
 
+  font: inherit;
   font-weight: var(--btn-weight, 900);
   line-height: 1;
   letter-spacing: -0.01em;
@@ -141,6 +139,9 @@ form,
   color: var(--btn-text);
   border: 1px solid var(--btn-border, transparent);
 
+  /* Ombre controllate da token (theme.css) */
+  box-shadow: var(--btn-shadow);
+
   transition:
     transform var(--dur-2, 180ms) var(--ease, ease),
     filter var(--dur-2, 180ms) var(--ease, ease),
@@ -150,61 +151,62 @@ form,
 }
 
 /* evita differenze tra <button> e <a> */
-button.btn,
-button.btn-secondary,
-button.filter-btn {
+:where(button.btn, button.btn-secondary, button.filter-btn) {
   font: inherit;
 }
 
-/* Hover/active/focus */
+/* Hover solo su hover reale */
 @media (hover: hover) and (pointer: fine) {
-  :where(a.btn, button.btn, input.btn, .btn,
-         a.btn-secondary, button.btn-secondary, input.btn-secondary, .btn-secondary,
-         a.link-soft, .link-soft,
-         a.project-link, .project-link,
-         button.filter-btn, .filter-btn):hover {
+  :where(
+    a.btn, button.btn, input.btn, .btn,
+    a.btn-secondary, button.btn-secondary, input.btn-secondary, .btn-secondary,
+    a.link-soft, .link-soft,
+    a.project-link, .project-link,
+    button.filter-btn, .filter-btn
+  ):hover {
     text-decoration: none;
     transform: translateY(-1px);
+
     background: var(--btn-hover-bg, var(--btn-bg));
     border-color: var(--btn-hover-border, var(--btn-border));
     filter: var(--btn-hover-filter, none);
-    box-shadow: var(--btn-shadow-hover, 0 14px 30px rgba(0,0,0,0.10));
+
+    box-shadow: var(--btn-shadow-hover, var(--btn-shadow));
   }
 }
 
-:where(a.btn, button.btn, input.btn, .btn,
-       a.btn-secondary, button.btn-secondary, input.btn-secondary, .btn-secondary,
-       a.link-soft, .link-soft,
-       a.project-link, .project-link,
-       button.filter-btn, .filter-btn):active {
+/* Active */
+:where(
+  a.btn, button.btn, input.btn, .btn,
+  a.btn-secondary, button.btn-secondary, input.btn-secondary, .btn-secondary,
+  a.link-soft, .link-soft,
+  a.project-link, .project-link,
+  button.filter-btn, .filter-btn
+):active {
   transform: translateY(0);
   background: var(--btn-active-bg, var(--btn-hover-bg, var(--btn-bg)));
-  box-shadow: var(--btn-shadow-active, 0 8px 18px rgba(0,0,0,0.06));
+  box-shadow: var(--btn-shadow-active, var(--btn-shadow));
 }
 
-:where(a.btn, button.btn, input.btn, .btn,
-       a.btn-secondary, button.btn-secondary, input.btn-secondary, .btn-secondary,
-       a.link-soft, .link-soft,
-       a.project-link, .project-link,
-       button.filter-btn, .filter-btn):focus-visible {
+/* Focus */
+:where(
+  a.btn, button.btn, input.btn, .btn,
+  a.btn-secondary, button.btn-secondary, input.btn-secondary, .btn-secondary,
+  a.link-soft, .link-soft,
+  a.project-link, .project-link,
+  button.filter-btn, .filter-btn
+):focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 3px;
 }
 
-/* Shadow base (premium, ma controllabile via token) */
-:where(a.btn, button.btn, input.btn, .btn,
-       a.btn-secondary, button.btn-secondary, input.btn-secondary, .btn-secondary,
-       a.link-soft, .link-soft,
-       a.project-link, .project-link,
-       button.filter-btn, .filter-btn) {
-  box-shadow: var(--btn-shadow, 0 1px 0 rgba(0,0,0,0.04), 0 10px 22px rgba(0,0,0,0.06));
-}
-
-/* Disabled coerente */
-:where(a.project-link.disabled, .project-link.disabled,
-       button.filter-btn:disabled, .filter-btn:disabled,
-       button.btn:disabled, .btn:disabled,
-       button.btn-secondary:disabled, .btn-secondary:disabled) {
+/* Disabled */
+:where(
+  a.project-link.disabled, .project-link.disabled,
+  button.filter-btn:disabled, .filter-btn:disabled,
+  button.btn:disabled, .btn:disabled,
+  button.btn-secondary:disabled, .btn-secondary:disabled
+) {
   opacity: 0.55;
   cursor: not-allowed;
   pointer-events: none;
@@ -227,11 +229,11 @@ button.filter-btn {
 .notfound__actions,
 .contact-cta__actions {
   display: flex;
-  gap: 12px;
+  gap: var(--space-6, 16px);
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-top: 16px;
+  margin-top: var(--space-6, 16px);
 }
 
 /* =========================
@@ -243,9 +245,9 @@ button.filter-btn {
 .chip {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2, 8px);
 
-  padding: 8px 12px;
+  padding: var(--space-2, 8px) var(--space-4, 12px);
   border-radius: 999px;
 
   background: var(--surface-2);
@@ -264,7 +266,7 @@ button.filter-btn {
   font-size: 12px;
   font-weight: 800;
 
-  padding: 6px 10px;
+  padding: var(--space-1, 6px) var(--space-3, 10px);
   border-radius: 999px;
 
   background: var(--surface);
@@ -273,15 +275,15 @@ button.filter-btn {
 }
 
 /* =========================
-   Services layout
+   Services / Projects layouts
 ========================= */
 
 .services {
   display: flex;
-  gap: 18px;
+  gap: var(--space-7, 18px);
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 18px;
+  margin-top: var(--space-7, 18px);
 }
 
 .service {
@@ -290,18 +292,14 @@ button.filter-btn {
 }
 
 .service h3 {
-  margin: 0 0 8px;
+  margin: 0 0 var(--space-2, 8px);
 }
-
-/* =========================
-   Projects grid + cards
-========================= */
 
 .projects-grid {
   display: flex;
-  gap: 18px;
+  gap: var(--space-7, 18px);
   flex-wrap: wrap;
-  margin-top: 18px;
+  margin-top: var(--space-7, 18px);
 }
 
 .project-card {
@@ -309,9 +307,8 @@ button.filter-btn {
   text-align: center;
 }
 
-/* Features list */
 .project-features {
-  margin: 12px auto 0;
+  margin: var(--space-4, 12px) auto 0;
   padding-left: 0;
   list-style: none;
   color: var(--muted);
@@ -320,9 +317,9 @@ button.filter-btn {
 }
 
 .project-features li {
-  margin: 6px 0;
+  margin: var(--space-1, 6px) 0;
   display: flex;
-  gap: 8px;
+  gap: var(--space-2, 8px);
   justify-content: flex-start;
 }
 
@@ -333,9 +330,9 @@ button.filter-btn {
 
 .project-tags {
   display: flex;
-  gap: 8px;
+  gap: var(--space-2, 8px);
   flex-wrap: wrap;
-  margin: 12px 0 0;
+  margin: var(--space-4, 12px) 0 0;
   justify-content: center;
 }
 
@@ -343,8 +340,8 @@ button.filter-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  margin-top: 14px;
+  gap: var(--space-4, 12px);
+  margin-top: var(--space-5, 14px);
   flex-wrap: wrap;
 }
 
@@ -354,7 +351,7 @@ button.filter-btn {
   color: var(--muted);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2, 8px);
 }
 
 .project-status.live::before,
@@ -367,15 +364,11 @@ button.filter-btn {
   background: color-mix(in srgb, var(--muted) 40%, transparent);
 }
 
-/* =========================
-   Filters layout wrapper
-========================= */
-
 .projects-controls {
   display: flex;
-  gap: 10px;
+  gap: var(--space-3, 10px);
   flex-wrap: wrap;
-  margin-top: 12px;
+  margin-top: var(--space-4, 12px);
   justify-content: center;
 }
 
@@ -395,12 +388,12 @@ fieldset {
 }
 
 form > fieldset > div {
-  margin-bottom: 14px;
+  margin-bottom: var(--space-5, 14px);
 }
 
 label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: var(--space-1, 6px);
   font-weight: 800;
   color: var(--text);
   font-size: 14px;
@@ -409,7 +402,7 @@ label {
 input,
 textarea {
   width: 100%;
-  padding: 12px 14px;
+  padding: var(--space-4, 12px) var(--space-5, 14px);
   border-radius: var(--radius);
 
   border: 1px solid var(--border);
@@ -419,7 +412,8 @@ textarea {
   font-family: inherit;
   font-size: 16px;
 
-  transition: border-color var(--dur-2, 180ms) var(--ease, ease),
+  transition:
+    border-color var(--dur-2, 180ms) var(--ease, ease),
     box-shadow var(--dur-2, 180ms) var(--ease, ease),
     background var(--dur-2, 180ms) var(--ease, ease);
 }
@@ -432,8 +426,8 @@ textarea::placeholder {
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: color-mix(in srgb, var(--accent) 28%, var(--border));
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 16%, transparent);
+  border-color: color-mix(in srgb, var(--focus) 60%, var(--border));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 35%, transparent);
 }
 
 textarea {
@@ -442,7 +436,7 @@ textarea {
 }
 
 .form-note {
-  margin-top: 12px;
+  margin-top: var(--space-4, 12px);
   color: var(--muted);
 }
 
@@ -460,6 +454,6 @@ textarea {
   .legal,
   .notfound,
   .pricing-box {
-    padding: 22px;
+    padding: var(--space-8, 22px);
   }
 }
